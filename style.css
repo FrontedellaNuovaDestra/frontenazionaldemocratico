@@ -77,10 +77,10 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
-    padding-top: 90px;
+    padding-top: 100px;
     background: #ffffff;
     overflow: hidden;
 }
@@ -89,7 +89,7 @@ body {
     position: relative;
     z-index: 10;
     max-width: 800px;
-    padding: 20px 20px 0 20px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -97,12 +97,12 @@ body {
 
 /* LOGO GRANDE CENTRALE NELLA HERO */
 .hero-logo-container {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .hero-logo {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 8px 25px rgba(0, 119, 182, 0.25);
@@ -111,7 +111,7 @@ body {
 
 /* TITOLO E TESTI */
 .main-title {
-    font-size: clamp(2.8rem, 6.5vw, 5rem);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 800;
     color: #00b4d8;
     line-height: 1.1;
@@ -122,44 +122,41 @@ body {
 }
 
 .subtitle {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: #1d3557;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     letter-spacing: 1px;
 }
 
 /* SLOGAN */
 .hero-slogan {
-    font-size: 1.05rem;
+    font-size: 1rem;
     color: #333333;
     font-weight: 600;
     letter-spacing: 0.3px;
-    max-width: 600px;
+    max-width: 550px;
     line-height: 1.4;
 }
 
-/* CONTENITORE ONDE ANIMATE (CORRETTO A LARGH. PIENA) */
+/* CONTENITORE ONDE ANIMATE - ANCORATO IN BASSO */
 .wave-container {
-    position: relative;
-    width: 100vw;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    height: 180px;
-    min-height: 120px;
-    max-height: 250px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 220px;
     z-index: 5;
-    margin-top: auto;
+    pointer-events: none;
 }
 
 .waves {
     position: absolute;
     bottom: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    left: 0;
+    display: block;
 }
 
 /* ANIMAZIONE DELLE ONDE IN MOVIMENTO */
@@ -198,7 +195,7 @@ body {
     z-index: 10;
     background-color: #03045e;
     color: #ffffff;
-    padding: 25px 20px;
+    padding: 20px;
     text-align: center;
 }
 
@@ -215,7 +212,7 @@ body {
     color: #ffffff;
     text-decoration: none;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.95rem;
     transition: color 0.3s ease;
 }
 
@@ -224,8 +221,8 @@ body {
 }
 
 .social-icon {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
 }
 
 /* RESPONSIVE PER DISPOSITIVI MOBILI */
@@ -233,18 +230,24 @@ body {
     .nav-menu {
         display: none;
     }
+    .hero-section {
+        padding-top: 85px;
+    }
     .hero-logo {
-        width: 100px;
-        height: 100px;
+        width: 95px;
+        height: 95px;
     }
     .main-title {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
     }
     .subtitle {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
     .hero-slogan {
-        font-size: 0.95rem;
-        padding: 0 15px;
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+    .wave-container {
+        height: 160px;
     }
 }
