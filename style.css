@@ -1,0 +1,237 @@
+/* RESET DI BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    overflow-x: hidden;
+}
+
+/* NAVBAR FISSA CON EFFETTO VETRO */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #333333;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #00a8ff;
+}
+
+/* HERO SECTION PRINCIPALE */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 100px;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    padding: 0 20px;
+    margin-bottom: 150px;
+}
+
+/* SCIA TRICOLORE */
+.tricolor-trail {
+    width: 180px;
+    height: 12px;
+    background: linear-gradient(90deg, #00823b 0%, #ffffff 50%, #da291c 100%);
+    border-radius: 6px;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 0 15px rgba(218, 41, 28, 0.2);
+}
+
+/* TITOLO 3D E TESTI */
+.main-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    color: #00b4d8;
+    line-height: 1.1;
+    text-transform: uppercase;
+    text-shadow: 0 3px 6px rgba(0, 180, 216, 0.3), 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1d3557;
+    margin-bottom: 35px;
+    letter-spacing: 1px;
+}
+
+/* PULSANTE CALL TO ACTION */
+.cta-button {
+    display: inline-block;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, #0077b6, #00b4d8);
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 8px 20px rgba(0, 119, 182, 0.3);
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    margin-bottom: 15px;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0, 180, 216, 0.4);
+    background: linear-gradient(135deg, #0096c7, #48cae4);
+}
+
+.cta-subtext {
+    font-size: 0.9rem;
+    color: #555555;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* ONDE BLU DECORATIVE */
+.wave-background {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+}
+
+.wave1 {
+    background: linear-gradient(180deg, rgba(0, 150, 199, 0) 0%, rgba(0, 119, 182, 0.8) 100%);
+    opacity: 0.5;
+    height: 140px;
+    border-radius: 100% 100% 0 0 / 50% 50% 0 0;
+    transform: translateX(-10%);
+}
+
+.wave2 {
+    background: #0077b6;
+    opacity: 0.8;
+    height: 100px;
+    border-radius: 100% 100% 0 0 / 60% 60% 0 0;
+    transform: translateX(-5%);
+}
+
+.wave3 {
+    background: #03045e;
+    height: 60px;
+    border-radius: 100% 100% 0 0 / 70% 70% 0 0;
+}
+
+/* FOOTER */
+.site-footer {
+    position: relative;
+    z-index: 10;
+    background-color: #03045e;
+    color: #ffffff;
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #90e0ef;
+}
+
+.social-icon {
+    width: 22px;
+    height: 22px;
+}
+
+/* RESPONSIVE PER DISPOSITIVI MOBILI */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+    .main-title {
+        font-size: 2.2rem;
+    }
+    .hero-content {
+        margin-bottom: 120px;
+    }
+}
