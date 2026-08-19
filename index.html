@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fronte Nazional Democratico</title>
-    <!-- Google Fonts: Outfit per un design geometrico e moderno -->
+    <!-- Google Fonts: Outfit -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- BARRA DI NAVIGAZIONE BLINDATA -->
+    <!-- BARRA DI NAVIGAZIONE FISSA -->
     <header class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo-link">
-                <!-- Nome del file immagine definitivo inserito -->
                 <img src="87ccbd61-4ea4-419d-b62b-a27747f2fce7_20260819_215712_0000.png" alt="Logo Fronte Nazional Democratico" class="logo-img">
             </a>
             <nav class="nav-menu">
@@ -29,26 +28,32 @@
     <!-- SEZIONE PRINCIPALE (HERO) -->
     <main class="hero-section">
         <div class="hero-content">
-            <!-- Scia Tricolore -->
-            <div class="tricolor-trail"></div>
+            <!-- Logo Grande in alto nella Hero -->
+            <div class="hero-logo-container">
+                <img src="87ccbd61-4ea4-419d-b62b-a27747f2fce7_20260819_215712_0000.png" alt="Logo Fronte Nazional Democratico" class="hero-logo">
+            </div>
 
             <!-- Titolo Principale e Data -->
-            <h1 class="main-title">IL NOSTRO<br>PROGRAMMA</h1>
-            <p class="subtitle">2026 - 2050</p>
+            <h1 class="main-title">PROGRAMMA</h1>
+            <p class="subtitle">2026/27</p>
 
-            <!-- Call to Action -->
-            <a href="#programma" class="cta-button">
-                <span>SCOPRI IL PROGRAMMA</span>
-            </a>
-            
-            <p class="cta-subtext">IL FUTURO È NELLE NOSTRE MANI. PARTECIPA.</p>
+            <!-- Slogan Aggiornato -->
+            <p class="hero-slogan">Stufo di politiche bloccate nel passato? Scegli il futuro, scegli FND.</p>
         </div>
 
-        <!-- Onde Blu di Sfondo -->
-        <div class="wave-background">
-            <div class="wave wave1"></div>
-            <div class="wave wave2"></div>
-            <div class="wave wave3"></div>
+        <!-- ONDE BLU ANIMATE SUL FONDO -->
+        <div class="wave-container">
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use href="#gentle-wave" x="48" y="0" fill="rgba(0, 119, 182, 0.4)" />
+                    <use href="#gentle-wave" x="48" y="3" fill="rgba(0, 150, 199, 0.6)" />
+                    <use href="#gentle-wave" x="48" y="5" fill="#0077b6" />
+                    <use href="#gentle-wave" x="48" y="7" fill="#03045e" />
+                </g>
+            </svg>
         </div>
     </main>
 
