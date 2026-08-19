@@ -139,10 +139,14 @@ body {
     line-height: 1.4;
 }
 
-/* CONTENITORE ONDE ANIMATE */
+/* CONTENITORE ONDE ANIMATE (CORRETTO A LARGH. PIENA) */
 .wave-container {
     position: relative;
-    width: 100%;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
     height: 180px;
     min-height: 120px;
     max-height: 250px;
@@ -155,6 +159,7 @@ body {
     bottom: 0;
     width: 100%;
     height: 100%;
+    left: 0;
 }
 
 /* ANIMAZIONE DELLE ONDE IN MOVIMENTO */
