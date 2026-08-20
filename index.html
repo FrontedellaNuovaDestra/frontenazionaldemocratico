@@ -3,60 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FND - Fronte Nazionale Democratico</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>FND | Fronte Nazionale Democratico</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- SCENOGRAFIA DI SFONDO CON TORCIA E FIAMMA ANIMATA -->
-    <div class="statue-background-wrapper">
-        <div class="background-overlay"></div>
-        <div class="torch-container" aria-hidden="true">
-            <div class="torch-flame-outer"></div>
-            <div class="torch-flame-mid"></div>
-            <div class="torch-flame-core"></div>
-            <img src="Orient.png" alt="Torcia di Libertà" class="torch-img-asset">
-        </div>
-    </div>
-
-    <!-- NAVBAR FISSA -->
     <header class="navbar">
-        <div class="nav-container">
+        <div class="nav-content">
             <div class="logo-box">
-                <a href="index.html">
-                    <img src="Orient.png" alt="Logo FND" class="logo-img">
-                </a>
+                <img src="Orient.png" alt="Logo FND" onerror="this.style.display='none'">
             </div>
-            <nav class="nav-menu">
-                <a href="index.html" class="nav-link active">HOME</a>
-                <a href="programma.html" class="nav-link">PROGRAMMA</a>
-                <a href="chisiamo.html" class="nav-link">CHI SIAMO</a>
+            <nav class="nav-links">
+                <a href="index.html" class="active">HOME</a>
+                <a href="programma.html">PROGRAMMA</a>
+                <a href="chisiamo.html">CHI SIAMO</a>
             </nav>
         </div>
     </header>
 
-    <!-- CONTENUTO PRINCIPALE -->
-    <main class="page-container">
-        <div class="container-inner">
-            <div class="glass-card">
-                <div class="card-emblem">
-                    <img src="Orient.png" alt="Emblema FND" class="emblem-img">
-                </div>
-                <h1 class="main-title">Fronte Nazionale Democratico</h1>
-                <p class="main-slogan">Stufo di politiche bloccate nel passato? Scegli il futuro, scegli FND.</p>
-                
-                <a href="programma.html" class="btn-primary">
-                    <span class="btn-text">Inizia a cambiare il tuo futuro!</span>
-                    <span class="btn-subtext">Clicca qui per accedere al programma ufficiale</span>
-                </a>
+    <main class="hero">
+        <div class="glass-card">
+            <div class="emblem-container">
+                <img src="Orient.png" alt="Emblema FND" class="emblem-img">
             </div>
+            <h1>FRONTE NAZIONALE DEMOCRATICO</h1>
+            <p>Stufo di politiche bloccate nel passato?<br>Scegli il futuro, scegli FND.</p>
+            <a href="programma.html" class="cta-button">Scopri il nostro Programma</a>
         </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <p>&copy; 2026 Fronte Nazionale Democratico. Tutti i diritti riservati. | <a href="chisiamo.html" class="footer-link">Contattaci</a></p>
+    <footer>
+        <p>&copy; 2026 Fronte Nazionale Democratico. | <a href="chisiamo.html">Contattaci</a></p>
     </footer>
 
 </body>
