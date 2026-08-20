@@ -1,322 +1,48 @@
-/* ==========================================
-   1. RESET E CONFIGURAZIONE GLOBALE
-   ========================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Outfit', sans-serif;
-}
-
 :root {
-    --bg-deep: #010214;
-    --primary-blue: #03045e;
-    --mid-blue: #0077b6;
-    --accent-cyan: #00b4d8;
-    --text-light: #ffffff;
-    --text-muted: #cbd5e1;
-    --glass-surface: rgba(2, 6, 23, 0.82);
-    --glass-border: rgba(255, 255, 255, 0.18);
+    --bg-dark: #010214;
+    --primary-cyan: #00b4d8;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --text-color: #ffffff;
 }
 
-body {
-    background-color: var(--bg-deep);
-    color: var(--text-light);
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+
+body { 
+    background: radial-gradient(circle at center, #0a0e27, #010214); 
+    color: var(--text-color);
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-    position: relative;
+    display: flex; flex-direction: column;
 }
 
-/* ==========================================
-   2. SFONDO E TORCIA REALE + FIAMMA FLUIDA
-   ========================================== */
-.statue-background-wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
+.navbar { padding: 20px 40px; }
+.nav-content { display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: auto; }
+.logo-box img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--primary-cyan); }
+
+.nav-links a { color: #aaa; text-decoration: none; margin-left: 20px; font-weight: 600; transition: 0.3s; }
+.nav-links a.active { color: var(--primary-cyan); }
+
+.hero { flex: 1; display: flex; justify-content: center; align-items: center; padding: 20px; }
+.glass-card { 
+    background: var(--glass-bg); 
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px; border-radius: 30px; text-align: center;
+    max-width: 450px; width: 100%;
 }
 
-.background-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(3, 4, 94, 0.35) 0%, rgba(1, 2, 20, 0.95) 100%);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-}
+.emblem-container { margin-bottom: 20px; }
+.emblem-img { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--primary-cyan); object-fit: cover; }
 
-.torch-container {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    max-width: 500px;
-    height: 60vh;
-    z-index: 1;
-    pointer-events: none;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
+h1 { font-size: 1.6rem; margin-bottom: 15px; letter-spacing: 1px; }
+p { color: #ccc; margin-bottom: 30px; line-height: 1.5; }
 
-/* Immagine della Torcia sul fondo */
-.torch-img-asset {
-    position: absolute;
-    bottom: 0;
-    width: 170px;
-    height: auto;
-    z-index: 4;
-    filter: drop-shadow(0 0 30px rgba(0, 180, 216, 0.5));
+.cta-button { 
+    display: inline-block; padding: 15px 30px; 
+    background: var(--primary-cyan); color: #010214; 
+    text-decoration: none; font-weight: bold; border-radius: 50px;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
+.cta-button:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--primary-cyan); }
 
-/* Struttura della fiamma con animazione a onde multiple */
-.torch-flame-core {
-    position: absolute;
-    bottom: 125px;
-    width: 150px;
-    height: 42vh;
-    background: linear-gradient(to top, rgba(0, 119, 182, 0.15) 0%, rgba(0, 180, 216, 0.8) 45%, rgba(200, 245, 255, 0.98) 100%);
-    border-radius: 50% 50% 20% 20%;
-    filter: blur(14px);
-    mix-blend-mode: screen;
-    animation: flameWaveCore 3.5s ease-in-out infinite alternate;
-    z-index: 3;
-}
-
-.torch-flame-mid {
-    position: absolute;
-    bottom: 110px;
-    width: 220px;
-    height: 48vh;
-    background: linear-gradient(to top, rgba(0, 150, 255, 0.1), rgba(0, 119, 182, 0.5) 50%, rgba(0, 210, 255, 0.8) 100%);
-    border-radius: 45% 45% 25% 25%;
-    filter: blur(20px);
-    mix-blend-mode: screen;
-    animation: flameWaveMid 4.5s ease-in-out infinite alternate-reverse;
-    z-index: 2;
-}
-
-.torch-flame-outer {
-    position: absolute;
-    bottom: 90px;
-    width: 300px;
-    height: 55vh;
-    background: radial-gradient(circle, rgba(0, 119, 182, 0.6) 0%, rgba(0, 180, 216, 0.2) 55%, transparent 75%);
-    border-radius: 50%;
-    filter: blur(30px);
-    mix-blend-mode: screen;
-    animation: flameWaveOuter 5s ease-in-out infinite alternate;
-    z-index: 1;
-}
-
-/* Keyframe fluidi a onde */
-@keyframes flameWaveCore {
-    0% { transform: translateY(0) scaleX(0.95) scaleY(0.98) skewX(-2deg); opacity: 0.8; }
-    50% { transform: translateY(-25px) scaleX(1.12) scaleY(1.08) skewX(3deg); opacity: 1; }
-    100% { transform: translateY(-12px) scaleX(0.98) scaleY(1.03) skewX(-1.5deg); opacity: 0.9; }
-}
-
-@keyframes flameWaveMid {
-    0% { transform: translateY(-8px) scaleX(1.05) scaleY(0.95) skewX(2deg); opacity: 0.6; }
-    50% { transform: translateY(-30px) scaleX(0.9) scaleY(1.1) skewX(-2deg); opacity: 0.85; }
-    100% { transform: translateY(-15px) scaleX(1.1) scaleY(1.02) skewX(1deg); opacity: 0.7; }
-}
-
-@keyframes flameWaveOuter {
-    0% { transform: scale(0.95) translateY(0); opacity: 0.4; }
-    50% { transform: scale(1.08) translateY(-20px); opacity: 0.7; }
-    100% { transform: scale(1.02) translateY(-10px); opacity: 0.5; }
-}
-
-/* ==========================================
-   3. NAVBAR E GESTIONE LOGHI
-   ========================================== */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background: rgba(3, 4, 94, 0.9);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--glass-border);
-}
-
-.nav-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-}
-
-.logo-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.logo-img {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid var(--accent-cyan);
-    box-shadow: 0 0 15px rgba(0, 180, 216, 0.7);
-    display: block;
-}
-
-.nav-menu {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: var(--text-light);
-    font-weight: 700;
-    font-size: 0.76rem;
-    padding: 7px 13px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--glass-border);
-    border-radius: 30px;
-    transition: all 0.3s ease;
-}
-
-.nav-link:hover, .nav-link.active {
-    background: var(--accent-cyan);
-    color: var(--primary-blue);
-    border-color: var(--accent-cyan);
-    box-shadow: 0 0 18px rgba(0, 180, 216, 0.8);
-}
-
-/* ==========================================
-   4. LAYOUT CONTENUTI E CARD
-   ========================================== */
-.page-container {
-    min-height: 100vh;
-    position: relative;
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 120px 20px 60px 20px;
-}
-
-.container-inner {
-    max-width: 1200px;
-    width: 100%;
-}
-
-.glass-card {
-    background: var(--glass-surface);
-    backdrop-filter: blur(30px);
-    -webkit-backdrop-filter: blur(30px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 40px 25px;
-    border-radius: 32px;
-    text-align: center;
-    max-width: 520px;
-    width: 100%;
-    margin: 0 auto;
-    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.8);
-}
-
-.card-emblem {
-    margin: 0 auto 20px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 90px;
-    height: 90px;
-    background: rgba(0, 180, 216, 0.12);
-    border-radius: 50%;
-    border: 2px solid var(--accent-cyan);
-    box-shadow: 0 0 25px rgba(0, 180, 216, 0.4);
-    overflow: hidden;
-}
-
-.emblem-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    display: block;
-}
-
-.main-title {
-    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    margin-bottom: 12px;
-}
-
-.main-slogan {
-    font-size: 1rem;
-    color: var(--text-muted);
-    line-height: 1.6;
-    margin-bottom: 25px;
-}
-
-/* ==========================================
-   5. PULSANTI E FOOTER
-   ========================================== */
-.btn-primary {
-    display: block;
-    width: 100%;
-    padding: 16px 20px;
-    background: linear-gradient(135deg, var(--accent-cyan), var(--mid-blue));
-    color: var(--text-light);
-    text-decoration: none;
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(0, 119, 182, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.btn-text {
-    display: block;
-    font-weight: 800;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    margin-bottom: 3px;
-}
-
-.btn-subtext {
-    display: block;
-    font-size: 0.68rem;
-    opacity: 0.9;
-}
-
-.footer {
-    text-align: center;
-    padding: 22px 20px;
-    font-size: 0.78rem;
-    color: rgba(255, 255, 255, 0.5);
-    border-top: 1px solid var(--glass-border);
-    background: rgba(3, 4, 94, 0.4);
-    position: relative;
-    z-index: 10;
-    margin-top: auto;
-}
-
-.footer-link {
-    color: var(--accent-cyan);
-    text-decoration: none;
-    font-weight: 600;
-}
+footer { padding: 20px; text-align: center; font-size: 0.8rem; color: #555; }
+footer a { color: var(--primary-cyan); }
