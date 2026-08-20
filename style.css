@@ -1,48 +1,30 @@
 :root {
     --bg-dark: #010214;
-    --primary-cyan: #00b4d8;
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --text-color: #ffffff;
+    --accent-blue: #00b4d8;
+    --glass: rgba(255, 255, 255, 0.05);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
 
-body { 
-    background: radial-gradient(circle at center, #0a0e27, #010214); 
-    color: var(--text-color);
-    min-height: 100vh;
-    display: flex; flex-direction: column;
-}
+body { background: var(--bg-dark); color: white; min-height: 100vh; display: flex; flex-direction: column; }
 
-.navbar { padding: 20px 40px; }
-.nav-content { display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: auto; }
-.logo-box img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--primary-cyan); }
+/* Sfondo Statua e Torcia */
+.bg-scene { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+.statue-bg { width: 100%; height: 100%; object-fit: cover; opacity: 0.2; }
 
-.nav-links a { color: #aaa; text-decoration: none; margin-left: 20px; font-weight: 600; transition: 0.3s; }
-.nav-links a.active { color: var(--primary-cyan); }
+.torch-wrapper { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); text-align: center; }
+.flame { width: 100px; height: 150px; background: var(--accent-blue); filter: blur(25px); border-radius: 50%; margin: 0 auto -50px; animation: flicker 2s infinite; opacity: 0.6; }
+.torch-base { width: 120px; position: relative; z-index: 2; }
 
-.hero { flex: 1; display: flex; justify-content: center; align-items: center; padding: 20px; }
-.glass-card { 
-    background: var(--glass-bg); 
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 40px; border-radius: 30px; text-align: center;
-    max-width: 450px; width: 100%;
-}
+@keyframes flicker { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
 
-.emblem-container { margin-bottom: 20px; }
-.emblem-img { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--primary-cyan); object-fit: cover; }
+/* Layout pagine */
+header { padding: 40px; text-align: center; }
+nav a { margin: 0 15px; color: white; text-decoration: none; font-weight: bold; padding: 10px 20px; border: 1px solid var(--accent-blue); border-radius: 20px; transition: 0.3s; }
+nav a:hover { background: var(--accent-blue); }
 
-h1 { font-size: 1.6rem; margin-bottom: 15px; letter-spacing: 1px; }
-p { color: #ccc; margin-bottom: 30px; line-height: 1.5; }
+main { flex: 1; display: flex; justify-content: center; padding: 20px; }
+.window { background: var(--glass); backdrop-filter: blur(15px); padding: 50px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.1); max-width: 700px; width: 100%; text-align: center; }
 
-.cta-button { 
-    display: inline-block; padding: 15px 30px; 
-    background: var(--primary-cyan); color: #010214; 
-    text-decoration: none; font-weight: bold; border-radius: 50px;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-.cta-button:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--primary-cyan); }
-
-footer { padding: 20px; text-align: center; font-size: 0.8rem; color: #555; }
-footer a { color: var(--primary-cyan); }
+footer { padding: 30px; text-align: center; font-size: 0.9rem; }
+footer a { color: var(--accent-blue); text-decoration: none; }
