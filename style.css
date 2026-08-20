@@ -1,73 +1,233 @@
-/* RESET PROFESSIONALE */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-    font-family: 'Outfit', sans-serif; 
-    background: radial-gradient(circle at top, #0077b6, #03045e);
+/* RESET E IMPOSTAZIONI GENERALI */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: radial-gradient(circle at center, #0077b6, #03045e);
     color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* NAVBAR FISSA CON EFFETTO VETRO */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(3, 4, 94, 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00b4d8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 15px;
+}
+
+/* BOTTONI DI NAVIGAZIONE STILE VETRO */
+.btn-nav {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.btn-nav:hover, .btn-nav.active {
+    background: #00b4d8;
+    color: #03045e;
+    border-color: #00b4d8;
+    box-shadow: 0 0 15px rgba(0, 180, 216, 0.5);
+    transform: translateY(-2px);
+}
+
+/* SEZIONE HERO CON EFFETTO GLASSMORPHISM */
+.hero-section {
+    position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-}
-
-/* NAVBAR FISSA E BILANCIATA */
-.navbar {
-    width: 100%;
-    padding: 20px 5%;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-}
-.nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; }
-.logo-img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid #00b4d8; }
-.nav-menu { display: flex; gap: 40px; }
-.nav-menu a { text-decoration: none; color: #fff; font-weight: 600; font-size: 0.9rem; letter-spacing: 1.5px; transition: 0.3s; }
-.nav-menu a:hover { color: #00b4d8; }
-
-/* CENTRATURA HERO */
-.hero-container {
-    flex: 1;
-    display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 20px 20px 20px;
-}
-
-/* GLASS CARD PERFETTA */
-.glass-card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 60px 40px;
-    border-radius: 40px;
+    padding: 120px 20px 180px 20px;
     text-align: center;
-    max-width: 500px;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
 }
 
-.icon-wrapper { color: #00b4d8; margin-bottom: 20px; }
-h1 { font-size: 2.8rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 3px; }
-.slogan { font-size: 1.1rem; opacity: 0.9; margin-bottom: 40px; line-height: 1.6; }
+.glass-card {
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 50px 40px;
+    border-radius: 35px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
 
-/* BOTTONE BLINDATO */
-.btn-primary {
-    display: block;
-    padding: 20px;
-    background: #00b4d8;
-    color: #03045e;
+/* STATUA DELLA LIBERTA' STILIZZATA */
+.statue-wrapper {
+    margin-bottom: 20px;
+    display: inline-flex;
+    padding: 15px;
+    background: rgba(0, 180, 216, 0.1);
+    border-radius: 50%;
+    border: 1px solid rgba(0, 180, 216, 0.3);
+}
+
+.statue-icon {
+    width: 55px;
+    height: 55px;
+    color: #00b4d8;
+}
+
+/* TIPOGRAFIA */
+.main-title {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    font-weight: 800;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 15px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-slogan {
+    font-size: 1.05rem;
+    color: #e0e0e0;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 35px;
+}
+
+/* BOTTONE PRINCIPALE (CTA) */
+.cta-container {
+    width: 100%;
+}
+
+.btn-main {
+    display: inline-block;
+    width: 100%;
+    padding: 16px 25px;
+    background: linear-gradient(135deg, #00b4d8, #0077b6);
+    color: #ffffff;
     text-decoration: none;
     font-weight: 800;
-    border-radius: 20px;
-    transition: 0.4s;
     font-size: 0.95rem;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(0, 119, 182, 0.4);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
-.btn-primary:hover { background: #fff; transform: scale(1.02); }
 
-/* MOBILE RESPONSIVENESS */
+.btn-main:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, #0096c7, #03045e);
+    box-shadow: 0 15px 30px rgba(0, 180, 216, 0.6);
+}
+
+/* CONTENITORE ONDE ANIMATE */
+.wave-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 180px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ANIMAZIONE PARALLASSE ONDE */
+.parallax > use {
+    animation: move-wave 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+}
+.parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
+.parallax > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; }
+.parallax > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; }
+.parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
+
+@keyframes move-wave {
+    0% { transform: translate3d(-90px, 0, 0); }
+    100% { transform: translate3d(85px, 0, 0); }
+}
+
+/* RESPONSIVE DESIGN PER MOBILE */
 @media (max-width: 768px) {
-    .nav-menu { gap: 15px; }
-    .nav-menu a { font-size: 0.7rem; }
-    h1 { font-size: 2rem; }
+    .nav-container {
+        padding: 10px 15px;
+    }
+    .nav-menu {
+        gap: 6px;
+    }
+    .btn-nav {
+        padding: 6px 10px;
+        font-size: 0.65rem;
+    }
+    .hero-section {
+        padding: 100px 15px 150px 15px;
+    }
+    .glass-card {
+        padding: 30px 20px;
+        border-radius: 25px;
+    }
+    .main-title {
+        font-size: 1.8rem;
+    }
+    .hero-slogan {
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+    }
+    .btn-main {
+        font-size: 0.8rem;
+        padding: 14px 15px;
+    }
 }
