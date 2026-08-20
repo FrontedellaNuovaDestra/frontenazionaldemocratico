@@ -4,54 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fronte Nazional Democratico</title>
-    <!-- Google Fonts: Outfit -->
+    <!-- Font Outfit -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- BARRA DI NAVIGAZIONE FISSA -->
+    <!-- NAVBAR E BOTTONI DI NAVIGAZIONE -->
     <header class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo-link">
-                <img src="87ccbd61-4ea4-419d-b62b-a27747f2fce7_20260819_215712_0000.png" alt="Logo Fronte Nazional Democratico" class="logo-img">
+                <img src="87ccbd61-4ea4-419d-b62b-a27747f2fce7_20260819_215712_0000.png" alt="Logo FND" class="logo-img">
             </a>
             <nav class="nav-menu">
-                <a href="index.html" class="nav-link active">HOME</a>
-                <a href="#programma" class="nav-link">PROGRAMMA</a>
-                <a href="#chisiamo" class="nav-link">CHI SIAMO</a>
-                <a href="#shop" class="nav-link">SHOP</a>
+                <a href="index.html" class="btn-nav">HOME</a>
+                <a href="#programma" class="btn-nav">PROGRAMMA</a>
+                <a href="#chisiamo" class="btn-nav">CHI SIAMO</a>
+                <a href="#shop" class="btn-nav">SHOP</a>
             </nav>
         </div>
     </header>
 
-    <!-- SEZIONE PRINCIPALE (HERO) -->
+    <!-- SEZIONE PRINCIPALE -->
     <main class="hero-section">
         <div class="hero-content">
-            <!-- Logo Grande in alto nella Hero -->
             <div class="hero-logo-container">
-                <img src="87ccbd61-4ea4-419d-b62b-a27747f2fce7_20260819_215712_0000.png" alt="Logo Fronte Nazional Democratico" class="hero-logo">
+                <img src="87ccbd61-4ea4-419d-b62b-a27747f2fce7_20260819_215712_0000.png" alt="Logo" class="hero-logo">
             </div>
-
-            <!-- Titolo Principale e Data -->
             <h1 class="main-title">PROGRAMMA</h1>
             <p class="subtitle">2026/27</p>
-
-            <!-- Slogan -->
             <p class="hero-slogan">Stufo di politiche bloccate nel passato? Scegli il futuro, scegli FND.</p>
 
-            <!-- Bottone Principale -->
-            <div class="hero-cta-container">
-                <a href="#programma" class="cta-button">INIZIA A CAMBIARE IL TUO FUTURO! CLICCA QUI</a>
-            </div>
+            <!-- BOTTONE PRINCIPALE (CALL TO ACTION) -->
+            <a href="#programma" class="btn-main">INIZIA A CAMBIARE IL TUO FUTURO! CLICCA QUI</a>
         </div>
 
-        <!-- ONDE BLU ANIMATE SUL FONDO -->
+        <!-- ONDE ANIMATE DI FONDO -->
         <div class="wave-container">
-            <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-                <defs>
-                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-                </defs>
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none">
+                <defs><path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" /></defs>
                 <g class="parallax">
                     <use href="#gentle-wave" x="48" y="0" fill="rgba(0, 119, 182, 0.4)" />
                     <use href="#gentle-wave" x="48" y="3" fill="rgba(0, 150, 199, 0.6)" />
@@ -61,21 +52,6 @@
             </svg>
         </div>
     </main>
-
-    <!-- FOOTER E SOCIAL -->
-    <footer class="site-footer">
-        <div class="footer-content">
-            <a href="https://www.instagram.com/fronte.nazional.democratico" target="_blank" rel="noopener noreferrer" class="social-link">
-                <!-- Icona Instagram SVG -->
-                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-                <span>@fronte.nazional.democratico</span>
-            </a>
-        </div>
-    </footer>
 
 </body>
 </html>
