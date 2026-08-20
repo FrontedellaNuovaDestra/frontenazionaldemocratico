@@ -13,8 +13,8 @@
     --accent-cyan: #00b4d8;
     --text-light: #ffffff;
     --text-muted: #cbd5e1;
-    --glass-surface: rgba(2, 6, 23, 0.70);
-    --glass-border: rgba(255, 255, 255, 0.15);
+    --glass-surface: rgba(2, 6, 23, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.18);
 }
 
 body {
@@ -44,7 +44,7 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: brightness(0.45) contrast(1.15);
+    filter: brightness(0.42) contrast(1.15);
 }
 
 .background-overlay {
@@ -53,9 +53,9 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(3, 4, 94, 0.4) 0%, rgba(1, 2, 20, 0.92) 100%);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    background: radial-gradient(circle at center, rgba(3, 4, 94, 0.35) 0%, rgba(1, 2, 20, 0.90) 100%);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
 }
 
 /* FIAMMA BLU/AZZURRA DINAMICA ED ELEGANTE */
@@ -64,40 +64,40 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 55vh;
+    height: 60vh;
     z-index: 1;
-    opacity: 0.55;
+    opacity: 0.6;
     mix-blend-mode: screen;
     pointer-events: none;
 }
 
 .flame {
     position: absolute;
-    bottom: -80px;
-    background: linear-gradient(to top, rgba(0, 119, 182, 0) 0%, rgba(0, 180, 216, 0.4) 40%, rgba(0, 240, 255, 0.85) 100%);
+    bottom: -100px;
+    background: linear-gradient(to top, rgba(0, 119, 182, 0) 0%, rgba(0, 180, 216, 0.45) 40%, rgba(0, 240, 255, 0.9) 100%);
     border-radius: 50% 50% 20% 20%;
-    filter: blur(30px);
+    filter: blur(35px);
     animation: flameAnim 6s ease-in-out infinite alternate;
 }
 
-.flame-1 { left: 10%; width: 50vw; height: 65vh; animation-duration: 5s; }
-.flame-2 { right: 5%; width: 55vw; height: 75vh; animation-duration: 7s; animation-delay: -2s; }
-.flame-3 { left: 30%; width: 40vw; height: 55vh; animation-duration: 4.5s; animation-delay: -1s; }
+.flame-1 { left: 5%; width: 55vw; height: 70vh; animation-duration: 5s; }
+.flame-2 { right: 5%; width: 60vw; height: 80vh; animation-duration: 7s; animation-delay: -2s; }
+.flame-3 { left: 25%; width: 45vw; height: 60vh; animation-duration: 4.5s; animation-delay: -1s; }
 
 @keyframes flameAnim {
-    0% { transform: translateY(0) scaleX(1) skewX(0deg); opacity: 0.4; }
-    50% { transform: translateY(-50px) scaleX(1.12) skewX(2deg); opacity: 0.7; }
-    100% { transform: translateY(-25px) scaleX(0.92) skewX(-2deg); opacity: 0.5; }
+    0% { transform: translateY(0) scaleX(1) skewX(0deg); opacity: 0.45; }
+    50% { transform: translateY(-55px) scaleX(1.15) skewX(2deg); opacity: 0.75; }
+    100% { transform: translateY(-30px) scaleX(0.95) skewX(-2deg); opacity: 0.55; }
 }
 
-/* NAVBAR FISSA */
+/* NAVBAR FISSA E PULITA (Evita sbordamenti dei bottoni) */
 .navbar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(3, 4, 94, 0.85);
+    background: rgba(3, 4, 94, 0.88);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--glass-border);
@@ -106,16 +106,24 @@ body {
 .nav-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 12px 40px;
+    padding: 12px 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 15px;
 }
 
-/* LOGO NAVBAR INGRIANDITO */
+/* LOGO NAVBAR CORRETTO (Proporzionato e centrato) */
+.logo-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
 .logo-img {
-    width: 62px;
-    height: 62px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--accent-cyan);
@@ -123,40 +131,52 @@ body {
     transition: transform 0.3s ease;
 }
 
-.logo-img:hover { transform: scale(1.08); }
+.logo-img:hover { 
+    transform: scale(1.08); 
+}
 
+/* MENU E BOTTONI NAVBAR (Evita che escano fuori dallo schermo) */
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    max-width: 100%;
+    padding-bottom: 4px;
+}
+
+.nav-menu::-webkit-scrollbar {
+    display: none; /* Nasconde la barra di scorrimento su mobile mantenendo il pieno scrolling */
 }
 
 .nav-link {
     text-decoration: none;
     color: var(--text-light);
     font-weight: 700;
-    font-size: 0.8rem;
-    padding: 9px 18px;
-    background: rgba(255, 255, 255, 0.04);
+    font-size: 0.78rem;
+    padding: 8px 14px;
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid var(--glass-border);
     border-radius: 30px;
     transition: all 0.3s ease;
-    letter-spacing: 0.8px;
+    letter-spacing: 0.6px;
+    white-space: nowrap;
     display: inline-flex;
     align-items: center;
     gap: 6px;
 }
 
 .nav-social {
-    background: rgba(0, 180, 216, 0.12);
-    border-color: rgba(0, 180, 216, 0.4);
+    background: rgba(0, 180, 216, 0.15);
+    border-color: rgba(0, 180, 216, 0.45);
 }
 
 .nav-link:hover, .nav-link.active {
     background: var(--accent-cyan);
     color: var(--primary-blue);
     border-color: var(--accent-cyan);
-    box-shadow: 0 0 20px rgba(0, 180, 216, 0.7);
+    box-shadow: 0 0 20px rgba(0, 180, 216, 0.8);
     transform: translateY(-2px);
 }
 
@@ -178,7 +198,7 @@ body {
 
 .section-header {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .badge {
@@ -196,7 +216,7 @@ body {
 }
 
 .section-header h2 {
-    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1.5px;
@@ -205,7 +225,7 @@ body {
 
 .section-header p {
     color: var(--text-muted);
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 /* CARDS E CONTENITORI GLASS */
@@ -214,51 +234,52 @@ body {
     backdrop-filter: blur(35px);
     -webkit-backdrop-filter: blur(35px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 55px 45px;
+    padding: 45px 30px;
     border-radius: 35px;
     text-align: center;
-    max-width: 600px;
+    max-width: 550px;
     width: 100%;
-    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.75);
 }
 
-/* EMBLEMA CENTRALE INGRIANDITO */
+/* EMBLEMA CENTRALE CORRETTO (Ben visibile e dritto) */
 .card-emblem {
-    margin-bottom: 22px;
+    margin-bottom: 20px;
     display: inline-flex;
-    padding: 16px;
+    padding: 14px;
     background: rgba(0, 180, 216, 0.12);
     border-radius: 50%;
     border: 1.5px solid rgba(0, 180, 216, 0.4);
-    box-shadow: 0 0 25px rgba(0, 180, 216, 0.3);
+    box-shadow: 0 0 25px rgba(0, 180, 216, 0.35);
 }
 
 .emblem-img {
-    width: 85px;
-    height: 85px;
+    width: 90px;
+    height: 90px;
     object-fit: contain;
+    display: block;
 }
 
 .main-title {
-    font-size: clamp(2.2rem, 4vw, 3rem);
+    font-size: clamp(2rem, 4vw, 2.8rem);
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
 }
 
 .main-slogan {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--text-muted);
     line-height: 1.6;
-    margin-bottom: 35px;
+    margin-bottom: 30px;
 }
 
-/* PULSANTI */
+/* PULSANTI PRINCIPALI */
 .btn-primary {
     display: block;
     width: 100%;
-    padding: 20px 25px;
+    padding: 18px 20px;
     background: linear-gradient(135deg, var(--accent-cyan), var(--mid-blue));
     color: var(--text-light);
     text-decoration: none;
@@ -271,15 +292,15 @@ body {
 .btn-text {
     display: block;
     font-weight: 800;
-    font-size: 1rem;
-    letter-spacing: 1px;
+    font-size: 0.95rem;
+    letter-spacing: 0.8px;
     text-transform: uppercase;
     margin-bottom: 4px;
 }
 
 .btn-subtext {
     display: block;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     opacity: 0.9;
 }
 
@@ -291,8 +312,8 @@ body {
 /* GRIGLIE E COMPONENTI */
 .cards-grid, .shop-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
 }
 
 .glass-card-item, .shop-card, .glass-card-large {
@@ -301,7 +322,7 @@ body {
     -webkit-backdrop-filter: blur(25px);
     border: 1px solid var(--glass-border);
     border-radius: 28px;
-    padding: 35px 25px;
+    padding: 30px 22px;
     transition: all 0.3s ease;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
@@ -312,14 +333,14 @@ body {
 }
 
 .item-icon, .shop-img-placeholder {
-    font-size: 2.5rem;
-    margin-bottom: 18px;
+    font-size: 2.3rem;
+    margin-bottom: 16px;
 }
 
 .shop-img-placeholder {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 18px auto;
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 16px auto;
     background: rgba(0, 180, 216, 0.1);
     display: flex;
     align-items: center;
@@ -329,45 +350,45 @@ body {
 }
 
 .glass-card-large {
-    padding: 45px;
+    padding: 40px 30px;
 }
 
 .glass-card-large p {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     line-height: 1.7;
     color: var(--text-muted);
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 15px;
     text-align: center;
     border-top: 1px solid var(--glass-border);
-    padding-top: 30px;
+    padding-top: 25px;
 }
 
 .stat-num {
     display: block;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 800;
     color: var(--accent-cyan);
     margin-bottom: 4px;
 }
 
 .stat-label {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--text-muted);
 }
 
 .price {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 800;
     color: var(--accent-cyan);
-    margin-bottom: 20px;
+    margin-bottom: 16px;
 }
 
 .btn-shop {
@@ -380,7 +401,7 @@ body {
     text-decoration: none;
     border-radius: 14px;
     font-weight: 700;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     letter-spacing: 1px;
     transition: all 0.3s ease;
     text-align: center;
@@ -394,8 +415,8 @@ body {
 /* FOOTER */
 .footer {
     text-align: center;
-    padding: 30px 20px;
-    font-size: 0.82rem;
+    padding: 25px 20px;
+    font-size: 0.8rem;
     color: rgba(255, 255, 255, 0.5);
     border-top: 1px solid var(--glass-border);
     background: rgba(3, 4, 94, 0.4);
