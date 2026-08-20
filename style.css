@@ -121,33 +121,15 @@ body {
 
 /* Keyframe fluidi a onde */
 @keyframes flameWaveCore {
-    0% {
-        transform: translateY(0) scaleX(0.95) scaleY(0.98) skewX(-2deg);
-        opacity: 0.8;
-    }
-    50% {
-        transform: translateY(-25px) scaleX(1.12) scaleY(1.08) skewX(3deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-12px) scaleX(0.98) scaleY(1.03) skewX(-1.5deg);
-        opacity: 0.9;
-    }
+    0% { transform: translateY(0) scaleX(0.95) scaleY(0.98) skewX(-2deg); opacity: 0.8; }
+    50% { transform: translateY(-25px) scaleX(1.12) scaleY(1.08) skewX(3deg); opacity: 1; }
+    100% { transform: translateY(-12px) scaleX(0.98) scaleY(1.03) skewX(-1.5deg); opacity: 0.9; }
 }
 
 @keyframes flameWaveMid {
-    0% {
-        transform: translateY(-8px) scaleX(1.05) scaleY(0.95) skewX(2deg);
-        opacity: 0.6;
-    }
-    50% {
-        transform: translateY(-30px) scaleX(0.9) scaleY(1.1) skewX(-2deg);
-        opacity: 0.85;
-    }
-    100% {
-        transform: translateY(-15px) scaleX(1.1) scaleY(1.02) skewX(1deg);
-        opacity: 0.7;
-    }
+    0% { transform: translateY(-8px) scaleX(1.05) scaleY(0.95) skewX(2deg); opacity: 0.6; }
+    50% { transform: translateY(-30px) scaleX(0.9) scaleY(1.1) skewX(-2deg); opacity: 0.85; }
+    100% { transform: translateY(-15px) scaleX(1.1) scaleY(1.02) skewX(1deg); opacity: 0.7; }
 }
 
 @keyframes flameWaveOuter {
@@ -188,32 +170,21 @@ body {
     flex-shrink: 0;
 }
 
-.logo-img, .nav-logo {
+.logo-img {
     width: 48px;
     height: 48px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--accent-cyan);
     box-shadow: 0 0 15px rgba(0, 180, 216, 0.7);
-    transition: transform 0.3s ease;
     display: block;
-}
-
-.logo-img:hover, .nav-logo:hover { 
-    transform: scale(1.08); 
 }
 
 .nav-menu {
     display: flex;
     align-items: center;
     gap: 8px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    max-width: 100%;
-    padding-bottom: 4px;
 }
-
-.nav-menu::-webkit-scrollbar { display: none; }
 
 .nav-link {
     text-decoration: none;
@@ -225,16 +196,6 @@ body {
     border: 1px solid var(--glass-border);
     border-radius: 30px;
     transition: all 0.3s ease;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.nav-social {
-    background: rgba(0, 180, 216, 0.15);
-    border-color: rgba(0, 180, 216, 0.45);
 }
 
 .nav-link:hover, .nav-link.active {
@@ -242,7 +203,6 @@ body {
     color: var(--primary-blue);
     border-color: var(--accent-cyan);
     box-shadow: 0 0 18px rgba(0, 180, 216, 0.8);
-    transform: translateY(-2px);
 }
 
 /* ==========================================
@@ -277,7 +237,7 @@ body {
     box-shadow: 0 30px 90px rgba(0, 0, 0, 0.8);
 }
 
-.card-emblem, .main-logo {
+.card-emblem {
     margin: 0 auto 20px auto;
     display: flex;
     align-items: center;
@@ -288,6 +248,7 @@ body {
     border-radius: 50%;
     border: 2px solid var(--accent-cyan);
     box-shadow: 0 0 25px rgba(0, 180, 216, 0.4);
+    overflow: hidden;
 }
 
 .emblem-img {
@@ -314,7 +275,7 @@ body {
 }
 
 /* ==========================================
-   5. PULSANTI E COMPONENTI
+   5. PULSANTI E FOOTER
    ========================================== */
 .btn-primary {
     display: block;
@@ -326,14 +287,12 @@ body {
     border-radius: 18px;
     box-shadow: 0 10px 30px rgba(0, 119, 182, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
 }
 
 .btn-text {
     display: block;
     font-weight: 800;
     font-size: 0.9rem;
-    letter-spacing: 0.8px;
     text-transform: uppercase;
     margin-bottom: 3px;
 }
@@ -344,14 +303,6 @@ body {
     opacity: 0.9;
 }
 
-.btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(0, 180, 216, 0.8);
-}
-
-/* ==========================================
-   6. FOOTER
-   ========================================== */
 .footer {
     text-align: center;
     padding: 22px 20px;
