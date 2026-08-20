@@ -3,52 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FND | Home Ufficiale</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>FND - Fronte Nazionale Democratico</title>
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Collegamento al Foglio di Stile Globale -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- SCENOGRAFIA DI SFONDO CON TORCIA E FIAMMA ANIMATA -->
     <div class="statue-background-wrapper">
-        <img src="Local_image_61806_8ff3803ef2718d6247ec0cba91a650d7 - Edited_20260820_140628_0000.png" alt="Statua Sfondo" class="statue-bg-img">
         <div class="background-overlay"></div>
-        <div class="blue-flame-container" aria-hidden="true">
-            <div class="flame flame-1"></div>
-            <div class="flame flame-2"></div>
-            <div class="flame flame-3"></div>
+        <div class="torch-container" aria-hidden="true">
+            <div class="torch-flame-outer"></div>
+            <div class="torch-flame-mid"></div>
+            <div class="torch-flame-core"></div>
+            <img src="Local_image_61835_00616b45f7edefa682943f1e67d7fbc3 - Edited_20260820_182351_0000.png" alt="Torcia di Libertà" class="torch-img-asset">
         </div>
     </div>
 
+    <!-- NAVBAR FISSA -->
     <header class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo-box">
-                <img src="87ccbd61-4ea4-419d-b62b-a27747f2fce7_20260819_215712_0000.png" alt="Logo FND" class="logo-img">
-            </a>
+            <div class="logo-box">
+                <a href="index.html">
+                    <img src="Local_image_61835_00616b45f7edefa682943f1e67d7fbc3 - Edited_20260820_182351_0000.png" alt="Logo FND" class="logo-img">
+                </a>
+            </div>
             <nav class="nav-menu">
                 <a href="index.html" class="nav-link active">HOME</a>
                 <a href="programma.html" class="nav-link">PROGRAMMA</a>
                 <a href="chisiamo.html" class="nav-link">CHI SIAMO</a>
-                <a href="shop.html" class="nav-link">SHOP</a>
-                <a href="https://www.instagram.com/fronte.nazional.democratico" target="_blank" rel="noopener noreferrer" class="nav-link nav-social">INSTAGRAM</a>
+                <a href="shop.html" class="nav-link nav-social">SHOP</a>
             </nav>
         </div>
     </header>
 
+    <!-- CONTENUTO PRINCIPALE DELLA HOME -->
     <main class="page-container">
-        <div class="glass-card">
-            <div class="card-emblem">
-                <img src="87ccbd61-4ea4-419d-b62b-a27747f2fce7_20260819_215712_0000.png" alt="Emblema" class="emblem-img">
+        <div class="container-inner">
+            <div class="glass-card">
+                <div class="card-emblem">
+                    <img src="Local_image_61835_00616b45f7edefa682943f1e67d7fbc3 - Edited_20260820_182351_0000.png" alt="Emblema FND" class="emblem-img">
+                </div>
+                <h1 class="main-title">Fronte Nazionale Democratico</h1>
+                <p class="main-slogan">Stufo di politiche bloccate nel passato? Scegli il futuro, scegli FND.</p>
+                
+                <a href="programma.html" class="btn-primary">
+                    <span class="btn-text">Inizia a cambiare il tuo futuro!</span>
+                    <span class="btn-subtext">Clicca qui per accedere al programma ufficiale</span>
+                </a>
             </div>
-            <h1 class="main-title">PROGRAMMA 2026/27</h1>
-            <p class="main-slogan">Stufo di politiche bloccate nel passato? Scegli il futuro, scegli FND.</p>
-            <a href="programma.html" class="btn-primary">
-                <span class="btn-text">INIZIA A CAMBIARE IL TUO FUTURO!</span>
-                <span class="btn-subtext">CLICCA QUI PER ACCEDERE AL PROGRAMMA UFFICIALE</span>
-            </a>
         </div>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer">
-        <p>&copy; 2026 Fronte Nazional Democratico. Tutti i diritti riservati. Segui <a href="https://www.instagram.com/fronte.nazional.democratico" target="_blank" rel="noopener noreferrer" class="footer-link">@fronte.nazional.democratico</a></p>
+        <p>&copy; 2026 Fronte Nazionale Democratico. Tutti i diritti riservati. | <a href="chisiamo.html" class="footer-link">Contattaci</a></p>
     </footer>
+
 </body>
 </html>
