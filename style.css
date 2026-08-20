@@ -7,10 +7,11 @@
 }
 
 :root {
-    --bg-deep: #02031a;
+    --bg-deep: #010214;
     --primary-blue: #03045e;
     --mid-blue: #0077b6;
     --accent-cyan: #00b4d8;
+    --neon-blue: #00f0ff;
     --text-light: #ffffff;
     --text-muted: #cbd5e1;
     --glass-surface: rgba(2, 6, 23, 0.65);
@@ -28,7 +29,7 @@ body {
     position: relative;
 }
 
-/* GESTIONE SCENOGRAFICA SFONDO */
+/* GESTIONE SCENOGRAFICA SFONDO & FIAMMA BLU/AZZURRA */
 .statue-background-wrapper {
     position: fixed;
     top: 0;
@@ -37,9 +38,7 @@ body {
     height: 100vh;
     z-index: 0;
     pointer-events: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
 }
 
 .statue-bg-img {
@@ -47,7 +46,7 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    filter: brightness(0.55) contrast(1.1);
+    filter: brightness(0.5) contrast(1.15);
     transform: scale(1.02);
 }
 
@@ -57,9 +56,60 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at center, rgba(3, 4, 94, 0.5) 0%, rgba(2, 3, 26, 0.9) 100%);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    background: radial-gradient(circle at center, rgba(3, 4, 94, 0.45) 0%, rgba(1, 2, 20, 0.92) 100%);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* EFFETTO FIAMMA BLU E AZZURRA ANIMATA */
+.blue-flame-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 45vh;
+    z-index: 1;
+    opacity: 0.35;
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+.flame {
+    position: absolute;
+    bottom: -50px;
+    background: linear-gradient(to top, rgba(0, 119, 182, 0) 0%, rgba(0, 180, 216, 0.5) 50%, rgba(0, 240, 255, 0.8) 100%);
+    border-radius: 50% 50% 20% 20%;
+    filter: blur(25px);
+    animation: flameAnim 6s ease-in-out infinite alternate;
+}
+
+.flame-1 {
+    left: 15%;
+    width: 45vw;
+    height: 60vh;
+    animation-duration: 5s;
+}
+
+.flame-2 {
+    right: 10%;
+    width: 50vw;
+    height: 70vh;
+    animation-duration: 7s;
+    animation-delay: -2s;
+}
+
+.flame-3 {
+    left: 35%;
+    width: 30vw;
+    height: 50vh;
+    animation-duration: 4.5s;
+    animation-delay: -1s;
+}
+
+@keyframes flameAnim {
+    0% { transform: translateY(0) scaleX(1) skewX(0deg); opacity: 0.3; }
+    50% { transform: translateY(-40px) scaleX(1.1) skewX(3deg); opacity: 0.55; }
+    100% { transform: translateY(-20px) scaleX(0.95) skewX(-3deg); opacity: 0.4; }
 }
 
 /* NAVBAR FISSA */
@@ -69,7 +119,7 @@ body {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(3, 4, 94, 0.8);
+    background: rgba(3, 4, 94, 0.82);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--glass-border);
@@ -101,6 +151,7 @@ body {
 
 .nav-menu {
     display: flex;
+    align-items: center;
     gap: 14px;
 }
 
@@ -108,14 +159,22 @@ body {
     text-decoration: none;
     color: var(--text-light);
     font-weight: 700;
-    font-size: 0.85rem;
-    padding: 10px 24px;
+    font-size: 0.82rem;
+    padding: 10px 22px;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--glass-border);
     border-radius: 30px;
     backdrop-filter: blur(10px);
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-social {
+    background: rgba(0, 180, 216, 0.12);
+    border-color: rgba(0, 180, 216, 0.4);
 }
 
 .nav-link:hover, .nav-link.active {
@@ -444,8 +503,18 @@ body {
 
 .footer-sub {
     margin-top: 8px;
-    font-size: 0.75rem;
-    opacity: 0.7;
+    font-size: 0.78rem;
+    opacity: 0.8;
+}
+
+.footer-link {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
 }
 
 /* RESPONSIVE DESIGN */
@@ -458,7 +527,7 @@ body {
     }
     .nav-link {
         padding: 8px 12px;
-        font-size: 0.7rem;
+        font-size: 0.68rem;
     }
     .glass-card, .glass-card-large {
         padding: 35px 20px;
