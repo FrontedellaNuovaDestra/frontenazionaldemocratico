@@ -4,40 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fronte Nazional Democratico | Sito Ufficiale</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- NAVBAR BLINDATA -->
+    <!-- BARRA DI NAVIGAZIONE FISSA -->
     <header class="navbar">
         <div class="nav-container">
-            <div class="logo-box">
-                <img src="87ccbd61-4ea4-419d-b62b-a27747f2fce7_20260819_215712_0000.png" alt="Logo" class="logo-img">
-            </div>
+            <a href="index.html" class="logo-link">
+                <img src="87ccbd61-4ea4-419d-b62b-a27747f2fce7_20260819_215712_0000.png" alt="Logo FND" class="logo-img">
+            </a>
             <nav class="nav-menu">
-                <a href="#home">HOME</a>
-                <a href="#programma">PROGRAMMA</a>
-                <a href="#chisiamo">CHI SIAMO</a>
-                <a href="#shop">SHOP</a>
+                <a href="index.html" class="btn-nav active">HOME</a>
+                <a href="#programma" class="btn-nav">PROGRAMMA</a>
+                <a href="#chisiamo" class="btn-nav">CHI SIAMO</a>
+                <a href="#shop" class="btn-nav">SHOP</a>
             </nav>
         </div>
     </header>
 
-    <!-- SEZIONE HERO PROFESSIONALE -->
-    <main class="hero-container">
+    <!-- SEZIONE PRINCIPALE (HERO) -->
+    <main class="hero-section">
         <div class="glass-card">
-            <!-- Icona Statua Libertà Stilizzata -->
-            <div class="icon-wrapper">
-                <svg viewBox="0 0 24 24" width="60" height="60" stroke="currentColor" fill="none" stroke-width="1.5">
-                    <path d="M12 2L9 8h6l-3-6zm0 0v20M7 8h10l-1 2H8l-1-2zm1 4h8l-1 2H9l-1-2z"/>
+            <!-- Icona Statua della Libertà Stilizzata -->
+            <div class="statue-wrapper">
+                <svg class="statue-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L9 8h6l-3-6z"/>
+                    <path d="M12 8v14"/>
+                    <path d="M7 8h10l-1 2H8l-1-2z"/>
+                    <path d="M8 12h8l-1 2H9l-1-2z"/>
+                    <path d="M10 22h4"/>
                 </svg>
             </div>
-            
-            <h1>PROGRAMMA 2026/27</h1>
-            <p class="slogan">Stufo di politiche bloccate nel passato? Scegli il futuro, scegli FND.</p>
-            
-            <a href="#programma" class="btn-primary">INIZIA A CAMBIARE IL TUO FUTURO!</a>
+
+            <!-- Titoli e Slogan -->
+            <h1 class="main-title">PROGRAMMA 2026/27</h1>
+            <p class="hero-slogan">Stufo di politiche bloccate nel passato? Scegli il futuro, scegli FND.</p>
+
+            <!-- Bottone d'Azione Principale (CTA) -->
+            <div class="cta-container">
+                <a href="#programma" class="btn-main">INIZIA A CAMBIARE IL TUO FUTURO! CLICCA QUI</a>
+            </div>
+        </div>
+
+        <!-- Sfondo con Onde Animate -->
+        <div class="wave-container">
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use href="#gentle-wave" x="48" y="0" fill="rgba(0, 119, 182, 0.3)" />
+                    <use href="#gentle-wave" x="48" y="3" fill="rgba(0, 150, 199, 0.5)" />
+                    <use href="#gentle-wave" x="48" y="5" fill="#0077b6" />
+                    <use href="#gentle-wave" x="48" y="7" fill="#03045e" />
+                </g>
+            </svg>
         </div>
     </main>
 
