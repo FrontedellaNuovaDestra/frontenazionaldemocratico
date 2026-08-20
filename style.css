@@ -1,53 +1,73 @@
-/* RESET E STILI BASE */
+/* RESET PROFESSIONALE */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Outfit', sans-serif; background: #ffffff; color: #1a1a1a; overflow-x: hidden; }
-
-/* NAVBAR E BOTTONI NAV */
-.navbar { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255, 255, 255, 0.95); padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
-.nav-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; }
-.logo-img { height: 40px; width: 40px; border-radius: 50%; object-fit: cover; }
-.nav-menu { display: flex; gap: 15px; }
-
-/* GRAFICA SPECIFICA BOTTONI NAV */
-.btn-nav { text-decoration: none; color: #333; font-size: 0.85rem; font-weight: 700; padding: 8px 16px; border: 2px solid #00b4d8; border-radius: 25px; transition: all 0.3s ease; }
-.btn-nav:hover { background: #00b4d8; color: #ffffff; box-shadow: 0 4px 10px rgba(0, 180, 216, 0.3); }
-
-/* SEZIONE HERO */
-.hero-section { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding-top: 140px; text-align: center; }
-.hero-logo { width: 110px; height: 110px; border-radius: 50%; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); margin-bottom: 25px; }
-.main-title { font-size: clamp(2.5rem, 6vw, 4rem); color: #00b4d8; text-transform: uppercase; font-weight: 800; line-height: 1; }
-.subtitle { font-size: 1.5rem; color: #1d3557; margin-bottom: 20px; font-weight: 600; }
-.hero-slogan { margin-bottom: 30px; font-weight: 500; font-size: 1rem; color: #555; }
-
-/* BOTTONE PRINCIPALE (CALL TO ACTION) */
-.btn-main {
-    display: inline-block;
-    padding: 18px 35px;
-    background: #03045e;
+body { 
+    font-family: 'Outfit', sans-serif; 
+    background: radial-gradient(circle at top, #0077b6, #03045e);
     color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* NAVBAR FISSA E BILANCIATA */
+.navbar {
+    width: 100%;
+    padding: 20px 5%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+.nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; }
+.logo-img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid #00b4d8; }
+.nav-menu { display: flex; gap: 40px; }
+.nav-menu a { text-decoration: none; color: #fff; font-weight: 600; font-size: 0.9rem; letter-spacing: 1.5px; transition: 0.3s; }
+.nav-menu a:hover { color: #00b4d8; }
+
+/* CENTRATURA HERO */
+.hero-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px 20px 20px;
+}
+
+/* GLASS CARD PERFETTA */
+.glass-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 60px 40px;
+    border-radius: 40px;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+.icon-wrapper { color: #00b4d8; margin-bottom: 20px; }
+h1 { font-size: 2.8rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 3px; }
+.slogan { font-size: 1.1rem; opacity: 0.9; margin-bottom: 40px; line-height: 1.6; }
+
+/* BOTTONE BLINDATO */
+.btn-primary {
+    display: block;
+    padding: 20px;
+    background: #00b4d8;
+    color: #03045e;
     text-decoration: none;
     font-weight: 800;
-    font-size: 1.1rem;
-    border-radius: 50px;
-    box-shadow: 0 10px 25px rgba(3, 4, 94, 0.4);
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    border-radius: 20px;
+    transition: 0.4s;
+    font-size: 0.95rem;
 }
-.btn-main:hover { transform: translateY(-5px); background: #00b4d8; box-shadow: 0 15px 30px rgba(0, 180, 216, 0.5); }
+.btn-primary:hover { background: #fff; transform: scale(1.02); }
 
-/* ONDE */
-.wave-container { position: absolute; bottom: 0; width: 100%; height: 200px; z-index: -1; }
-.waves { width: 100%; height: 100%; }
-
-/* ANIMAZIONE ONDE */
-.parallax > use { animation: move-wave 20s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite; }
-@keyframes move-wave { 0% { transform: translate3d(-90px, 0, 0); } 100% { transform: translate3d(85px, 0, 0); } }
-
-/* MOBILE RESPONSIVE */
+/* MOBILE RESPONSIVENESS */
 @media (max-width: 768px) {
-    .nav-menu { gap: 8px; }
-    .btn-nav { padding: 6px 10px; font-size: 0.7rem; }
-    .btn-main { font-size: 0.9rem; padding: 14px 25px; }
-    .hero-section { padding-top: 100px; }
+    .nav-menu { gap: 15px; }
+    .nav-menu a { font-size: 0.7rem; }
+    h1 { font-size: 2rem; }
 }
