@@ -1,12 +1,215 @@
 <!DOCTYPE html>
-<html lang="it">
-<head><link rel="stylesheet" href="style.css"><title>FND - Home</title></head>
-<body>
-    <div class="bg-scene"><img src="statua.jpg" class="statue-bg"><div class="torch-wrapper"><div class="flame"></div><img src="Orient.png" class="torch-base"></div></div>
-    <header>
-        <nav><a href="index.html">HOME</a><a href="programma.html">PROGRAMMA</a><a href="chisiamo.html">CHI SIAMO</a></nav>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fronte Nazionale Democratico | FND</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Collegamento al foglio di stile esterno -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Header / Navbar Istituzionale con Logo -->
+    <header class="bg-white/95 backdrop-blur-md shadow-sm fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <!-- Inserimento del Logo -->
+                <img src="87ccbd61-4ea4-419d-b62b-a27747f2fce7_20260819_215712_0000.png" alt="Fronte Nazionale Democratico Logo" class="h-10 w-auto object-contain">
+                <div>
+                    <span class="font-bold text-sm md:text-base text-blue-950 block leading-tight">Fronte Nazionale Democratico</span>
+                    <span class="text-[10px] text-slate-500 uppercase tracking-widest font-semibold">Liberisti • Liberali • Nazionali</span>
+                </div>
+            </div>
+            <nav class="hidden lg:flex space-x-8 text-sm font-semibold text-slate-600">
+                <a href="#home" class="hover:text-blue-700 transition">Home</a>
+                <a href="#busta-burocrazia" class="hover:text-blue-700 transition">Basta Burocrazia</a>
+                <a href="#valori" class="hover:text-blue-700 transition">I Nostri Valori</a>
+                <a href="#programma" class="hover:text-blue-700 transition">Il Programma</a>
+                <a href="#usi" class="hover:text-blue-700 transition">U.S.I.</a>
+            </nav>
+            <div>
+                <a href="#programma" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs md:text-sm px-4 py-2 rounded-lg shadow transition">Scopri il Programma</a>
+            </div>
+        </div>
     </header>
-    <main><div class="window"><h1>FRONTE NAZIONALE DEMOCRATICO</h1><p>Benvenuti nel sito ufficiale del futuro.</p></div></main>
-    <footer><a href="https://www.instagram.com/fronte.nazional.democratico">@fronte.nazional.democratico</a></footer>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gradient-to-br from-blue-950 via-blue-900 to-indigo-950 text-white pt-32 pb-24 px-4 text-center overflow-hidden">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <span class="inline-block bg-blue-800/80 text-blue-200 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 border border-blue-700">Movimento Politico Ufficiale</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4 uppercase">Fronte Nazionale Democratico</h1>
+            <p class="text-lg md:text-2xl font-light text-blue-200 mb-8 tracking-wide">LIBERISTI. LIBERALI. NAZIONALI. DEMOCRATICI.</p>
+        </div>
+    </section>
+
+    <!-- Sezione Busta Burocrazia -->
+    <section id="busta-burocrazia" class="py-20 px-4 bg-white relative">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-black text-blue-950 mb-3 tracking-tight">BASTA BUROCRAZIA!</h2>
+            <p class="text-xl md:text-2xl font-semibold text-blue-600 mb-12">L'Efficienza è un Diritto</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+                    <div class="text-blue-600 text-3xl font-bold mb-3">💻</div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">Digitalizzazione</h3>
+                    <p class="text-sm text-slate-600">Semplificazione digitale totale per cittadini e imprese.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+                    <div class="text-blue-600 text-3xl font-bold mb-3">⚙️</div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">Processi Semplici</h3>
+                    <p class="text-sm text-slate-600">Taglio netto ai passaggi superflui della pubblica amministrazione.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition">
+                    <div class="text-blue-600 text-3xl font-bold mb-3">⚖️</div>
+                    <h3 class="font-bold text-lg text-slate-900 mb-2">Trasparenza & Giustizia</h3>
+                    <p class="text-sm text-slate-600">Regole certe e responsabilità diretta per chi sbaglia.</p>
+                </div>
+            </div>
+            
+            <div class="bg-blue-900 text-white p-8 rounded-3xl shadow-xl flex flex-col md:flex-row items-center justify-between">
+                <div class="text-left mb-6 md:mb-0">
+                    <h4 class="text-2xl font-bold mb-2">#ItaliaEfficiente #DDLUSI</h4>
+                    <p class="text-blue-200 text-sm">Unisciti alla nostra battaglia per un Paese moderno e competitivo.</p>
+                </div>
+                <a href="#programma" class="bg-amber-500 hover:bg-amber-400 text-blue-950 font-bold px-6 py-3 rounded-xl transition shadow-lg">Scopri come cambiamo l'Italia</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione Valori con Effetto Parallasse Statua della Libertà -->
+    <section id="valori" class="liberty-parallax py-32 px-4 text-white text-center relative">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <span class="text-amber-400 font-bold tracking-widest text-xs uppercase block mb-3">I Nostri Principi Fondamentali</span>
+            <h2 class="text-3xl md:text-5xl font-extrabold mb-6 uppercase tracking-tight">Difendiamo i Valori di Libertà e Democrazia</h2>
+            <p class="text-lg md:text-xl text-slate-200 font-light leading-relaxed max-w-2xl mx-auto">
+                Ci ispiriamo ai principi liberali classici, al merito, alla centralità dell'individuo e allo stato di diritto per costruire un'Italia forte, sicura e meritocratica.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sezione Programma Politico -->
+    <section id="programma" class="py-20 px-4 bg-slate-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-blue-700 font-bold text-xs uppercase tracking-widest bg-blue-100 px-3 py-1 rounded-full">Programma 2026-2027</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-blue-950 mt-3">La Nostra Visione per l'Italia</h2>
+                <p class="text-slate-600 mt-2">Gli obiettivi concreti del Fronte Nazionale Democratico divisi per aree d'intervento.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 1. Istituzioni -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-blue-600">
+                    <h3 class="text-lg font-bold text-blue-950 mb-4 flex justify-between items-center">
+                        <span>1. Istituzioni</span> <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">Completato</span>
+                    </h3>
+                    <ul class="space-y-2 text-sm text-slate-700">
+                        <li class="flex justify-between"><span>Semi-parlamentarismo</span> <span class="text-emerald-600 font-bold">✅</span></li>
+                        <li class="flex justify-between"><span>Semi-federalismo</span> <span class="text-emerald-600 font-bold">✅</span></li>
+                        <li class="flex justify-between"><span>Servizio U.S.I.</span> <span class="text-emerald-600 font-bold">✅</span></li>
+                        <li class="flex justify-between"><span>Riforma della Giustizia</span> <span class="text-emerald-600 font-bold">✅</span></li>
+                    </ul>
+                </div>
+
+                <!-- 2. Economia -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-blue-600">
+                    <h3 class="text-lg font-bold text-blue-950 mb-4 flex justify-between items-center">
+                        <span>2. Economia</span> <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">Prioritario</span>
+                    </h3>
+                    <ul class="space-y-2 text-sm text-slate-700">
+                        <li class="flex justify-between"><span>Taglio delle Tasse</span> <span class="text-emerald-600 font-bold">✅</span></li>
+                        <li class="flex justify-between"><span>Salario minimo [FND Style]</span> <span class="text-emerald-600 font-bold">✅</span></li>
+                        <li class="flex justify-between"><span>Investimento Edilizio & Trasporti</span> <span class="text-emerald-600 font-bold">✅</span></li>
+                        <li class="flex justify-between"><span>Riforma ISEE</span> <span class="text-rose-600 font-bold">❌</span></li>
+                    </ul>
+                </div>
+
+                <!-- 3. Energia -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-blue-600">
+                    <h3 class="text-lg font-bold text-blue-950 mb-4 flex justify-between items-center">
+                        <span>3. Energia</span> <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">Completato</span>
+                    </h3>
+                    <ul class="space-y-2 text-sm text-slate-700">
+                        <li class="flex justify-between"><span>Piano Mix Energetico</span> <span class="text-emerald-600 font-bold">✅</span></li>
+                    </ul>
+                </div>
+
+                <!-- 4. Sicurezza e Difesa -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-blue-600">
+                    <h3 class="text-lg font-bold text-blue-950 mb-4 flex justify-between items-center">
+                        <span>4. Sicurezza e Difesa</span> <span class="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded">In Corso</span>
+                    </h3>
+                    <ul class="space-y-2 text-sm text-slate-700">
+                        <li class="flex justify-between"><span>Contrasto immigrazione</span> <span class="text-emerald-600 font-bold">✅</span></li>
+                        <li class="flex justify-between"><span>Restrizioni Cittadinanza</span> <span class="text-emerald-600 font-bold">✅</span></li>
+                        <li class="flex justify-between"><span>Piano Sicurezza Urbana</span> <span class="text-rose-600 font-bold">❌</span></li>
+                        <li class="flex justify-between"><span>Nuovo Codice Civile e Penale</span> <span class="text-rose-600 font-bold">❌</span></li>
+                    </ul>
+                </div>
+
+                <!-- 5. Politica Estera -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-blue-600">
+                    <h3 class="text-lg font-bold text-blue-950 mb-4 flex justify-between items-center">
+                        <span>5. Politica Estera</span> <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded">Completato</span>
+                    </h3>
+                    <ul class="space-y-2 text-sm text-slate-700">
+                        <li class="flex justify-between"><span>Europeismo pragmatico</span> <span class="text-emerald-600 font-bold">✅</span></li>
+                        <li class="flex justify-between"><span>Atlantismo bilanciato</span> <span class="text-emerald-600 font-bold">✅</span></li>
+                    </ul>
+                </div>
+
+                <!-- 6. Istruzione e Civiltà -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-blue-600">
+                    <h3 class="text-lg font-bold text-blue-950 mb-4 flex justify-between items-center">
+                        <span>6. Istruzione e Civiltà</span> <span class="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded">In Corso</span>
+                    </h3>
+                    <ul class="space-y-2 text-sm text-slate-700">
+                        <li class="flex justify-between"><span>Better Education</span> <span class="text-emerald-600 font-bold">✅</span></li>
+                        <li class="flex justify-between"><span>Matrimonio Egualitario</span> <span class="text-emerald-600 font-bold">✅</span></li>
+                        <li class="flex justify-between"><span>Prostituzione Regolamentata</span> <span class="text-rose-600 font-bold">❌</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- U.S.I. Section -->
+    <section id="usi" class="py-20 px-4 bg-white border-t border-slate-200">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-extrabold text-blue-950 mb-6 text-center">Servizio di Segnalazione e Intervento (U.S.I.)</h2>
+            <div class="bg-slate-50 p-8 rounded-2xl shadow-sm border border-slate-100 space-y-4 text-slate-700 text-sm leading-relaxed">
+                <p><strong>L'Ufficio di Segnalazione e Intervento</strong> è un ente statale indipendente istituito per rispondere tempestivamente e con efficacia alle situazioni di degrado cittadino.</p>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>Accessibile in digitale tramite app o sito web, oppure attraverso uno sportello fisico comunale di riferimento.</li>
+                    <li>Verifica di ogni segnalazione di degrado entro 15 giorni da parte di un team di esperti specializzati.</li>
+                    <li>In caso di mancata manutenzione si procede con sanzioni e confisca tramite la Corte dei Conti, seguita da riqualificazione tramite bando pubblico.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione con Onde Animate in Fondo -->
+    <div class="relative bg-blue-900 overflow-hidden pt-16">
+        <!-- Onde SVG Animate -->
+        <div class="absolute bottom-0 left-0 right-0 w-[200%] flex animate-wave opacity-40">
+            <svg class="w-1/2 h-24 fill-blue-700" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0 C150,90 350,-40 500,40 C650,120 900,10 1200,50 L1200,120 L0,120 Z"></path></svg>
+            <svg class="w-1/2 h-24 fill-blue-600" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,20 C200,100 400,0 600,60 C800,120 1000,20 1200,80 L1200,120 L0,120 Z"></path></svg>
+        </div>
+
+        <!-- Footer con richiamo al Logo -->
+        <footer class="relative z-10 max-w-7xl mx-auto px-4 pb-12 text-center text-white text-sm">
+            <div class="flex justify-center mb-4">
+                <img src="87ccbd61-4ea4-419d-b62b-a27747f2fce7_20260819_215712_0000.png" alt="Logo FND Footer" class="h-12 w-auto object-contain filter brightness-0 invert">
+            </div>
+            <p class="font-bold text-lg mb-1">Fronte Nazionale Democratico (FND)</p>
+            <p class="text-blue-200 text-xs mb-6">Tutti i diritti riservati.</p>
+            <div class="inline-block bg-blue-950/80 px-4 py-2 rounded-lg text-xs text-blue-300 border border-blue-800">
+                Sito ufficiale ospitato su <span class="text-white font-semibold">GitHub Pages</span>
+            </div>
+        </footer>
+    </div>
+
 </body>
 </html>
