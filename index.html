@@ -1,74 +1,441 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Fronte Nazional Democratico</title>
-  <meta name="description" content="Fronte Nazional Democratico — Libertà, Democrazia e Progresso." />
-  <meta name="referrer" content="no-referrer" />
-  <meta name="theme-color" content="#003049" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fronte Nazionale Democratico - FND</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #0a192f;
+            --primary-blue: #003f7f;
+            --accent-blue: #0066cc;
+            --accent-light: #e6f0fa;
+            --white: #ffffff;
+            --text-main: #333333;
+            --gold: #d4af37;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        body {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+        /* Header */
+        header {
+            background: var(--white);
+            color: var(--primary-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-badge {
+            width: 55px;
+            height: 55px;
+            border: 2px solid var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, #e6f0fa 0%, #ffffff 100%);
+            position: relative;
+        }
+        .logo-badge i {
+            color: var(--primary-blue);
+            font-size: 24px;
+        }
+        .logo-text {
+            font-weight: 800;
+            font-size: 14px;
+            line-height: 1.1;
+            color: var(--primary-dark);
+            letter-spacing: 0.5px;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--primary-dark);
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--accent-blue);
+        }
+        .btn-dona {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        .btn-dona:hover {
+            background-color: var(--accent-blue);
+        }
 
-  <!-- Content Security Policy: immagini da Unsplash autorizzate, nessuno script inline -->
-  <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; img-src 'self' data: https://source.unsplash.com https://images.unsplash.com; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; script-src 'none';">
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0a192f 0%, #0f3460 50%, #003f7f 100%);
+            padding: 60px 20px 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            color: var(--white);
+        }
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            color: #d1e3f8;
+            margin-bottom: 50px;
+        }
+        .features-grid {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        .feature-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 220px;
+        }
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 28px;
+            color: var(--white);
+            background: rgba(255,255,255,0.05);
+        }
+        .feature-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+        .divider-line {
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            margin: 0 auto 50px auto;
+        }
+        .hero-illustration {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .illustration-box {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 600px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .ill-content {
+            text-align: left;
+        }
+        .ill-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+        .ill-content p {
+            font-size: 0.95rem;
+            color: #b0c4de;
+            margin-bottom: 20px;
+        }
+        .btn-scopri {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s;
+        }
+        .btn-scopri:hover {
+            background-color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
 
-  <!-- Performance: connessione/prerender immagini esterne -->
-  <link rel="preconnect" href="https://source.unsplash.com" crossorigin>
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-  <!-- Preload prima immagine slideshow per render rapido -->
-  <link rel="preload" as="image" href="https://source.unsplash.com/1920x1080/?statue%20of%20liberty,liberty">
+        /* Values Section */
+        .values-section {
+            background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), url('https://images.unsplash.com/photo-1485738422979-f5c462d49f74?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            color: var(--primary-dark);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .values-section h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            letter-spacing: 0.5px;
+        }
+        .values-section h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .values-section p {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
 
-  <link rel="stylesheet" href="style.css">
+        /* Program Section */
+        .program-section {
+            background-color: var(--white);
+            color: var(--primary-dark);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+        .program-section h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+        }
+        .program-section p {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 35px;
+        }
+        .btn-programma {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 16px 40px;
+            border-radius: 35px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0,63,127,0.3);
+            transition: all 0.3s;
+        }
+        .btn-programma:hover {
+            background-color: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,63,127,0.4);
+        }
+
+        /* Wave decoration */
+        .wave-container {
+            background-color: var(--primary-dark);
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 40px;
+        }
+        .wave-svg {
+            display: block;
+            width: 100%;
+            height: 80px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: #b0c4de;
+            padding: 40px 5% 20px 5%;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        .social-icons a {
+            color: var(--white);
+            background: rgba(255,255,255,0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .social-icons a:hover {
+            background: var(--accent-blue);
+        }
+
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 2.3rem; }
+            .hero h2 { font-size: 1.4rem; }
+            nav { display: none; }
+            .features-grid { gap: 30px; }
+            footer { flex-direction: column; text-align: center; }
+        }
+    </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Salta al contenuto</a>
 
-  <header class="site-header" role="banner" aria-hidden="false">
-    <div class="header-inner">
-      <div class="brand">
-        <strong class="brand-title">Fronte Nazional Democratico</strong>
-        <span class="brand-tag">Libertà, Democrazia e Progresso</span>
-      </div>
-      <nav class="top-nav" aria-label="Navigazione principale">
-        <ul>
-          <li><a href="programma.html">Programma</a></li>
-          <li><a href="chisiamo.html">Chi siamo</a></li>
-          <li><a href="contatti.html">Contatti</a></li>
-          <li><a href="unisciti.html" class="cta">Unisciti</a></li>
-        </ul>
-      </nav>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <div class="logo-badge">
+                <i class="fa-solid fa-fire"></i>
+            </div>
+            <div class="logo-text">
+                FRONTE<br>NAZIONALE<br>DEMOCRATICO
+            </div>
+        </div>
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#programma">IL PROGRAMMA</a>
+            <a href="#valori">I NOSTRI VALORI</a>
+            <a href="#chisiamo">CHI SIAMO</a>
+            <a href="#contatti">CONTATTI</a>
+        </nav>
+        <a href="#dona" class="btn-dona">DONA</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>BASTA BUROCRAZIA!</h1>
+        <h2>L'Efficienza è un Diritto</h2>
+        
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-hand-pointer"></i>
+                </div>
+                <div class="feature-title">Digitalizzazione</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-sitemap"></i>
+                </div>
+                <div class="feature-title">Processi Semplici</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">
+                    <i class="fa-solid fa-gavel"></i>
+                </div>
+                <div class="feature-title">Trasparenza & Giustizia</div>
+            </div>
+        </div>
+
+        <div class="divider-line"></div>
+
+        <div class="hero-illustration">
+            <div class="illustration-box">
+                <div class="ill-content">
+                    <h3>Semplifichiamo lo Stato</h3>
+                    <p>Eliminiamo gli ostacoli burocratici per cittadini e imprese con strumenti digitali avanzati.</p>
+                    <a href="#scopri" class="btn-scopri">SCOPRI COME</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section" id="valori">
+        <h2>I NOSTRI VALORI</h2>
+        <h3>DIFENDIAMO I VALORI DI LIBERTÀ E DEMOCRAZIA.</h3>
+        <p>Ci ispiriamo ai principi liberali e allo stato di diritto per un’Italia migliore.</p>
+    </section>
+
+    <!-- Program Section & Waves -->
+    <div class="wave-container">
+        <svg class="wave-svg" viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,32L60,42.7C120,53,240,75,360,80C480,85,600,75,720,64C840,53,960,43,1080,48C1200,53,1320,75,1380,85.3L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z" fill="#ffffff"/>
+        </svg>
+        <section class="program-section" id="programma">
+            <h2>IL PROGRAMMA</h2>
+            <p>FND 2026-2027</p>
+            <a href="#programma-completo" class="btn-programma">CLICCA QUI PER IL PROGRAMMA COMPLETO</a>
+        </section>
     </div>
-  </header>
 
-  <!-- Slideshow di sfondo (decorativo) -->
-  <div class="bg-slider" aria-hidden="true">
-    <div class="slide slide-1"></div>
-    <div class="slide slide-2"></div>
-    <div class="slide slide-3"></div>
-    <!-- overlay sfumato per contrasto -->
-    <div class="bg-gradient"></div>
-  </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-info">
+            <span><strong>Fronte Nazionale Democratico (FND)</strong></span>
+            <span>Via Nazionale, 45 - 00184 Roma (RM)</span>
+            <span>Email: info@frontenazionaledemocratico.it</span>
+        </div>
+        <div class="social-icons">
+            <a href="#" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+        <div class="footer-info" style="text-align: right;">
+            <span>#ItaliaEfficiente #DDLUSI</span>
+            <span>© 2026 FND - Tutti i diritti riservati</span>
+        </div>
+    </footer>
 
-  <main id="main" class="hero" role="main">
-    <div class="hero-inner">
-      <h1 class="hero-title">Per una società libera e prospera</h1>
-      <p class="hero-sub">Promuoviamo il lavoro, l’impresa e la responsabilità individuale.</p>
-
-      <div class="hero-ctas" role="navigation" aria-label="Azioni principali">
-        <a class="btn btn-primary" href="programma.html">Scopri il Programma</a>
-        <a class="btn btn-outline" href="chisiamo.html">Chi Siamo</a>
-      </div>
-
-      <aside class="hero-note" aria-hidden="false">
-        <p>Immagini: statue della libertà e simboli del liberismo (fonte: Unsplash). Se necessario sostituisci con asset ufficiali.</p>
-      </aside>
-    </div>
-  </main>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="footer-inner">
-      <small>© <span id="year">2026</span> Fronte Nazional Democratico — Tutti i diritti riservati</small>
-    </div>
-  </footer>
 </body>
 </html>
