@@ -1,42 +1,74 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fronte Nazional Democratico</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Fronte Nazional Democratico</title>
+  <meta name="description" content="Fronte Nazional Democratico — Libertà, Democrazia e Progresso." />
+  <meta name="referrer" content="no-referrer" />
+  <meta name="theme-color" content="#003049" />
+
+  <!-- Content Security Policy: immagini da Unsplash autorizzate, nessuno script inline -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data: https://source.unsplash.com https://images.unsplash.com; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self'; script-src 'none';">
+
+  <!-- Performance: connessione/prerender immagini esterne -->
+  <link rel="preconnect" href="https://source.unsplash.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <!-- Preload prima immagine slideshow per render rapido -->
+  <link rel="preload" as="image" href="https://source.unsplash.com/1920x1080/?statue%20of%20liberty,liberty">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Salta al contenuto</a>
 
-    <!-- Sfondo con Dissolvenza Dinamica (Slideshow) -->
-    <div class="bg-slider">
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80');"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1920&q=80');"></div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1920&q=80');"></div>
+  <header class="site-header" role="banner" aria-hidden="false">
+    <div class="header-inner">
+      <div class="brand">
+        <strong class="brand-title">Fronte Nazional Democratico</strong>
+        <span class="brand-tag">Libertà, Democrazia e Progresso</span>
+      </div>
+      <nav class="top-nav" aria-label="Navigazione principale">
+        <ul>
+          <li><a href="programma.html">Programma</a></li>
+          <li><a href="chisiamo.html">Chi siamo</a></li>
+          <li><a href="contatti.html">Contatti</a></li>
+          <li><a href="unisciti.html" class="cta">Unisciti</a></li>
+        </ul>
+      </nav>
     </div>
-    
-    <!-- Overlay di Profondità (Blu e Azzurro Sfumato) -->
-    <div class="overlay"></div>
+  </header>
 
-    <!-- Contenuto Principale della Home -->
-    <main class="hero-container">
-        <div class="logo-area">
-            <h1>Fronte Nazional Democratico</h1>
-            <p class="tagline">Libertà, Democrazia e Progresso</p>
-        </div>
+  <!-- Slideshow di sfondo (decorativo) -->
+  <div class="bg-slider" aria-hidden="true">
+    <div class="slide slide-1"></div>
+    <div class="slide slide-2"></div>
+    <div class="slide slide-3"></div>
+    <!-- overlay sfumato per contrasto -->
+    <div class="bg-gradient"></div>
+  </div>
 
-        <div class="nav-buttons">
-            <!-- Bottone Principale (Il più grande e in evidenza) -->
-            <a href="programma.html" class="btn btn-primary btn-giant">PROGRAMMA</a>
-            
-            <!-- Bottoni Secondari -->
-            <div class="secondary-buttons">
-                <a href="chisiamo.html" class="btn btn-secondary">CHI SIAMO</a>
-                <a href="contatti.html" class="btn btn-secondary">CONTATTI</a>
-                <a href="unisciti.html" class="btn btn-secondary">UNISCITI A NOI</a>
-            </div>
-        </div>
-    </main>
+  <main id="main" class="hero" role="main">
+    <div class="hero-inner">
+      <h1 class="hero-title">Per una società libera e prospera</h1>
+      <p class="hero-sub">Promuoviamo il lavoro, l’impresa e la responsabilità individuale.</p>
 
+      <div class="hero-ctas" role="navigation" aria-label="Azioni principali">
+        <a class="btn btn-primary" href="programma.html">Scopri il Programma</a>
+        <a class="btn btn-outline" href="chisiamo.html">Chi Siamo</a>
+      </div>
+
+      <aside class="hero-note" aria-hidden="false">
+        <p>Immagini: statue della libertà e simboli del liberismo (fonte: Unsplash). Se necessario sostituisci con asset ufficiali.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <small>© <span id="year">2026</span> Fronte Nazional Democratico — Tutti i diritti riservati</small>
+    </div>
+  </footer>
 </body>
 </html>
