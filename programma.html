@@ -126,15 +126,17 @@
             box-shadow: 0 5px 15px rgba(0, 102, 255, 0.6);
         }
 
+        /* Sfondo a tema innovazione e mercati globali */
         .program-wrapper {
             position: relative;
-            background: var(--primary-dark);
+            background: linear-gradient(rgba(7, 17, 32, 0.88), rgba(7, 17, 32, 0.88)), 
+                        url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
             flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 50px 20px;
+            padding: 60px 20px 40px 20px;
         }
 
         .program-card-container {
@@ -211,6 +213,33 @@
             font-weight: 600;
             color: #4ade80;
             min-height: 18px;
+        }
+
+        .waves-container {
+            position: relative;
+            width: 100%;
+            background: var(--primary-dark);
+        }
+
+        .waves-box {
+            position: relative;
+            width: 100%;
+            height: 80px;
+            margin-bottom: -10px;
+            display: block;
+        }
+
+        .parallax > use {
+            animation: move-wave 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+        }
+        .parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; fill: rgba(0, 102, 255, 0.08); }
+        .parallax > use:nth-child(2) { animation-delay: -4s; animation-duration: 10s; fill: rgba(0, 102, 255, 0.05); }
+        .parallax > use:nth-child(3) { animation-delay: -6s; animation-duration: 13s; fill: rgba(0, 102, 255, 0.03); }
+        .parallax > use:nth-child(4) { animation-delay: -8s; animation-duration: 20s; fill: rgba(7, 17, 32, 1); }
+
+        @keyframes move-wave {
+            0% { transform: translate3d(-90px, 0, 0); }
+            100% { transform: translate3d(85px, 0, 0); }
         }
 
         footer {
@@ -301,6 +330,22 @@
             </form>
             <div id="form-feedback"></div>
         </div>
+    </div>
+
+    <!-- Waves Animation Container -->
+    <div class="waves-container">
+        <svg class="waves-box" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" />
+                <use xlink:href="#gentle-wave" x="48" y="3" />
+                <use xlink:href="#gentle-wave" x="48" y="5" />
+                <use xlink:href="#gentle-wave" x="48" y="7" />
+            </g>
+        </svg>
     </div>
 
     <footer>
