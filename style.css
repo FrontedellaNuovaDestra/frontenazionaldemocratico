@@ -1,162 +1,114 @@
-/* Reset e Configurazione Base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+:root{
+  --bg-overlay-1: rgba(2,12,27,0.88);
+  --accent: #00a8ff;
+  --accent-strong: #0066cc;
+  --glass: rgba(255,255,255,0.06);
+  --text: #ffffff;
+  --max-width: 1200px;
+  --radius: 12px;
+  --transition: 220ms cubic-bezier(.2,.9,.3,1);
+  --container-padding: clamp(16px, 3vw, 40px);
+  --fluid-title: clamp(1.8rem, 4vw, 3.6rem);
 }
 
-body, html {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    color: #ffffff;
+/* Reset minimale */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter, "Segoe UI", Roboto, -apple-system, "Helvetica Neue", Arial; color:var(--text); background:#051028; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* Skip link per tastiera */
+.skip-link{position:absolute;left:-9999px;top:auto}
+.skip-link:focus{left:1rem;top:1rem;padding:.5rem .75rem;background:#fff;color:#003049;border-radius:6px;z-index:9999;box-shadow:0 6px 22px rgba(0,0,0,.25)}
+
+/* Header */
+.site-header{position:fixed;inset:0 0 auto 0;height:64px;display:flex;align-items:center;pointer-events:none}
+.header-inner{width:100%;max-width:var(--max-width);margin:0 auto;padding:0 var(--container-padding);display:flex;align-items:center;justify-content:space-between;pointer-events:auto}
+.brand{display:flex;flex-direction:column;gap:2px}
+.brand-title{font-weight:800;letter-spacing:1px;font-size:1rem;text-transform:uppercase}
+.brand-tag{font-size:.78rem;color:rgba(255,255,255,.75)}
+.top-nav ul{display:flex;gap:12px;list-style:none;margin:0;padding:0}
+.top-nav a{padding:.45rem .7rem;border-radius:8px;transition:all var(--transition);font-weight:600;color:rgba(255,255,255,.92)}
+.top-nav a:hover{background:rgba(255,255,255,.04);transform:translateY(-2px)}
+.top-nav .cta{background:linear-gradient(135deg,var(--accent),var(--accent-strong));color:#fff;padding:.45rem .9rem;box-shadow:0 6px 24px rgba(0,168,255,.18)}
+
+/* Background slider: fixed and decorative (aria-hidden) */
+.bg-slider{position:fixed;inset:0;z-index:-3;overflow:hidden;pointer-events:none}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center center;opacity:0;transform:scale(1);filter:saturate(.98) contrast(.98);will-change:opacity,transform;animation:slideshow 18s infinite linear}
+.slide-1{animation-delay:0s;background-image: url('https://source.unsplash.com/1920x1080/?statue%20of%20liberty,freedom');}
+.slide-2{animation-delay:6s;background-image: url('https://source.unsplash.com/1920x1080/?statue%20of%20liberty,liberty');}
+.slide-3{animation-delay:12s;background-image: url('https://source.unsplash.com/1920x1080/?lady%20liberty,statue');}
+
+/* gentle ken burns + crossfade */
+@keyframes slideshow{
+  0%{opacity:0;transform:scale(1)}
+  6%{opacity:1;transform:scale(1.02)}
+  30%{opacity:1;transform:scale(1.06)}
+  36%{opacity:0;transform:scale(1.08)}
+  100%{opacity:0}
 }
 
-/* Sfondo con Dissolvenza Automatica (Effetto Profondità) */
-.bg-slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
+/* Layered gradient for consistent contrast */
+.bg-gradient{position:absolute;inset:0;background:
+  linear-gradient(180deg, rgba(2,8,20,0.78) 0%, rgba(0,60,110,0.5) 40%),
+  linear-gradient(135deg, rgba(0,140,255,0.08) 0%, rgba(0,0,0,0.35) 100%);
+mix-blend-mode:normal;z-index:-2}
+
+/* Hero area */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:calc(var(--container-padding) * 3) var(--container-padding)}
+.hero-inner{width:100%;max-width:980px;text-align:center;padding:48px;border-radius:var(--radius);backdrop-filter:blur(8px);background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 20px 60px rgba(2,6,20,0.6)}
+.hero-title{font-size:var(--fluid-title);line-height:1.02;margin:0 0 .5rem;font-weight:800;letter-spacing:1px}
+.hero-sub{font-size:clamp(1rem,2.2vw,1.15rem);margin:0 0 1.4rem;color:rgba(255,255,255,.9)}
+
+/* CTA buttons */
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:8px}
+.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:10px;padding:14px 20px;font-weight:700;letter-spacing:1px;transition:transform var(--transition),box-shadow var(--transition),background var(--transition)}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-strong));color:#fff;box-shadow:0 10px 30px rgba(0,168,255,0.16)}
+.btn-primary:hover{transform:translateY(-4px);box-shadow:0 18px 48px rgba(0,168,255,0.22)}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,.12);color:var(--text)}
+.btn-outline:hover{background:rgba(255,255,255,.03);transform:translateY(-3px)}
+
+/* note/footer */
+.hero-note{margin-top:16px;color:rgba(255,255,255,.7);font-size:.85rem}
+.site-footer{padding:20px 0;text-align:center;color:rgba(255,255,255,.65)}
+
+/* Accessibility: strong focus visible */
+:focus{outline:none}
+a:focus-visible, button:focus-visible{outline:3px solid rgba(56,182,255,.95);outline-offset:4px;border-radius:8px}
+
+/* Mobile adjustments */
+@media (max-width:820px){
+  .header-inner{padding:0 18px}
+  .top-nav ul{gap:8px}
+  .hero-inner{padding:28px}
+  .hero-title{font-size:clamp(1.6rem,6vw,2.2rem)}
 }
 
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    animation: fadeAnimation 18s infinite;
+/* Small devices */
+@media (max-width:480px){
+  .site-header{height:56px}
+  .brand-title{font-size:.92rem}
+  .top-nav ul{display:none}
+  .hero{padding:60px 18px}
+  .hero-inner{padding:20px}
+  .btn{padding:12px 16px}
 }
 
-/* Tempistica delle immagini in dissolvenza */
-.slide:nth-child(1) { animation-delay: 0s; }
-.slide:nth-child(2) { animation-delay: 6s; }
-.slide:nth-child(3) { animation-delay: 12s; }
-
-@keyframes fadeAnimation {
-    0% { opacity: 0; transform: scale(1); }
-    8% { opacity: 1; }
-    33% { opacity: 1; transform: scale(1.04); }
-    41% { opacity: 0; }
-    100% { opacity: 0; }
+/* Respect users' reduced motion preference */
+@media (prefers-reduced-motion: reduce){
+  .slide{animation:none !important;opacity:1 !important;transform:none !important}
+  .btn, .top-nav a{transition:none}
 }
 
-/* Overlay Dinamico con Gradiente Blu/Azzurro */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(8, 24, 48, 0.9) 0%, rgba(0, 114, 206, 0.75) 100%);
-    z-index: -1;
+/* High contrast preference */
+@media (prefers-contrast: more){
+  .bg-gradient{background:linear-gradient(180deg, rgba(2,8,20,0.95), rgba(0,60,110,0.85))}
+  .brand-tag, .hero-sub, .hero-note{color:#cfefff}
 }
 
-/* Container Centrale */
-.hero-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    text-align: center;
-    padding: 20px;
-}
+/* Small polish: ensure text contrast on top of overlay */
+.hero-title, .brand-title{text-shadow:0 6px 28px rgba(0,0,0,.55)}
+.hero-sub{letter-spacing:.2px}
 
-.logo-area h1 {
-    font-size: 3.2rem;
-    font-weight: 800;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-}
-
-.tagline {
-    font-size: 1.25rem;
-    color: #38b6ff;
-    margin-bottom: 45px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-/* Gestione dei Bottoni */
-.nav-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    width: 100%;
-    max-width: 480px;
-    align-items: center;
-}
-
-.btn {
-    display: inline-block;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Bottone Principale "PROGRAMMA" (Enorme e di grande impatto) */
-.btn-giant {
-    width: 100%;
-    padding: 22px 30px;
-    font-size: 1.6rem;
-    background: linear-gradient(135deg, #00A8FF, #004d99);
-    color: #ffffff;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-}
-
-.btn-giant:hover {
-    background: linear-gradient(135deg, #38b6ff, #0066cc);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(0, 168, 255, 0.6);
-    border-color: #ffffff;
-}
-
-/* Contenitore Bottoni Secondari */
-.secondary-buttons {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    gap: 12px;
-}
-
-.btn-secondary {
-    flex: 1;
-    padding: 14px 8px;
-    font-size: 0.9rem;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-.btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: #38b6ff;
-    transform: translateY(-2px);
-    color: #38b6ff;
-}
-
-/* Responsive Design per Smartphone */
-@media (max-width: 600px) {
-    .logo-area h1 { font-size: 2.1rem; }
-    .tagline { font-size: 1rem; margin-bottom: 30px; }
-    .secondary-buttons { flex-direction: column; }
-    .btn-secondary { width: 100%; }
-}
+/* Utility: limit content width */
+.footer-inner, .header-inner{max-width:var(--max-width);margin:0 auto}
