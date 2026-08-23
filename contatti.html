@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti - Fronte Nazionale Democratico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #071120;
+            --primary-blue: #0047ab;
+            --accent-blue: #0066ff;
+            --accent-glow: rgba(0, 102, 255, 0.4);
+            --white: #ffffff;
+            --text-muted: #94a3b8;
+            --glass-bg: rgba(255, 255, 255, 0.07);
+            --glass-border: rgba(255, 255, 255, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(7, 17, 32, 0.9);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 4%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .logo-img {
+            width: 44px;
+            height: 44px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 2px solid var(--accent-blue);
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 11px;
+            line-height: 1.1;
+            color: var(--white);
+            letter-spacing: 0.5px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            overflow-x: auto;
+            max-width: 650px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 5px 0;
+        }
+
+        nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-scroll-container {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            white-space: nowrap;
+            padding: 0 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 12px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--white);
+            background: rgba(0, 102, 255, 0.2);
+            border-color: var(--accent-blue);
+        }
+
+        nav a.nav-btn-highlight {
+            background: linear-gradient(135deg, var(--accent-blue), var(--primary-blue));
+            color: var(--white);
+            border-color: transparent;
+            box-shadow: 0 3px 12px var(--accent-glow);
+            font-weight: 700;
+        }
+
+        nav a.nav-btn-highlight:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 102, 255, 0.6);
+        }
+
+        .content-section {
+            background: linear-gradient(rgba(7, 17, 32, 0.92), rgba(7, 17, 32, 0.92)), 
+                        url('https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            padding: 80px 20px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-box {
+            max-width: 800px;
+            width: 100%;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(14px);
+            padding: 50px 40px;
+            border-radius: 24px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        .content-section h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .content-section h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #60a5fa;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            margin-top: 20px;
+        }
+
+        .contact-details strong {
+            color: var(--white);
+        }
+
+        footer {
+            background-color: var(--primary-dark);
+            color: var(--text-muted);
+            padding: 30px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.85rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .footer-info strong {
+            color: var(--white);
+            font-size: 0.95rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-icons a {
+            color: var(--white);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--accent-blue);
+            border-color: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        @media(max-width: 600px) {
+            .content-section { padding: 40px 15px; }
+            .card-box { padding: 30px 20px; }
+            footer { flex-direction: column; text-align: center; }
+            .footer-info { align-items: center; text-align: center !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo-container">
+            <img src="87ccbd61-4ea4-419d-b62b-a27747f2fce7_20260819_215712_0000.png" alt="FND Logo" class="logo-img">
+            <div class="logo-text">
+                FRONTE<br>NAZIONALE<br>DEMOCRATICO
+            </div>
+        </a>
+        <nav>
+            <div class="nav-scroll-container">
+                <a href="index.html">HOME</a>
+                <a href="chisiamo.html">CHI SIAMO</a>
+                <a href="programma.html" class="nav-btn-highlight"><i class="fa-solid fa-star" style="font-size: 10px; margin-right: 4px;"></i> PROGRAMMA</a>
+                <a href="contatti.html" class="active">CONTATTI</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="content-section">
+        <div class="card-box">
+            <h2>CONTATTI</h2>
+            <h3>ENTRA IN CONTATTO CON IL MOVIMENTO</h3>
+            <div class="contact-details">
+                <p><strong>Sede Centrale:</strong> Via Nazionale, 45 - 00184 Roma (RM)</p>
+                <p><strong>Email Ufficiale:</strong> info@frontenazionaledemocratico.it</p>
+                <p>Seguici anche sui nostri canali ufficiali social per rimanere aggiornato su tutte le iniziative locali e nazionali.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-info">
+            <strong>CONTATTI - FND</strong>
+            <span>Via Nazionale, 45 - 00184 Roma (RM)</span>
+            <span>Email: info@frontenazionaledemocratico.it</span>
+        </div>
+        <div class="social-icons">
+            <a href="#" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" target="_blank" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+        </div>
+        <div class="footer-info" style="text-align: right;">
+            <span style="color: #60a5fa; font-weight: 600;">#ItaliaEfficiente #FND2026</span>
+            <span>© 2026 FND - Tutti i diritti riservati</span>
+        </div>
+    </footer>
+
+</body>
+</html>
