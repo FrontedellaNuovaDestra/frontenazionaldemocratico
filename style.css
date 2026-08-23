@@ -1,30 +1,24 @@
-:root {
-    --bg-dark: #010214;
-    --accent-blue: #00b4d8;
-    --glass: rgba(255, 255, 255, 0.05);
+/* Import del font di base */
+body {
+    font-family: 'Inter', sans-serif;
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+/* Animazione fluida delle onde in basso */
+@keyframes waveAnimation {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-25%); }
+    100% { transform: translateX(0); }
+}
 
-body { background: var(--bg-dark); color: white; min-height: 100vh; display: flex; flex-direction: column; }
+.animate-wave {
+    animation: waveAnimation 12s ease-in-out infinite alternate;
+}
 
-/* Sfondo Statua e Torcia */
-.bg-scene { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-.statue-bg { width: 100%; height: 100%; object-fit: cover; opacity: 0.2; }
-
-.torch-wrapper { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); text-align: center; }
-.flame { width: 100px; height: 150px; background: var(--accent-blue); filter: blur(25px); border-radius: 50%; margin: 0 auto -50px; animation: flicker 2s infinite; opacity: 0.6; }
-.torch-base { width: 120px; position: relative; z-index: 2; }
-
-@keyframes flicker { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
-
-/* Layout pagine */
-header { padding: 40px; text-align: center; }
-nav a { margin: 0 15px; color: white; text-decoration: none; font-weight: bold; padding: 10px 20px; border: 1px solid var(--accent-blue); border-radius: 20px; transition: 0.3s; }
-nav a:hover { background: var(--accent-blue); }
-
-main { flex: 1; display: flex; justify-content: center; padding: 20px; }
-.window { background: var(--glass); backdrop-filter: blur(15px); padding: 50px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.1); max-width: 700px; width: 100%; text-align: center; }
-
-footer { padding: 30px; text-align: center; font-size: 0.9rem; }
-footer a { color: var(--accent-blue); text-decoration: none; }
+/* Sezione Parallasse della Statua della Libertà */
+.liberty-parallax {
+    background-image: linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=1920&q=80');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
