@@ -1,24 +1,162 @@
-/* Import font base */
-body {
-    font-family: 'Inter', sans-serif;
+/* Reset e Configurazione Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Animazione fluida delle onde in basso */
-@keyframes waveAnimation {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(-25%); }
-    100% { transform: translateX(0); }
+body, html {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    color: #ffffff;
 }
 
-.animate-wave {
-    animation: waveAnimation 14s ease-in-out infinite alternate;
+/* Sfondo con Dissolvenza Automatica (Effetto Profondità) */
+.bg-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
 }
 
-/* Sezione centrale con Statua della Libertà e Effetto Parallasse */
-.liberty-section {
-    background-image: linear-gradient(rgba(11, 27, 61, 0.85), rgba(11, 27, 61, 0.85)), url('https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=1920&q=80');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: fadeAnimation 18s infinite;
+}
+
+/* Tempistica delle immagini in dissolvenza */
+.slide:nth-child(1) { animation-delay: 0s; }
+.slide:nth-child(2) { animation-delay: 6s; }
+.slide:nth-child(3) { animation-delay: 12s; }
+
+@keyframes fadeAnimation {
+    0% { opacity: 0; transform: scale(1); }
+    8% { opacity: 1; }
+    33% { opacity: 1; transform: scale(1.04); }
+    41% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Overlay Dinamico con Gradiente Blu/Azzurro */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(8, 24, 48, 0.9) 0%, rgba(0, 114, 206, 0.75) 100%);
+    z-index: -1;
+}
+
+/* Container Centrale */
+.hero-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+.logo-area h1 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.tagline {
+    font-size: 1.25rem;
+    color: #38b6ff;
+    margin-bottom: 45px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Gestione dei Bottoni */
+.nav-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    max-width: 480px;
+    align-items: center;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Bottone Principale "PROGRAMMA" (Enorme e di grande impatto) */
+.btn-giant {
+    width: 100%;
+    padding: 22px 30px;
+    font-size: 1.6rem;
+    background: linear-gradient(135deg, #00A8FF, #004d99);
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-giant:hover {
+    background: linear-gradient(135deg, #38b6ff, #0066cc);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 168, 255, 0.6);
+    border-color: #ffffff;
+}
+
+/* Contenitore Bottoni Secondari */
+.secondary-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 12px;
+}
+
+.btn-secondary {
+    flex: 1;
+    padding: 14px 8px;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #38b6ff;
+    transform: translateY(-2px);
+    color: #38b6ff;
+}
+
+/* Responsive Design per Smartphone */
+@media (max-width: 600px) {
+    .logo-area h1 { font-size: 2.1rem; }
+    .tagline { font-size: 1rem; margin-bottom: 30px; }
+    .secondary-buttons { flex-direction: column; }
+    .btn-secondary { width: 100%; }
 }
