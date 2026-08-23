@@ -1,21 +1,6 @@
-/* Import del font di base */
+/* Import font base */
 body {
     font-family: 'Inter', sans-serif;
-}
-
-/* Gestione delle viste (SPA) */
-.view-section {
-    display: none;
-}
-
-.view-section.active {
-    display: block;
-    animation: fadeIn 0.4s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(6px); }
-    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Animazione fluida delle onde in basso */
@@ -26,12 +11,12 @@ body {
 }
 
 .animate-wave {
-    animation: waveAnimation 12s ease-in-out infinite alternate;
+    animation: waveAnimation 14s ease-in-out infinite alternate;
 }
 
-/* Sezione Parallasse e Svelamento della Statua della Libertà */
-.liberty-parallax {
-    background-image: linear-gradient(rgba(11, 27, 61, 0.75), rgba(11, 27, 61, 0.75)), url('https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=1920&q=80');
+/* Sezione centrale con Statua della Libertà e Effetto Parallasse */
+.liberty-section {
+    background-image: linear-gradient(rgba(11, 27, 61, 0.85), rgba(11, 27, 61, 0.85)), url('https://images.unsplash.com/photo-1534430480872-3498386e7856?auto=format&fit=crop&w=1920&q=80');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
