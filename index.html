@@ -19,6 +19,10 @@
             --glass-border: rgba(255, 255, 255, 0.12);
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -293,6 +297,53 @@
             color: var(--white);
         }
 
+        /* SEZIONI DI APPROFONDIMENTO */
+        .detailed-sections {
+            margin-top: 60px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .detail-card {
+            background: rgba(10, 22, 40, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            scroll-margin-top: 100px;
+        }
+
+        .detail-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .detail-header .feature-icon {
+            margin-bottom: 0;
+            font-size: 2.2rem;
+        }
+
+        .detail-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .detail-body p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .detail-body p:last-child {
+            margin-bottom: 0;
+        }
+
         /* ANIMATED WAVES SECTION */
         .wave-section {
             position: relative;
@@ -441,7 +492,7 @@
                     <div class="feature-title">Istituzioni ed Efficienza</div>
                     <div class="feature-desc">Semi-parlamentarismo, semi-federalismo fiscale e istituzione del servizio U.S.I. per il contrasto rapido al degrado urbano.</div>
                 </div>
-                <a href="programma.html#istituzioni" class="feature-link">Approfondisci <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#istituzioni" class="feature-link">Approfondisci <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
             <div class="feature-card">
@@ -450,7 +501,7 @@
                     <div class="feature-title">Economia e Sviluppo</div>
                     <div class="feature-desc">Taglio della pressione fiscale su famiglie e imprese, salario minimo bilanciato e investimenti strategici sulle infrastrutture.</div>
                 </div>
-                <a href="programma.html#economia" class="feature-link">Approfondisci <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#economia" class="feature-link">Approfondisci <i class="fa-solid fa-arrow-right"></i></a>
             </div>
 
             <div class="feature-card">
@@ -459,7 +510,43 @@
                     <div class="feature-title">Sicurezza e Confini</div>
                     <div class="feature-desc">Controllo rigoroso dei flussi migratori, tutela della sicurezza urbana e certezza della pena attraverso riforme mirate.</div>
                 </div>
-                <a href="programma.html#sicurezza" class="feature-link">Approfondisci <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#sicurezza" class="feature-link">Approfondisci <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- SEZIONI DETTAGLIATE PER GLI APPROFONDIMENTI -->
+        <div class="detailed-sections">
+            <div id="istituzioni" class="detail-card">
+                <div class="detail-header">
+                    <div class="feature-icon"><i class="fa-solid fa-landmark"></i></div>
+                    <h3 class="detail-title">Istituzioni ed Efficienza</h3>
+                </div>
+                <div class="detail-body">
+                    <p>Il Fronte Nazionale Democratico promuove una profonda riforma istituzionale volta a garantire stabilità, efficienza e un rapporto diretto tra cittadini e Stato. Attraverso l'introduzione del semi-parlamentarismo e di un rigoroso semi-federalismo fiscale, responsabilizziamo i territori ottimizzando la spesa pubblica.</p>
+                    <p>Inoltre, istituiamo il servizio U.S.I. per il contrasto rapido e strutturale al degrado urbano, restituendo decoro e sicurezza alle nostre città.</p>
+                </div>
+            </div>
+
+            <div id="economia" class="detail-card">
+                <div class="detail-header">
+                    <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3 class="detail-title">Economia e Sviluppo</h3>
+                </div>
+                <div class="detail-body">
+                    <p>La nostra priorità economica è il rilancio del tessuto produttivo italiano attraverso un deciso taglio della pressione fiscale su famiglie e imprese. Sosteniamo la crescita mediante investimenti strategici sulle infrastrutture e l'innovazione tecnologica.</p>
+                    <p>Garantiamo un salario minimo bilanciato che tuteli i lavoratori senza penalizzare la competitività delle piccole e medie imprese, motore storico della nostra economia.</p>
+                </div>
+            </div>
+
+            <div id="sicurezza" class="detail-card">
+                <div class="detail-header">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3 class="detail-title">Sicurezza e Confini</h3>
+                </div>
+                <div class="detail-body">
+                    <p>La sicurezza è il presupposto fondamentale di ogni libertà. Per questo il FND sostiene un controllo rigoroso e ordinato dei flussi migratori, nel pieno rispetto della sovranità nazionale e della legalità.</p>
+                    <p>Interveniamo con decisione per la tutela della sicurezza urbana e per garantire la certezza della pena attraverso riforme mirate del sistema giudiziario e carcerario.</p>
+                </div>
             </div>
         </div>
     </div>
