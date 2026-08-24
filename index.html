@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-dark: #071120;
+            --primary-dark: #050b14;
+            --primary-card: #0a1628;
             --primary-blue: #0047ab;
             --accent-blue: #0066ff;
-            --accent-glow: rgba(0, 102, 255, 0.4);
+            --accent-glow: rgba(0, 102, 255, 0.35);
             --white: #ffffff;
             --text-muted: #94a3b8;
-            --glass-bg: rgba(255, 255, 255, 0.07);
-            --glass-border: rgba(255, 255, 255, 0.15);
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.12);
         }
 
         * {
@@ -34,15 +35,16 @@
             min-height: 100vh;
         }
 
+        /* HEADER STYLING */
         header {
-            background: rgba(7, 17, 32, 0.9);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(5, 11, 20, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 4%;
+            padding: 14px 5%;
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -51,36 +53,34 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             text-decoration: none;
             flex-shrink: 0;
         }
 
         .logo-img {
-            width: 44px;
-            height: 44px;
+            width: 46px;
+            height: 46px;
             object-fit: cover;
             border-radius: 50%;
             border: 2px solid var(--accent-blue);
-            box-shadow: 0 0 12px var(--accent-glow);
+            box-shadow: 0 0 15px var(--accent-glow);
         }
 
         .logo-text {
             font-weight: 800;
             font-size: 11px;
-            line-height: 1.1;
+            line-height: 1.2;
             color: var(--white);
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
         }
 
         nav {
             display: flex;
             align-items: center;
             overflow-x: auto;
-            max-width: 650px;
             scrollbar-width: none;
             -ms-overflow-style: none;
-            padding: 5px 0;
         }
 
         nav::-webkit-scrollbar {
@@ -89,10 +89,9 @@
 
         .nav-scroll-container {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
             white-space: nowrap;
-            padding: 0 10px;
         }
 
         nav a {
@@ -100,97 +99,110 @@
             color: var(--text-muted);
             font-weight: 600;
             font-size: 12px;
-            padding: 8px 16px;
-            border-radius: 20px;
+            padding: 9px 18px;
+            border-radius: 30px;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         nav a:hover, nav a.active {
             color: var(--white);
-            background: rgba(0, 102, 255, 0.2);
+            background: rgba(0, 102, 255, 0.15);
             border-color: var(--accent-blue);
+            box-shadow: 0 0 12px rgba(0, 102, 255, 0.2);
         }
 
         nav a.nav-btn-highlight {
             background: linear-gradient(135deg, var(--accent-blue), var(--primary-blue));
             color: var(--white);
             border-color: transparent;
-            box-shadow: 0 3px 12px var(--accent-glow);
+            box-shadow: 0 4px 15px var(--accent-glow);
             font-weight: 700;
         }
 
         nav a.nav-btn-highlight:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 102, 255, 0.6);
+            box-shadow: 0 6px 20px rgba(0, 102, 255, 0.6);
         }
 
-        /* Sfondo a tema liberista / libero mercato (architetture finanziarie e sviluppo d'impresa) */
+        /* HERO SECTION */
         .hero {
             position: relative;
-            background: linear-gradient(135deg, rgba(7, 17, 32, 0.88) 0%, rgba(0, 71, 171, 0.78) 100%), 
+            background: linear-gradient(135deg, rgba(5, 11, 20, 0.82) 0%, rgba(0, 71, 171, 0.72) 100%), 
                         url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            padding: 90px 20px 60px 20px;
+            padding: 110px 20px 80px 20px;
             text-align: center;
-            flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
         }
 
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 102, 255, 0.15);
+            border: 1px solid rgba(0, 102, 255, 0.4);
+            color: #60a5fa;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(0, 102, 255, 0.15);
+        }
+
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 900;
             text-transform: uppercase;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.6);
-            background: linear-gradient(to right, #ffffff, #93c5fd);
+            margin-bottom: 15px;
+            letter-spacing: 1.5px;
+            text-shadow: 0 4px 25px rgba(0, 0, 0, 0.7);
+            background: linear-gradient(to right, #ffffff, #93c5fd, #60a5fa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero h2 {
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 500;
             color: #cbd5e1;
-            margin-bottom: 35px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-content-center {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-top: 15px;
+            margin-bottom: 40px;
+            max-width: 680px;
+            line-height: 1.6;
         }
 
         .hero-logo-large {
-            width: 130px;
-            height: 130px;
+            width: 140px;
+            height: 140px;
             object-fit: cover;
             border-radius: 50%;
             border: 3px solid var(--accent-blue);
-            box-shadow: 0 0 25px var(--accent-glow);
-            margin-bottom: 30px;
+            box-shadow: 0 0 35px var(--accent-glow);
+            margin-bottom: 35px;
             background: var(--primary-dark);
+            transition: transform 0.4s ease;
+        }
+
+        .hero-logo-large:hover {
+            transform: scale(1.04);
         }
 
         .hero-cta-btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             background: linear-gradient(135deg, var(--accent-blue), var(--primary-blue));
             color: var(--white);
             text-decoration: none;
             font-weight: 800;
-            font-size: 1.1rem;
-            padding: 18px 40px;
+            font-size: 1.05rem;
+            padding: 18px 38px;
             border-radius: 40px;
-            box-shadow: 0 6px 25px var(--accent-glow);
+            box-shadow: 0 8px 30px var(--accent-glow);
             border: 1px solid rgba(255, 255, 255, 0.25);
             transition: all 0.3s ease;
             text-transform: uppercase;
@@ -199,11 +211,107 @@
 
         .hero-cta-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.7);
+            box-shadow: 0 12px 35px rgba(0, 102, 255, 0.7);
             background: linear-gradient(135deg, #1a75ff, #003399);
         }
 
-        /* Onde SVG Animate fluide in fondo alla pagina */
+        /* PILLARS / IDENTITY SECTION */
+        .pillars-section {
+            background-color: var(--primary-dark);
+            padding: 70px 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .pillar-card {
+            background: var(--primary-card);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 35px 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 102, 255, 0.5);
+            box-shadow: 0 15px 35px rgba(0, 102, 255, 0.15);
+        }
+
+        .pillar-card:hover::before {
+            opacity: 1;
+        }
+
+        .pillar-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 102, 255, 0.12);
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #60a5fa;
+            font-size: 1.4rem;
+            margin-bottom: 22px;
+        }
+
+        .pillar-card h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--white);
+        }
+
+        .pillar-card p {
+            color: var(--text-muted);
+            font-size: 0.93rem;
+            line-height: 1.6;
+        }
+
+        /* WAVES ANIMATION CONTAINER */
         .waves-container {
             position: relative;
             width: 100%;
@@ -213,7 +321,7 @@
         .waves-box {
             position: relative;
             width: 100%;
-            height: 80px;
+            height: 70px;
             margin-bottom: -10px;
             display: block;
         }
@@ -224,22 +332,23 @@
         .parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; fill: rgba(0, 102, 255, 0.08); }
         .parallax > use:nth-child(2) { animation-delay: -4s; animation-duration: 10s; fill: rgba(0, 102, 255, 0.05); }
         .parallax > use:nth-child(3) { animation-delay: -6s; animation-duration: 13s; fill: rgba(0, 102, 255, 0.03); }
-        .parallax > use:nth-child(4) { animation-delay: -8s; animation-duration: 20s; fill: rgba(7, 17, 32, 1); }
+        .parallax > use:nth-child(4) { animation-delay: -8s; animation-duration: 20s; fill: var(--primary-card); }
 
         @keyframes move-wave {
             0% { transform: translate3d(-90px, 0, 0); }
             100% { transform: translate3d(85px, 0, 0); }
         }
 
+        /* FOOTER */
         footer {
-            background-color: var(--primary-dark);
+            background-color: var(--primary-card);
             color: var(--text-muted);
-            padding: 30px 5%;
+            padding: 40px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 25px;
             font-size: 0.85rem;
             border-top: 1px solid var(--glass-border);
         }
@@ -264,8 +373,8 @@
             color: var(--white);
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
-            width: 38px;
-            height: 38px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -277,13 +386,14 @@
         .social-icons a:hover {
             background: var(--accent-blue);
             border-color: var(--accent-blue);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--accent-glow);
         }
 
-        @media(max-width: 600px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero h2 { font-size: 1.1rem; }
-            header { padding: 10px 3%; }
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 2.4rem; }
+            .hero h2 { font-size: 1.05rem; }
+            header { padding: 12px 4%; }
             .hero-cta-btn { font-size: 0.95rem; padding: 15px 25px; }
             footer { flex-direction: column; text-align: center; }
             .footer-info { align-items: center; text-align: center !important; }
@@ -310,14 +420,47 @@
     </header>
 
     <section class="hero">
+        <div class="hero-badge">
+            <i class="fa-solid fa-bolt"></i> Manifesto Politico 2026
+        </div>
         <h1>BASTA BUROCRAZIA!</h1>
-        <h2>L'Efficienza al servizio dei cittadini e delle imprese. Semplifichiamo l'Italia.</h2>
+        <h2>L'Efficienza al servizio dei cittadini e delle imprese. Semplifichiamo l'Italia per liberare le energie del nostro Paese.</h2>
         
-        <div class="hero-content-center">
-            <img src="87ccbd61-4ea4-419d-b62b-a27747f2fce7_20260819_215712_0000.png" alt="FND Logo Grande" class="hero-logo-large">
-            <a href="programma.html" class="hero-cta-btn">
-                <i class="fa-solid fa-file-lines" style="margin-right: 8px;"></i> CLICCA QUI PER IL PROGRAMMA COMPLETO
-            </a>
+        <img src="87ccbd61-4ea4-419d-b62b-a27747f2fce7_20260819_215712_0000.png" alt="FND Logo Grande" class="hero-logo-large">
+        
+        <a href="programma.html" class="hero-cta-btn">
+            <i class="fa-solid fa-file-lines" style="margin-right: 10px;"></i> SCOPRI IL PROGRAMMA COMPLETO
+        </a>
+    </section>
+
+    <!-- Nuova Sezione Pilastri / Identitaria -->
+    <section class="pillars-section">
+        <div class="section-title">
+            <h3>I Nostri Pilastri</h3>
+            <p>I valori chiave che guidano l'azione del Fronte Nazionale Democratico</p>
+        </div>
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <div class="pillar-icon">
+                    <i class="fa-solid fa-scissors"></i>
+                </div>
+                <h4>Semplificazione Radicale</h4>
+                <p>Meno carta, meno passaggi obbligati e azzeramento dei vincoli normativi inutili che strangolano lo sviluppo e la quotidianità di famiglie e imprese.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">
+                    <i class="fa-solid fa-scale-balanced"></i>
+                </div>
+                <h4>Merito e Libero Mercato</h4>
+                <p>Valorizzazione del talento e della libera concorrenza, premiando chi produce valore e rimuovendo le barriere protezionistiche e corporative.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">
+                    <i class="fa-solid fa-microchip"></i>
+                </div>
+                <h4>Innovazione e Trasparenza</h4>
+                <p>Digitalizzazione spinta della pubblica amministrazione per uno Stato amico, efficiente e completamente trasparente nei confronti del cittadino.</p>
+            </div>
         </div>
     </section>
 
