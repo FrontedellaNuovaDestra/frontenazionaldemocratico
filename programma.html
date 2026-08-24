@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programma Politico - Fronte Nazionale Democratico (FND)</title>
+    <title>Fronte Nazionale Democratico (FND) - Programma</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -12,13 +12,11 @@
             --primary-card: #0a1628;
             --primary-blue: #0047ab;
             --accent-blue: #0066ff;
-            --accent-glow: rgba(0, 102, 255, 0.35);
+            --accent-glow: rgba(0, 102, 255, 0.4);
             --white: #ffffff;
             --text-muted: #94a3b8;
             --glass-bg: rgba(255, 255, 255, 0.04);
             --glass-border: rgba(255, 255, 255, 0.12);
-            --success-green: #22c55e;
-            --pending-orange: #f59e0b;
         }
 
         * {
@@ -28,8 +26,14 @@
             font-family: 'Montserrat', sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--primary-dark);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 100 100'%3E%3Cg fill='%2360a5fa' fill-opacity='0.035'%3E%3Cpath d='M50 15l2 4h3l-3 3 1 4-3-2-3 2 1-4-3-3h3z M62 20l5-3 2 4-5 3z'/%3E%3Cpath d='M46 32h8v50h-8z M40 45h6v20h-6z M44 82h12v8H44z'/%3E%3C/g%3E%3C/svg%3E");
+            background-repeat: repeat;
             color: var(--white);
             overflow-x: hidden;
             display: flex;
@@ -114,308 +118,109 @@
             box-shadow: 0 0 12px rgba(0, 102, 255, 0.2);
         }
 
-        nav a.nav-btn-highlight {
-            background: linear-gradient(135deg, var(--accent-blue), var(--primary-blue));
-            color: var(--white);
-            border-color: transparent;
-            box-shadow: 0 4px 15px var(--accent-glow);
-            font-weight: 700;
-        }
-
-        /* HERO */
-        .page-hero {
-            position: relative;
-            background: linear-gradient(135deg, rgba(5, 11, 20, 0.9) 0%, rgba(0, 71, 171, 0.75) 100%), 
+        /* PAGE HEADER BANNER */
+        .page-header {
+            background: linear-gradient(135deg, rgba(5, 11, 20, 0.85) 0%, rgba(0, 71, 171, 0.7) 100%), 
                         url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            padding: 80px 20px 50px 20px;
+            padding: 70px 20px;
             text-align: center;
+            border-bottom: 1px solid var(--glass-border);
         }
 
-        .page-hero h1 {
-            font-size: 2.8rem;
+        .page-header h1 {
+            font-size: 2.5rem;
             font-weight: 900;
             text-transform: uppercase;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
+            margin-bottom: 10px;
             background: linear-gradient(to right, #ffffff, #93c5fd);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .page-hero p {
+        .page-header p {
             color: var(--text-muted);
-            font-size: 1.1rem;
-            max-width: 650px;
+            font-size: 1.05rem;
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        /* CONTAINER */
-        .program-container {
-            max-width: 1100px;
+        /* MAIN CONTENT CONTAINER */
+        .container {
+            max-width: 1000px;
             margin: 0 auto;
             padding: 60px 20px;
             width: 100%;
         }
 
-        /* SECTION SEPARATOR */
-        .section-separator {
-            margin: 10px 0 50px 0;
-            position: relative;
-            height: 110px;
-            border-radius: 16px;
-            overflow: hidden;
+        .program-section {
+            background: rgba(10, 22, 40, 0.85);
+            backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            scroll-margin-top: 100px; /* Evita che l'header fisso copra il titolo all'ancoraggio */
+            transition: border-color 0.3s ease;
         }
 
-        .section-separator img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.55) contrast(1.1);
+        .program-section:hover {
+            border-color: rgba(0, 102, 255, 0.4);
         }
 
-        .section-separator::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(5, 11, 20, 0.85), rgba(0, 71, 171, 0.45));
-            z-index: 1;
-        }
-
-        .category-section {
-            margin-bottom: 30px;
-        }
-
-        .category-header {
+        .program-header {
             display: flex;
             align-items: center;
-            gap: 12px;
-            border-bottom: 2px solid rgba(0, 102, 255, 0.3);
-            padding-bottom: 12px;
-            margin-bottom: 25px;
+            gap: 18px;
+            margin-bottom: 20px;
         }
 
-        .category-header h2 {
+        .program-icon {
+            font-size: 2.2rem;
+            color: #60a5fa;
+            background: rgba(0, 102, 255, 0.1);
+            width: 65px;
+            height: 65px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            flex-shrink: 0;
+        }
+
+        .program-title {
             font-size: 1.6rem;
             font-weight: 800;
             color: var(--white);
-            letter-spacing: 0.5px;
         }
 
-        .category-header i {
-            color: #60a5fa;
-            font-size: 1.4rem;
+        .program-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
         }
 
-        .points-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-        }
-
-        /* CARD CON IMMAGINE DI SFONDO E OVERLAY */
-        .point-card {
-            background: linear-gradient(135deg, rgba(10, 22, 40, 0.92), rgba(5, 11, 20, 0.96)), 
-                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 25px;
+        .program-list {
+            list-style: none;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-            position: relative;
-            overflow: hidden;
+            gap: 12px;
         }
 
-        .point-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(0, 102, 255, 0.5);
-            box-shadow: 0 12px 30px rgba(0, 102, 255, 0.25);
-        }
-
-        .point-content {
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .point-top {
+        .program-list li {
             display: flex;
-            justify-content: space-between;
             align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .point-title {
-            font-size: 1.15rem;
-            font-weight: 700;
+            gap: 12px;
             color: var(--white);
-            line-height: 1.3;
-        }
-
-        .status-badge {
-            font-size: 0.8rem;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-weight: 600;
-            white-space: nowrap;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .status-complete {
-            background: rgba(34, 197, 94, 0.15);
-            color: #4ade80;
-            border: 1px solid rgba(34, 197, 94, 0.3);
-        }
-
-        .status-draft {
-            background: rgba(245, 158, 11, 0.15);
-            color: #fbbf24;
-            border: 1px solid rgba(245, 158, 11, 0.3);
-        }
-
-        .point-desc {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            line-height: 1.5;
-        }
-
-        /* BUTTON */
-        .btn-approfondisci {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: var(--glass-bg);
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.8rem;
-            padding: 12px 20px;
-            border-radius: 30px;
-            border: 1px solid var(--glass-border);
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            width: 100%;
-            cursor: pointer;
-            position: relative;
-            z-index: 2;
-        }
-
-        .btn-approfondisci:hover {
-            background: linear-gradient(135deg, var(--accent-blue), var(--primary-blue));
-            border-color: transparent;
-            box-shadow: 0 4px 15px var(--accent-glow);
-            transform: translateY(-2px);
-        }
-
-        /* MODAL POPUP */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(5, 11, 20, 0.85);
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            padding: 20px;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-box {
-            background: var(--primary-card);
-            border: 1px solid var(--accent-blue);
-            box-shadow: 0 0 30px var(--accent-glow);
-            border-radius: 20px;
-            max-width: 650px;
-            width: 100%;
-            padding: 30px;
-            position: relative;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
-            max-height: 85vh;
-            overflow-y: auto;
-        }
-
-        .modal-overlay.active .modal-box {
-            transform: translateY(0);
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            color: var(--white);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .modal-close:hover {
-            background: #ef4444;
-            border-color: #ef4444;
-        }
-
-        .modal-title {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: #60a5fa;
-            margin-bottom: 20px;
-            padding-right: 40px;
-        }
-
-        .modal-body ul {
-            list-style-type: none;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .modal-body li {
-            position: relative;
-            padding-left: 20px;
-            color: var(--text-muted);
             font-size: 0.95rem;
             line-height: 1.5;
         }
 
-        .modal-body li::before {
-            content: "•";
-            color: var(--accent-blue);
-            font-weight: bold;
-            font-size: 1.2rem;
-            position: absolute;
-            left: 0;
-            top: -2px;
-        }
-
-        .modal-body li strong {
-            color: var(--white);
+        .program-list li i {
+            color: #60a5fa;
+            margin-top: 4px;
         }
 
         /* ANIMATED WAVES SECTION */
@@ -425,7 +230,7 @@
             height: 60px;
             overflow: hidden;
             background: transparent;
-            margin-top: 40px;
+            margin-top: auto;
         }
 
         .editorial {
@@ -439,33 +244,14 @@
             animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
         }
 
-        .parallax > use:nth-child(1) {
-            animation-delay: -2s;
-            animation-duration: 7s;
-        }
-
-        .parallax > use:nth-child(2) {
-            animation-delay: -4s;
-            animation-duration: 10s;
-        }
-
-        .parallax > use:nth-child(3) {
-            animation-delay: -6s;
-            animation-duration: 13s;
-        }
-
-        .parallax > use:nth-child(4) {
-            animation-delay: -5s;
-            animation-duration: 20s;
-        }
+        .parallax > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
+        .parallax > use:nth-child(2) { animation-delay: -4s; animation-duration: 10s; }
+        .parallax > use:nth-child(3) { animation-delay: -6s; animation-duration: 13s; }
+        .parallax > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
 
         @keyframes move-forever {
-            0% {
-                transform: translate3d(-90px, 0, 0);
-            }
-            100% {
-                transform: translate3d(85px, 0, 0);
-            }
+            0% { transform: translate3d(-90px, 0, 0); }
+            100% { transform: translate3d(85px, 0, 0); }
         }
 
         /* FOOTER */
@@ -480,7 +266,6 @@
             gap: 20px;
             font-size: 0.85rem;
             border-top: 1px solid var(--glass-border);
-            margin-top: auto;
         }
 
         .footer-info {
@@ -521,8 +306,8 @@
         }
 
         @media(max-width: 768px) {
-            .page-hero h1 { font-size: 2.2rem; }
-            .points-grid { grid-template-columns: 1fr; }
+            .page-header h1 { font-size: 2rem; }
+            .program-header { flex-direction: column; align-items: flex-start; gap: 12px; }
             footer { flex-direction: column; text-align: center; }
             .footer-info { align-items: center; text-align: center !important; }
         }
@@ -541,332 +326,67 @@
             <div class="nav-scroll-container">
                 <a href="index.html">HOME</a>
                 <a href="chisiamo.html">CHI SIAMO</a>
-                <a href="programma.html" class="nav-btn-highlight active"><i class="fa-solid fa-star" style="font-size: 10px; margin-right: 4px;"></i> PROGRAMMA</a>
+                <a href="programma.html" class="active">PROGRAMMA</a>
                 <a href="contatti.html">CONTATTI</a>
             </div>
         </nav>
     </header>
 
-    <section class="page-hero">
+    <div class="page-header">
         <h1>Il Nostro Programma</h1>
-        <p>Le proposte concrete, i pilastri politici e gli obiettivi del Fronte Nazionale Democratico.</p>
-    </section>
-
-    <div class="program-container">
-
-        <!-- 1. ISTITUZIONI -->
-        <div class="category-section">
-            <div class="category-header">
-                <i class="fa-solid fa-landmark"></i>
-                <h2>1. Istituzioni</h2>
-            </div>
-            <div class="points-grid">
-                <!-- Semi-parlamentarismo -->
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Semi-parlamentarismo</span>
-                            <span class="status-badge status-complete"><i class="fa-solid fa-check"></i> Completo</span>
-                        </div>
-                        <p class="point-desc">Elezione diretta del Presidente del Consiglio e della Repubblica, riforma delle Camere e stabilità di governo.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('semi-parlamentarismo')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-
-                <!-- Semi-federalismo -->
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Semi-federalismo</span>
-                            <span class="status-badge status-complete"><i class="fa-solid fa-check"></i> Completo</span>
-                        </div>
-                        <p class="point-desc">Delega dei servizi alle Regioni e Province, federalismo fiscale e forte autonomia territoriale.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('semi-federalismo')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-
-                <!-- Servizio U.S.I. -->
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Servizio U.S.I.</span>
-                            <span class="status-badge status-complete"><i class="fa-solid fa-check"></i> Completo</span>
-                        </div>
-                        <p class="point-desc">Ufficio di Segnalazione e Intervento statale indipendente per contrastare il degrado e garantire la manutenzione.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('servizio-usi')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-
-                <!-- Riforma della Giustizia -->
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Riforma della Giustizia</span>
-                            <span class="status-badge status-complete"><i class="fa-solid fa-check"></i> Completo</span>
-                        </div>
-                        <p class="point-desc">Separazione delle carriere, Alta Corte Disciplinare e sorteggio parziale dei membri del CSM.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('riforma-giustizia')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- SEPARATORE 1 -->
-        <div class="section-separator">
-            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80" alt="Separator Istituzioni - Economia">
-        </div>
-
-        <!-- 2. ECONOMIA -->
-        <div class="category-section">
-            <div class="category-header">
-                <i class="fa-solid fa-chart-line"></i>
-                <h2>2. Economia</h2>
-            </div>
-            <div class="points-grid">
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Taglio delle Tasse</span>
-                            <span class="status-badge status-complete"><i class="fa-solid fa-check"></i> Completo</span>
-                        </div>
-                        <p class="point-desc">Riduzione della pressione fiscale su famiglie e imprese per liberare le energie produttive del Paese.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('taglio-tasse')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Salario minimo [FND Style]</span>
-                            <span class="status-badge status-complete"><i class="fa-solid fa-check"></i> Completo</span>
-                        </div>
-                        <p class="point-desc">Modello bilanciato e sostenibile per tutelare i lavoratori senza compromettere la competitività delle aziende.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('salario-minimo')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Investimento edilizio (Infrastrutture e trasporti)</span>
-                            <span class="status-badge status-complete"><i class="fa-solid fa-check"></i> Completo</span>
-                        </div>
-                        <p class="point-desc">Modernizzazione delle reti di trasporto, grandi opere e rilancio dell'edilizia strategica.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('investimento-edilizio')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Riforma ISEE</span>
-                            <span class="status-badge status-draft"><i class="fa-solid fa-xmark"></i> In Sviluppo</span>
-                        </div>
-                        <p class="point-desc">Revisione dei parametri economici per garantire equità e precisione negli aiuti sociali.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('riforma-isee')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- SEPARATORE 2 -->
-        <div class="section-separator">
-            <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1600&q=80" alt="Separator Economia - Energia">
-        </div>
-
-        <!-- 3. ENERGIA -->
-        <div class="category-section">
-            <div class="category-header">
-                <i class="fa-solid fa-bolt"></i>
-                <h2>3. Energia</h2>
-            </div>
-            <div class="points-grid">
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Piano Mix Energetico</span>
-                            <span class="status-badge status-complete"><i class="fa-solid fa-check"></i> Completo</span>
-                        </div>
-                        <p class="point-desc">Strategia energetica nazionale equilibrata, orientata all'indipendenza e alla sicurezza degli approvvigionamenti.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('mix-energetico')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- SEPARATORE 3 -->
-        <div class="section-separator">
-            <img src="https://images.unsplash.com/photo-1555848962-6e79363ec58f?auto=format&fit=crop&w=1600&q=80" alt="Separator Energia - Sicurezza">
-        </div>
-
-        <!-- 4. SICUREZZA E DIFESA -->
-        <div class="category-section">
-            <div class="category-header">
-                <i class="fa-solid fa-shield-halved"></i>
-                <h2>4. Sicurezza e Difesa</h2>
-            </div>
-            <div class="points-grid">
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Contrasto immigrazione</span>
-                            <span class="status-badge status-complete"><i class="fa-solid fa-check"></i> Completo</span>
-                        </div>
-                        <p class="point-desc">Controllo rigoroso dei confini, gestione dei flussi e contrasto intransigente all'immigrazione clandestina.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('contrasto-immigrazione')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Restrizioni Cittadinanza</span>
-                            <span class="status-badge status-complete"><i class="fa-solid fa-check"></i> Completo</span>
-                        </div>
-                        <p class="point-desc">Ridurre le maglie larghe e innalzare i requisiti di idoneità per l'accesso alla cittadinanza.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('restrizioni-cittadinanza')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Piano Sicurezza Urbana</span>
-                            <span class="status-badge status-draft"><i class="fa-solid fa-xmark"></i> In Sviluppo</span>
-                        </div>
-                        <p class="point-desc">Misure straordinarie per la tutela del decoro e della sicurezza nelle aree metropolitane.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('sicurezza-urbana')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Nuovo Codice Civile, Penale e Stradale</span>
-                            <span class="status-badge status-draft"><i class="fa-solid fa-xmark"></i> In Sviluppo</span>
-                        </div>
-                        <p class="point-desc">Aggiornamento normativo per garantire la certezza della pena e sanzioni proporzionate.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('nuovo-codice')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Difesa Europea</span>
-                            <span class="status-badge status-draft"><i class="fa-solid fa-xmark"></i> In Sviluppo</span>
-                        </div>
-                        <p class="point-desc">Integrazione strategica della difesa comune nel quadro della cooperazione continentale.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('difesa-europea')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Percorso Civile Universale</span>
-                            <span class="status-badge status-draft"><i class="fa-solid fa-xmark"></i> In Sviluppo</span>
-                        </div>
-                        <p class="point-desc">Esperienza formativa e di servizio alla collettività per i giovani cittadini.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('percorso-civile')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- SEPARATORE 4 -->
-        <div class="section-separator">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80" alt="Separator Sicurezza - Politica Estera">
-        </div>
-
-        <!-- 5. POLITICA ESTERA -->
-        <div class="category-section">
-            <div class="category-header">
-                <i class="fa-solid fa-globe"></i>
-                <h2>5. Politica Estera</h2>
-            </div>
-            <div class="points-grid">
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Europeismo pragmatico</span>
-                            <span class="status-badge status-complete"><i class="fa-solid fa-check"></i> Completo</span>
-                        </div>
-                        <p class="point-desc">Un'Europa incentrata sulla cooperazione economica e commerciale, nel pieno rispetto della sovranità nazionale.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('europeismo-pragmatico')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Atlantismo bilanciato</span>
-                            <span class="status-badge status-complete"><i class="fa-solid fa-check"></i> Completo</span>
-                        </div>
-                        <p class="point-desc">Solida alleanza internazionale fondata sul rispetto reciproco e sulla tutela degli interessi strategici.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('atlantismo-bilanciato')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- SEPARATORE 5 -->
-        <div class="section-separator">
-            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80" alt="Separator Politica Estera - Istruzione">
-        </div>
-
-        <!-- 6. ISTRUZIONE E CIVILTÀ -->
-        <div class="category-section">
-            <div class="category-header">
-                <i class="fa-solid fa-graduation-cap"></i>
-                <h2>6. Istruzione e Civiltà</h2>
-            </div>
-            <div class="points-grid">
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Better Education</span>
-                            <span class="status-badge status-complete"><i class="fa-solid fa-check"></i> Completo</span>
-                        </div>
-                        <p class="point-desc">Valorizzazione del merito scolastico, aggiornamento dei programmi e connessione con le sfide del futuro.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('better-education')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Matrimonio Egualitario</span>
-                            <span class="status-badge status-complete"><i class="fa-solid fa-check"></i> Completo</span>
-                        </div>
-                        <p class="point-desc">Riconoscimento dei diritti civili fondamentali e tutela giuridica paritaria per tutti i cittadini.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('matrimonio-egualitario')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-
-                <div class="point-card">
-                    <div class="point-content">
-                        <div class="point-top">
-                            <span class="point-title">Prostituzione Regolamentata</span>
-                            <span class="status-badge status-draft"><i class="fa-solid fa-xmark"></i> In Sviluppo</span>
-                        </div>
-                        <p class="point-desc">Inquadramento normativo, tutela sanitaria e legalizzazione per contrastare sfruttamento e illegalità.</p>
-                    </div>
-                    <button class="btn-approfondisci" onclick="openModal('prostituzione-regolamentata')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
-                </div>
-            </div>
-        </div>
-
+        <p>Le proposte concrete del Fronte Nazionale Democratico per il rinnovamento e l'efficienza dell'Italia.</p>
     </div>
 
-    <!-- MODAL OVERLAY & BOXES -->
-    <div id="modalOverlay" class="modal-overlay" onclick="closeModalOutside(event)">
-        <div class="modal-box">
-            <div class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></div>
-            <div id="modalContent">
-                <!-- Dinamicamente popolato via JS -->
+    <div class="container">
+        
+        <!-- PILASTRO 1: ISTITUZIONI -->
+        <div id="istituzioni" class="program-section">
+            <div class="program-header">
+                <div class="program-icon"><i class="fa-solid fa-landmark"></i></div>
+                <div class="program-title">Istituzioni ed Efficienza</div>
             </div>
+            <p class="program-desc">
+                Un apparato statale moderno deve essere snello, efficiente e capace di rispondere celermente alle esigenze dei cittadini, eliminando i passaggi burocratici superflui e garantendo una gestione territoriale ottimizzata.
+            </p>
+            <ul class="program-list">
+                <li><i class="fa-solid fa-circle-check"></i> <span><strong>Semi-parlamentarismo:</strong> Riforma dell'assetto istituzionale per garantire maggiore stabilità di governo e un legame diretto tra rappresentanza politica e decisione esecutiva.</span></li>
+                <li><i class="fa-solid fa-circle-check"></i> <span><strong>Semi-federalismo fiscale:</strong> Maggiore autonomia di gestione delle risorse alle autonomie locali, responsabilizzando i territori nella spesa pubblica e premiando l'efficienza amministrativa.</span></li>
+                <li><i class="fa-solid fa-circle-check"></i> <span><strong>Servizio U.S.I.:</strong> Istituzione di unità operative speciali per il contrasto rapido al degrado urbano, all'incuria e all'abbandono delle periferie cittadine.</span></li>
+            </ul>
         </div>
+
+        <!-- PILASTRO 2: ECONOMIA -->
+        <div id="economia" class="program-section">
+            <div class="program-header">
+                <div class="program-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <div class="program-title">Economia e Sviluppo</div>
+            </div>
+            <p class="program-desc">
+                Il motore dell'Italia deve tornare a correre liberando le energie delle imprese e valorizzando il lavoro produttivo attraverso una fiscalità più equa e mirati investimenti infrastrutturali.
+            </p>
+            <ul class="program-list">
+                <li><i class="fa-solid fa-circle-check"></i> <span><strong>Taglio della pressione fiscale:</strong> Riduzione progressiva delle tasse su famiglie e imprese per rilanciare i consumi interni e la competitività aziendale.</span></li>
+                <li><i class="fa-solid fa-circle-check"></i> <span><strong>Salario minimo bilanciato:</strong> Introduzione di una tutela salariale calibrata e concordata con le parti produttive per salvaguardare il potere d'acquisto senza gravare sulle piccole e medie imprese.</span></li>
+                <li><i class="fa-solid fa-circle-check"></i> <span><strong>Investimenti infrastrutturali:</strong> Piano strategico per la modernizzazione della rete logistica, energetica e digitale del Paese.</span></li>
+            </ul>
+        </div>
+
+        <!-- PILASTRO 3: SICUREZZA -->
+        <div id="sicurezza" class="program-section">
+            <div class="program-header">
+                <div class="program-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="program-title">Sicurezza e Confini</div>
+            </div>
+            <p class="program-desc">
+                La sicurezza pubblica è un diritto fondamentale e irrinunciabile. Lo Stato ha il dovere di tutelare l'ordine democratico, proteggere i confini nazionali e assicurare la certezza della pena.
+            </p>
+            <ul class="program-list">
+                <li><i class="fa-solid fa-circle-check"></i> <span><strong>Controllo rigoroso dei flussi:</strong> Gestione ordinata, legale e sicura dei confini nazionali ed europei, stroncare il traffico illecito di esseri umani.</span></li>
+                <li><i class="fa-solid fa-circle-check"></i> <span><strong>Sicurezza urbana:</strong> Presidio rafforzato delle aree metropolitane a rischio, incremento delle forze dell'ordine e decoro pubblico tutelato.</span></li>
+                <li><i class="fa-solid fa-circle-check"></i> <span><strong>Certezza della pena:</strong> Riforme mirate del sistema giudiziario ed esecutivo per garantire che le condanne siano scontate effettivamente, ripristinando la fiducia nella giustizia.</span></li>
+            </ul>
+        </div>
+
     </div>
 
     <!-- SEZIONE ONDE ANIMATE -->
@@ -898,219 +418,5 @@
         </div>
     </footer>
 
-    <script>
-        // Database dei contenuti per i modali (basato esattamente sui tuoi appunti)
-        const modalData = {
-            "semi-parlamentarismo": {
-                title: "Semi-parlamentarismo",
-                content: `
-                    <ul>
-                        <li><strong>Elezione diretta</strong> del Presidente del Consiglio e del Presidente della Repubblica.</li>
-                        <li><strong>Camera dei Deputati</strong> composta da un sistema proporzionale per una migliore rappresentanza nazionale.</li>
-                        <li><strong>Senato convertito nel Senato delle Regioni</strong> con sistema maggioritario con seggi uninominali provinciali per la rappresentanza regionale.</li>
-                        <li><strong>Premio di maggioranza</strong> alla coalizione/lista/partito vincente che raggiunge il 42% dei voti per la distribuzione del 55% dei seggi totali.</li>
-                        <li>Inserimento di un nuovo sistema di <strong>"Sfiducia Costruttiva"</strong> che consente di far cadere un governo solo se si ha una reale alternativa ad esso.</li>
-                        <li><strong>Revoca delle cariche</strong> dei ministeri da parte del Presidente del Consiglio.</li>
-                    </ul>
-                `
-            },
-            "semi-federalismo": {
-                title: "Semi-federalismo",
-                content: `
-                    <ul>
-                        <li><strong>Delega alle Regioni su:</strong> organizzazione dei servizi, sanità, infrastrutture, trasporti, sviluppo territoriale, formazione e politiche sul lavoro.</li>
-                        <li><strong>Delega alle province su:</strong> pianificazione territoriale, edilizia pubblica e gestione servizi locali.</li>
-                        <li><strong>Lo Stato mantiene il monopolio su:</strong> difesa, sicurezza, politica estera, economia, energia, grandes opere, immigrazione, giustizia e stato di diritto.</li>
-                        <li><strong>Federalismo fiscale:</strong> il 60% delle tasse riscosse rimane alle regioni per la gestione dei servizi. Il 40% va allo stato per grandi investimenti o per un fondo di riequilibrio territoriale per aiutare le regioni più povere.</li>
-                    </ul>
-                `
-            },
-            "servizio-usi": {
-                title: "Servizio di Segnalazione e Intervento (U.S.I.)",
-                content: `
-                    <ul>
-                        <li>L'<strong>Ufficio di Segnalazione e Intervento</strong> sarà un ente statale indipendente istituito in risposta alle situazioni di degrado cittadino.</li>
-                        <li>Il <strong>servizio</strong> potrà essere usato in digitale tramite app o sito web, con l'alternativa di uno sportello fisico di riferimento comunale.</li>
-                        <li>Sarà possibile segnalare ogni situazione di degrado che verrà verificato entro <strong>15 giorni</strong> da un team di esperti, delegando poi la questione per la risoluzione rapida.</li>
-                        <li>In caso di <strong>mancata manutenzione</strong> si ricorre a sanzioni e successivamente alla confisca tramite la Corte dei Conti.</li>
-                        <li>Infine, dopo la confisca, avviene un'attività di <strong>vendita e riqualificazione</strong> tramite bando pubblico.</li>
-                    </ul>
-                `
-            },
-            "riforma-giustizia": {
-                title: "Riforma della Giustizia",
-                content: `
-                    <ul>
-                        <li><strong>Separazione delle carriere</strong> tra Giudici e Pubblici Ministeri con impossibilità a poter intraprendere la carriera dell'altro.</li>
-                        <li>Istituzione di un'<strong>Alta Corte Disciplinare</strong> che punisca i magistrati che sbagliano sentenza, con sanzioni o reclusione.</li>
-                        <li><strong>Sorteggio di un 1/3 dei membri del CSM</strong> e altri 2/3 scelti dal Parlamento per staccare la magistratura dalla politica.</li>
-                    </ul>
-                `
-            },
-            "taglio-tasse": {
-                title: "Taglio delle Tasse",
-                content: `
-                    <ul>
-                        <li><strong>Riduzione drastica della pressione fiscale</strong> su chi produce, investe e crea posti di lavoro.</li>
-                        <li>Sgravi fiscali per le imprese che assumono stabilmente e premiano il merito.</li>
-                        <li>Semplificazione radicale delle aliquote per liberare le energie economiche del Paese.</li>
-                    </ul>
-                `
-            },
-            "salario-minimo": {
-                title: "Salario minimo [FND Style]",
-                content: `
-                    <ul>
-                        <li>Un approccio <strong>bilanciato e sostenibile</strong> per tutelare i lavoratori senza danneggiare la competitività delle PMI.</li>
-                        <li>Incentivi fiscali alle aziende che superano le soglie minime attraverso la contrattazione di qualità.</li>
-                    </ul>
-                `
-            },
-            "investimento-edilizio": {
-                title: "Investimento edilizio (Infrastrutture e trasporti)",
-                content: `
-                    <ul>
-                        <li>Modernizzazione radicale delle reti di trasporto nazionali e locali.</li>
-                        <li>Grandi opere strategiche per collegare efficientemente il Paese.</li>
-                        <li>Piani di riqualificazione urbana ed edilizia pubblica e privata.</li>
-                    </ul>
-                `
-            },
-            "riforma-isee": {
-                title: "Riforma ISEE",
-                content: `
-                    <ul>
-                        <li>Revisione dei criteri di valutazione economica per garantire maggiore equità e precisione nel supporto sociale. (Punto in fase di sviluppo e approfondimento programmatico).</li>
-                    </ul>
-                `
-            },
-            "mix-energetico": {
-                title: "Piano Mix Energetico",
-                content: `
-                    <ul>
-                        <li>Strategia energetica nazionale equilibrata e orientata all'<strong>indipendenza del Paese</strong>.</li>
-                        <li>Valorizzazione delle fonti pulite e di tecnologie innovative per garantire sicurezza e bollette sostenibili per famiglie e imprese.</li>
-                    </ul>
-                `
-            },
-            "contrasto-immigrazione": {
-                title: "Contrasto immigrazione",
-                content: `
-                    <ul>
-                        <li>Gestione rigorosa dei flussi migratori e controllo ferreo dei confini nazionali ed europei.</li>
-                        <li>Contrasto intransigente all'immigrazione clandestina e alle reti di sfruttamento.</li>
-                    </ul>
-                `
-            },
-            "restrizioni-cittadinanza": {
-                title: "Restrizioni Cittadinanza",
-                content: `
-                    <ul>
-                        <li>Revisione e innalzamento dei requisiti e dei criteri normativi per l'ottenimento della cittadinanza italiana.</li>
-                    </ul>
-                `
-            },
-            "sicurezza-urbana": {
-                title: "Piano Sicurezza Urbana",
-                content: `
-                    <ul>
-                        <li>Misure straordinarie per la tutela del decoro urbano, il presidio del territorio e la sicurezza nelle aree metropolitane. (In corso di sviluppo).</li>
-                    </ul>
-                `
-            },
-            "nuovo-codice": {
-                title: "Nuovo Codice Civile, Penale e Stradale",
-                content: `
-                    <ul>
-                        <li>Aggiornamento profondo e snellimento dei codici normativi per garantire certezza della pena e sanzioni proporzionate. (In corso di sviluppo).</li>
-                    </ul>
-                `
-            },
-            "difesa-europea": {
-                title: "Difesa Europea",
-                content: `
-                    <ul>
-                        <li>Integrazione strategica delle capacità di difesa nel quadro della cooperazione continentale. (In corso di sviluppo).</li>
-                    </ul>
-                `
-            },
-            "percorso-civile": {
-                title: "Percorso Civile Universale",
-                content: `
-                    <ul>
-                        <li>Promozione di un'esperienza formativa e di servizio alla collettività dedicata ai giovani cittadini. (In corso di sviluppo).</li>
-                    </ul>
-                `
-            },
-            "europeismo-pragmatico": {
-                title: "Europeismo pragmatico",
-                content: `
-                    <ul>
-                        <li>Un'Europa incentrata sulla cooperazione economica, commerciale e strategica, nel pieno rispetto della sovranità nazionale.</li>
-                    </ul>
-                `
-            },
-            "atlantismo-bilanciato": {
-                title: "Atlantismo bilanciato",
-                content: `
-                    <ul>
-                        <li>Solida alleanza internazionale fondata sul rispetto reciproco e sulla tutela degli interessi strategici nazionali.</li>
-                    </ul>
-                `
-            },
-            "better-education": {
-                title: "Better Education",
-                content: `
-                    <ul>
-                        <li>Valorizzazione del merito scolastico e accademico.</li>
-                        <li>Aggiornamento dei programmi di studio e connessione diretta con le competenze e le richieste del mercato del lavoro.</li>
-                    </ul>
-                `
-            },
-            "matrimonio-egualitario": {
-                title: "Matrimonio Egualitario",
-                content: `
-                    <ul>
-                        <li>Riconoscimento dei diritti civili fondamentali e tutela giuridica paritaria per ogni cittadino.</li>
-                    </ul>
-                `
-            },
-            "prostituzione-regolamentata": {
-                title: "Prostituzione Regolamentata",
-                content: `
-                    <ul>
-                        <li>Inquadramento normativo, controllo sanitario e legalizzazione per contrastare lo sfruttamento e l'illegalità. (In corso di sviluppo).</li>
-                    </ul>
-                `
-            }
-        };
-
-        function openModal(pointKey) {
-            const modal = document.getElementById('modalOverlay');
-            const contentContainer = document.getElementById('modalContent');
-            
-            if (modalData[pointKey]) {
-                contentContainer.innerHTML = `
-                    <div class="modal-title">${modalData[pointKey].title}</div>
-                    <div class="modal-body">${modalData[pointKey].content}</div>
-                `;
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('modalOverlay');
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        function closeModalOutside(event) {
-            const modalBox = document.querySelector('.modal-box');
-            if (event.target === document.getElementById('modalOverlay')) {
-                closeModal();
-            }
-        }
-    </script>
 </body>
 </html>
