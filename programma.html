@@ -188,9 +188,10 @@
             gap: 20px;
         }
 
-        /* CARD */
+        /* CARD CON IMMAGINE DI SFONDO E OVERLAY */
         .point-card {
-            background: var(--primary-card);
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.92), rgba(5, 11, 20, 0.96)), 
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
             border: 1px solid var(--glass-border);
             border-radius: 16px;
             padding: 25px;
@@ -198,17 +199,21 @@
             flex-direction: column;
             justify-content: space-between;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
         }
 
         .point-card:hover {
             transform: translateY(-4px);
-            border-color: rgba(0, 102, 255, 0.4);
-            box-shadow: 0 12px 30px rgba(0, 102, 255, 0.15);
+            border-color: rgba(0, 102, 255, 0.5);
+            box-shadow: 0 12px 30px rgba(0, 102, 255, 0.25);
         }
 
         .point-content {
             margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
         }
 
         .point-top {
@@ -274,6 +279,8 @@
             letter-spacing: 0.5px;
             width: 100%;
             cursor: pointer;
+            position: relative;
+            z-index: 2;
         }
 
         .btn-approfondisci:hover {
@@ -764,14 +771,10 @@
     <footer>
         <div class="footer-info">
             <strong>CONTATTI - FND</strong>
-            <span>Via Nazionale, 45 - 00184 Roma (RM)</span>
-            <span>Email: info@frontenazionaledemocratico.it</span>
+            <span>Profilo Ufficiale: <a href="https://instagram.com/fronte.nazional.democratico" target="_blank" style="color: #60a5fa; text-decoration: none;">@fronte.nazional.democratico</a></span>
         </div>
         <div class="social-icons">
-            <a href="#" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#" target="_blank" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-            <a href="#" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+            <a href="https://instagram.com/fronte.nazional.democratico" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
         </div>
         <div class="footer-info" style="text-align: right;">
             <span style="color: #60a5fa; font-weight: 600;">#ItaliaEfficiente #FND2026</span>
