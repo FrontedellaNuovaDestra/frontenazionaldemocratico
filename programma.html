@@ -594,7 +594,10 @@
                         </div>
                         <p class="point-desc">Ufficio di Segnalazione e Intervento statale indipendente per contrastare il degrado e garantire la manutenzione.</p>
                     </div>
-                    <button class="btn-approfondisci" onclick="openModal('servizio-usi')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
+                    <div style="display: flex; flex-direction: column; gap: 8px; position: relative; z-index: 2;">
+                        <button class="btn-approfondisci" onclick="openModal('servizio-usi')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
+                        <button class="btn-approfondisci" style="background: linear-gradient(135deg, var(--accent-blue), var(--primary-blue)); border-color: transparent;" onclick="openModal('servizio-usi-ddl')"><i class="fa-solid fa-file-lines"></i> Clicca qui per DDL completo</button>
+                    </div>
                 </div>
 
                 <!-- Riforma della Giustizia -->
@@ -899,7 +902,7 @@
     </footer>
 
     <script>
-        // Database dei contenuti per i modali (basato esattamente sui tuoi appunti)
+        // Database dei contenuti per i modali
         const modalData = {
             "semi-parlamentarismo": {
                 title: "Semi-parlamentarismo",
@@ -935,6 +938,38 @@
                         <li>In caso di <strong>mancata manutenzione</strong> si ricorre a sanzioni e successivamente alla confisca tramite la Corte dei Conti.</li>
                         <li>Infine, dopo la confisca, avviene un'attività di <strong>vendita e riqualificazione</strong> tramite bando pubblico.</li>
                     </ul>
+                `
+            },
+            "servizio-usi-ddl": {
+                title: "Disegno di Legge (DDL) - Servizio U.S.I. [Testo Integrale]",
+                content: `
+                    <div style="font-size: 0.9rem; line-height: 1.6; text-align: justify; color: var(--text-muted);">
+                        <p style="margin-bottom: 14px; color: var(--white); font-weight: 700; text-align: center;">DISEGNO DI LEGGE N. 104/FND<br><span style="font-size: 0.8rem; font-weight: 500; color: #60a5fa;">Istituzione e disciplina dell'Ufficio di Segnalazione e Intervento (U.S.I.) per il contrasto al degrado urbano e la tutela del patrimonio pubblico e privato</span></p>
+                        
+                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 1 (Istituzione e Finalità)</strong><br>
+                        1. È istituito l'Ufficio di Segnalazione e Intervento (U.S.I.), di seguito denominato "U.S.I.", quale ente statale indipendente dotato di personalità giuridica di diritto pubblico, autonomia amministrativa, contabile e di gestione.<br>
+                        2. L'U.S.I. ha il compito esclusivo di ricevere, verificare e coordinare la risoluzione delle segnalazioni relative a situazioni di degrado urbano, abbandono, incuria e mancata manutenzione di beni immobili, aree verdi e infrastrutture presenti sul territorio nazionale.</p>
+
+                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 2 (Modalità di Accesso e Segnalazione)</strong><br>
+                        1. L'accesso al servizio è garantito a ogni cittadino mediante un'applicazione mobile ufficiale e un portale web istituzionale dedicati, oltre che tramite appositi sportelli fisici di riferimento istituiti presso i capoluoghi di provincia.<br>
+                        2. Ciascuna segnalazione deve essere corredata da documentazione fotografica e geolocalizzazione precisa del sito degradato, specificando, ove noto, il soggetto pubblico o privato responsabile della manutenzione ordinaria e straordinaria.</p>
+
+                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 3 (Verifica Tecnica e Termini di Intervento)</strong><br>
+                        1. Ricevuta la segnalazione telematica o cartacea, un team tecnico di esperti nominato dall'U.S.I. procede alla verifica della veridicità e della gravità della situazione entro un termine perentorio di 15 (quindici) giorni lavorativi.<br>
+                        2. Verificata la sussistenza del degrado, l'U.S.I. emette una diffida formale nei confronti del soggetto responsabile (sia esso pubblico o privato), imponendo un termine massimo e improrogabile per la messa in sicurezza e la risoluzione della problematica.</p>
+
+                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 4 (Sanzioni e Procedura di Confisca)</strong><br>
+                        1. In caso di inottemperanza alla diffida di cui all'articolo 3, l'U.S.I. applica sanzioni amministrative pecuniarie progressive a carico del soggetto inadempiente.<br>
+                        2. Decorso inutilmente il termine stabilito senza che si sia provveduto alla riqualificazione, l'U.S.I. trasmette tempestivamente gli atti alla Corte dei Conti territorialmente competente e avvia la procedura straordinaria per la confisca coattiva del bene immobile o dell'area oggetto di degrado.</p>
+
+                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 5 (Riqualificazione e Vendita tramite Bando Pubblico)</strong><br>
+                        1. I beni confiscati ai sensi dell'articolo 4 entrano a far parte del patrimonio disponibile dello Stato e vengono vincolati a programmi di rigenerazione urbana e sociale.<br>
+                        2. Entro 90 giorni dalla conclusione della procedura di confisca, l'U.S.I. indice un bando pubblico trasparente per la vendita, la ristrutturazione e la riconversione del bene, vincolando l'aggiudicatario al completamento dei lavori entro scadenze certe e monitorate da appositi controlli ispettivi.</p>
+
+                        <p style="margin-bottom: 0;"><strong style="color: var(--white);">Art. 6 (Copertura Finanziaria e Attuazione)</strong><br>
+                        1. Agli oneri derivanti dall'attuazione della presente legge si provvede mediante i proventi derivanti dalle sanzioni amministrative applicate dall'U.S.I. e attraverso una quota dedicata del fondo di riequilibrio territoriale statale.<br>
+                        2. Entro sessanta giorni dall'entrata in vigore della presente legge, con decreto del Presidente del Consiglio dei Ministri, sono definiti i regolamenti di attuazione e l'organizzazione operativa dell'Ufficio.</p>
+                    </div>
                 `
             },
             "riforma-giustizia": {
