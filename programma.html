@@ -316,22 +316,23 @@
             transform: translateY(-2px);
         }
 
-        /* MODAL POPUP */
+        /* MODAL POPUP - RESTYLING AVANZATO */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(5, 11, 20, 0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(5, 11, 20, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 2000;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 20px;
         }
 
@@ -341,81 +342,162 @@
         }
 
         .modal-box {
-            background: var(--primary-card);
-            border: 1px solid var(--accent-blue);
-            box-shadow: 0 0 30px var(--accent-glow);
-            border-radius: 20px;
-            max-width: 650px;
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.98), rgba(5, 11, 20, 0.99));
+            border: 1px solid rgba(0, 102, 255, 0.4);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.85), 0 0 30px var(--accent-glow);
+            border-radius: 24px;
+            max-width: 720px;
             width: 100%;
-            padding: 30px;
+            padding: 35px;
             position: relative;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
+            transform: translateY(20px) scale(0.97);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             max-height: 85vh;
             overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-blue) var(--primary-dark);
+        }
+
+        .modal-box::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .modal-box::-webkit-scrollbar-track {
+            background: var(--primary-dark);
+            border-radius: 10px;
+        }
+
+        .modal-box::-webkit-scrollbar-thumb {
+            background: var(--accent-blue);
+            border-radius: 10px;
         }
 
         .modal-overlay.active .modal-box {
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
 
         .modal-close {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: var(--glass-bg);
+            background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--glass-border);
             color: var(--white);
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
+            z-index: 10;
         }
 
         .modal-close:hover {
             background: #ef4444;
             border-color: #ef4444;
+            transform: rotate(90deg);
         }
 
         .modal-title {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 800;
-            color: #60a5fa;
-            margin-bottom: 20px;
-            padding-right: 40px;
+            background: linear-gradient(to right, #ffffff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 22px;
+            padding-right: 45px;
+            border-bottom: 2px solid rgba(0, 102, 255, 0.25);
+            padding-bottom: 14px;
+            letter-spacing: 0.5px;
         }
 
+        /* MODAL LIST ITEMS STYLING (CARDS) */
         .modal-body ul {
             list-style-type: none;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 14px;
         }
 
         .modal-body li {
             position: relative;
-            padding-left: 20px;
+            padding: 16px 18px 16px 48px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
             color: var(--text-muted);
             font-size: 0.95rem;
-            line-height: 1.5;
+            line-height: 1.6;
+            transition: all 0.25s ease;
+        }
+
+        .modal-body li:hover {
+            background: rgba(0, 102, 255, 0.06);
+            border-color: rgba(0, 102, 255, 0.25);
+            transform: translateX(4px);
         }
 
         .modal-body li::before {
-            content: "•";
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
             color: var(--accent-blue);
-            font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 0.75rem;
             position: absolute;
-            left: 0;
-            top: -2px;
+            left: 16px;
+            top: 18px;
+            background: rgba(0, 102, 255, 0.15);
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(0, 102, 255, 0.3);
         }
 
         .modal-body li strong {
             color: var(--white);
+            font-weight: 700;
+        }
+
+        /* MANIFESTO E DDL STYLING HELPER CLASSES */
+        .modal-content-block {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            text-align: justify;
+        }
+
+        .modal-content-block p {
+            margin-bottom: 16px;
+        }
+
+        .modal-content-block strong {
+            color: var(--white);
+        }
+
+        .modal-doc-header {
+            text-align: center;
+            padding-bottom: 18px;
+            margin-bottom: 22px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-doc-header h3 {
+            color: var(--white);
+            font-size: 1.05rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .modal-doc-header span {
+            font-size: 0.82rem;
+            color: #60a5fa;
+            font-weight: 500;
         }
 
         /* ANIMATED WAVES SECTION */
@@ -525,6 +607,7 @@
             .points-grid { grid-template-columns: 1fr; }
             footer { flex-direction: column; text-align: center; }
             .footer-info { align-items: center; text-align: center !important; }
+            .modal-box { padding: 25px 20px; }
         }
     </style>
 </head>
@@ -923,7 +1006,7 @@
                     <ul>
                         <li><strong>Delega alle Regioni su:</strong> organizzazione dei servizi, sanità, infrastrutture, trasporti, sviluppo territoriale, formazione e politiche sul lavoro.</li>
                         <li><strong>Delega alle province su:</strong> pianificazione territoriale, edilizia pubblica e gestione servizi locali.</li>
-                        <li><strong>Lo Stato mantiene il monopolio su:</strong> difesa, sicurezza, politica estera, economia, energia, grandes opere, immigrazione, giustizia e stato di diritto.</li>
+                        <li><strong>Lo Stato mantiene il monopolio su:</strong> difesa, sicurezza, politica estera, economia, energia, grandi opere, immigrazione, giustizia e stato di diritto.</li>
                         <li><strong>Federalismo fiscale:</strong> il 60% delle tasse riscosse rimane alle regioni per la gestione dei servizi. Il 40% va allo stato per grandi investimenti o per un fondo di riequilibrio territoriale per aiutare le regioni più povere.</li>
                     </ul>
                 `
@@ -931,23 +1014,26 @@
             "servizio-usi": {
                 title: "Manifesto per l'Efficienza e il Controllo Civico (U.S.I.)",
                 content: `
-                    <div style="font-size: 0.9rem; line-height: 1.6; text-align: justify; color: var(--text-muted);">
-                        <p style="margin-bottom: 14px; color: var(--white); font-weight: 700; text-align: center;">MANIFESTO PER L'EFFICIENZA E IL CONTROLLO CIVICO<br><span style="font-size: 0.8rem; font-weight: 500; color: #60a5fa;">Per una Pubblica Amministrazione vicina ai cittadini, trasparente e libera dagli sprechi.</span></p>
+                    <div class="modal-content-block">
+                        <div class="modal-doc-header">
+                            <h3>MANIFESTO PER L'EFFICIENZA E IL CONTROLLO CIVICO</h3>
+                            <span>Per una Pubblica Amministrazione vicina ai cittadini, trasparente e libera dagli sprechi.</span>
+                        </div>
                         
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">🏛️ Il Problema: Il Muro tra Stato e Cittadini</strong><br>
+                        <p><strong>🏛️ Il Problema: Il Muro tra Stato e Cittadini</strong><br>
                         Oggi, segnalare una buca stradale, un lampione rotto o un'inefficienza della Pubblica Amministrazione significa spesso entrare in un labirinto burocratico fatto di silenzi, rimpalli di responsabilità e moduli infiniti. Al tempo stesso, i nostri enti locali – soprattutto i piccoli comuni – sono lasciati soli, schiacciati tra aspettative crescenti e risorse limitate, mentre il denaro pubblico continua a essere sprecato in software obsoleti e contratti di manutenzione inutili.<br>
                         Non possiamo più permetterci uno Stato che costa troppo e rende troppo poco.</p>
 
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">💡 La Nostra Soluzione: Il Sistema U.S.I.</strong><br>
+                        <p><strong>💡 La Nostra Soluzione: Il Sistema U.S.I.</strong><br>
                         Crediamo in un modello liberista e nazionale-democratico: uno Stato forte nelle regole essenziali, ma leggero, veloce e digitalizzato nell'erogazione dei servizi. Per questo nasce U.S.I. (Ufficio Segnalazioni e Intervento): un unico standard digitale nazionale, integrato nelle app che già usiamo (come App IO), che trasforma il controllo civico in una realtà concreta.</p>
 
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">🌟 I 4 Pilastri del Nostro Progetto</strong><br>
+                        <p><strong>🌟 I 4 Pilastri del Nostro Progetto</strong><br>
                         <strong>1. Tracciabilità e Celerità Reale:</strong> Ogni segnalazione non finisce in un cassetto. Grazie a un sistema di Triage Informativo Preventivo, il cittadino sa subito se l'intervento è già pianificato o viene registrato per il monitoraggio. Niente falsi contenziosi o ricorsi infiniti: solo efficienza e collaborazione tecnica.<br><br>
                         <strong>2. Zero Sprechi e Innovazione Aperta:</strong> Basta con i monopoli informatici e le spese sconsiderate. U.S.I. si basa su standard aperti (Open APIs), aprendo il mercato della PA alle PMI innovative e alle software house europee. Chi adotta il nuovo sistema deve per legge tagliare i vecchi contratti di software obsoleti: risparmio reale e a saldo zero per lo Stato.<br><br>
                         <strong>3. Responsabilità e Meritocrazia nella PA:</strong> Chi lavora bene nella Pubblica Amministrazione merita di essere valorizzato. Chi ignora sistematicamente i problemi dei cittadini vedrà incidere la propria retribuzione di risultato. E per i piccoli comuni sotto i 5.000 abitanti, niente sanzioni ingiuste: arrivano il supporto coordinato delle Province e delle Prefetture e una solida clausola di salvaguardia per chi ha i bilanci bloccati.<br><br>
                         <strong>4. Protezione contro gli Abusi e le Strumentalizzazioni:</strong> Un vero controllo civico tutela la comunità, non chi vuole paralizzarla. Grazie a filtri comportamentali avanzati, il sistema blocca automaticamente le campagne di spam, i tentativi di boicottaggio politico o l'uso strumentale della piattaforma, difendendo gli uffici pubblici da attacchi coordinati e garantendo trasparenza per tutti.</p>
 
-                        <p style="margin-bottom: 0;"><strong style="color: var(--white);">🎯 Il Futuro che Vogliamo Costruire</strong><br>
+                        <p><strong>🎯 Il Futuro che Vogliamo Costruire</strong><br>
                         Vogliamo uno Stato che rispetti il tempo e le tasse del contribuente. Uno Stato che non si nasconde dietro la burocrazia, ma che usa la tecnologia per risolvere i problemi quotidiani dei territori.<br>
                         L'efficienza non è una concessione della politica: è un diritto del cittadino.<br>
                         <span style="color: #60a5fa; font-weight: 600;">Unisciti alla battaglia per la modernizzazione e la trasparenza.</span></p>
@@ -957,10 +1043,13 @@
             "servizio-usi-ddl": {
                 title: "Disegno di Legge (DDL) - Servizio U.S.I. [Testo Integrale]",
                 content: `
-                    <div style="font-size: 0.9rem; line-height: 1.6; text-align: justify; color: var(--text-muted);">
-                        <p style="margin-bottom: 14px; color: var(--white); font-weight: 700; text-align: center;">DISEGNO DI LEGGE N. 1/FND<br><span style="font-size: 0.8rem; font-weight: 500; color: #60a5fa;">“Istituzione del Sistema Nazionale U.S.I. (Ufficio Segnalazioni e Intervento) integrato per l'efficienza, la trasparenza e la responsabilità nella Pubblica Amministrazione”</span></p>
+                    <div class="modal-content-block">
+                        <div class="modal-doc-header">
+                            <h3>DISEGNO DI LEGGE N. 1/FND</h3>
+                            <span>“Istituzione del Sistema Nazionale U.S.I. (Ufficio Segnalazioni e Intervento) integrato per l'efficienza, la trasparenza e la responsabilità nella Pubblica Amministrazione”</span>
+                        </div>
                         
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 1 – Finalità e oggetto</strong><br>
+                        <p><strong>Art. 1 – Finalità e oggetto</strong><br>
                         La presente legge istituisce il Sistema Nazionale U.S.I. (Ufficio Segnalazioni e Intervento), quale modulo digitale pubblico, nazionale e interoperabile, finalizzato alla raccolta, gestione, monitoraggio e tracciabilità delle segnalazioni dei cittadini concernenti disservizi materiali, criticità infrastrutturali o inefficienze operative di interesse pubblico.<br>
                         Il sistema persegue i seguenti obiettivi:<br>
                         a) il miglioramento dell’efficienza, della celerità e della qualità dell’azione amministrativa;<br>
@@ -970,18 +1059,18 @@
                         e) il consolidamento del rapporto di fiducia e lealtà tra i cittadini e le istituzioni dello Stato.<br>
                         Restano ferme le competenze costituzionali e legislative delle amministrazioni pubbliche coinvolte.</p>
 
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 1-bis – Natura non provvedimentale e Triage Informativo Preventivo</strong><br>
+                        <p><strong>Art. 1-bis – Natura non provvedimentale e Triage Informativo Preventivo</strong><br>
                         Ai fini della presente legge si intende per:<br>
                         a) “segnalazione”: comunicazione effettuata dal cittadino relativa a disservizi materiali, criticità infrastrutturali o inefficienze operative. La segnalazione ha natura esclusivamente collaborativa e tecnica, è priva di effetti giuridici diretti e non è in alcun modo equiparabile a istanza formale, reclamo amministrativo, ricorso gerarchico o denuncia ai sensi della legge 7 agosto 1990, n. 241, o di altra normativa vigente. Essa non fa decorrere i termini per il silenzio-inadempimento;<br>
                         b) “utente”: il soggetto che accede al sistema previa identificazione certa tramite i sistemi pubblici nazionali di identità digitale (SPID, CIE, CNS);<br>
                         c) “Sistema U.S.I.”: la piattaforma digitale nazionale di cui all’articolo 1.<br>
                         L'invio della segnalazione attiva un processo immediato di trasparenza civica tramite un sistema di Triage Informativo Preventivo. La piattaforma restituisce automaticamente un riscontro attestante la presa in carico digitale e l'eventuale inclusione della criticità all'interno di programmi di manutenzione ordinaria o straordinaria già deliberati dall'ente competente, ovvero la sua classificazione ai soli fini statistici e di monitoraggio, escludendo qualsivoglia effetto costitutivo di posizioni giuridiche soggettive o aspettative di diritto azionabili in sede giurisdizionale.</p>
 
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 2 – Natura del sistema, gradualità e supporto ai piccoli enti</strong><br>
+                        <p><strong>Art. 2 – Natura del sistema, gradualità e supporto ai piccoli enti</strong><br>
                         Il Sistema U.S.I. costituisce lo standard nazionale di coordinamento digitale. L'adesione e l'alimentazione costante dei flussi informativi da parte di tutte le amministrazioni pubbliche costituiscono requisito essenziale per il buon andamento dell’azione amministrativa.<br>
                         L'attuazione degli obblighi e dei tempi di connessione al sistema è graduata in base alla dimensione demografica e alla capacità operativa degli enti locali. Per i comuni con popolazione inferiore a 5.000 abitanti, le funzioni di supporto tecnico e istruttorio sono esercitate in forma associata tramite le strutture della Provincia, della Città metropolitana o dell'Unione di Comuni di riferimento, ovvero mediante il supporto coordinato delle Prefetture territorialmente competenti tramite le task-force regionali per la digitalizzazione, senza nuovi o maggiori oneri per la finanza pubblica.</p>
 
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 3 – Ambito di applicazione ed esclusioni tassative</strong><br>
+                        <p><strong>Art. 3 – Ambito di applicazione ed esclusioni tassative</strong><br>
                         Il Sistema U.S.I. si applica a tutte le amministrazioni pubbliche di cui all’articolo 1, comma 2, del decreto legislativo 30 marzo 2001, n. 165.<br>
                         Il perimetro del sistema è rigorosamente limitato alla gestione di disservizi materiali e criticità operative. Sono escluse tassativamente:<br>
                         a) le situazioni di emergenza di protezione civile o pubblica sicurezza, per le quali restano unici canali esclusivi il Numero Unico Europeo 112 e le linee di emergenza dedicate;<br>
@@ -989,7 +1078,7 @@
                         c) i canali sanitari urgenti, clinici o specialistici.<br>
                         Ogni tentativo di utilizzare impropriamente il sistema per eludere i canali giudiziari o amministrativi ordinari viene filtrato e respinto automaticamente dal sistema, senza che sorgano obblighi di risposta formale per gli uffici.</p>
 
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 4 – Funzioni del sistema e prevenzione degli abusi e di attacchi politici coordinati</strong><br>
+                        <p><strong>Art. 4 – Funzioni del sistema e prevenzione degli abusi e di attacchi politici coordinati</strong><br>
                         Il sistema svolge le seguenti funzioni:<br>
                         a) acquisizione strutturata e geolocalizzata delle segnalazioni;<br>
                         b) classificazione e prioritizzazione secondo criteri oggettivi e standardizzati;<br>
@@ -999,12 +1088,12 @@
                         f) raccolta e pubblicazione di dati statistici aggregati a fini di trasparenza.<br>
                         Il sistema adotta strumenti avanzati di blocco automatico e limitazione temporanea nei confronti degli utenti che effettuano utilizzi massivi, fraudolenti, emulativi o palesemente strumentali. Tali filtri integrano un'analisi comportamentale automatizzata atta a rilevare concentrazioni anomale di segnalazioni territoriali riconducibili a campagne di boicottaggio politico organizzato o a tentativi di paralisi strumentale degli uffici pubblici. I criteri tecnici di attivazione di tali blocchi sono definiti in modo da salvaguardare rigorosamente l'esercizio in buona fede del controllo civico, garantendo un canale di riesame automatizzato e celere in caso di errata limitazione.</p>
 
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 5 – Integrazione tecnologica, Open APIs e prevenzione del Vendor Lock-in</strong><br>
+                        <p><strong>Art. 5 – Integrazione tecnologica, Open APIs e prevenzione del Vendor Lock-in</strong><br>
                         Il Sistema U.S.I. è realizzato come modulo nativo ed estensione interoperabile delle piattaforme nazionali esistenti, integrandosi con l'Anagrafe Nazionale della Popolazione Residente (ANPR), i sistemi di identità digitale e l'infrastruttura tecnologica di App IO e SEND (Servizio Notifiche Digitali), al fine di evitare duplicazioni di spesa e sovrapposizioni di interfaccia per il cittadino.<br>
                         Lo sviluppo tecnologico e l'interoperabilità della piattaforma si fondano rigorosamente su standard aperti (Open Standards) e API aperte (Open APIs), vietando qualsiasi forma di clausola di esclusiva o blocco proprietario (vendor lock-in). I bandi e le specifiche tecniche di implementazione promuovono la concorrenza aperta e la partecipazione delle PMI innovative e delle software house del mercato nazionale ed europeo.<br>
                         La governance tecnologica centrale è coordinata dalla Presidenza del Consiglio dei Ministri – Dipartimento per la trasformazione digitale.</p>
 
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 6 – Utilizzo di strumenti automatizzati, Intelligenza Artificiale e Matrice di Competenza</strong><br>
+                        <p><strong>Art. 6 – Utilizzo di strumenti automatizzati, Intelligenza Artificiale e Matrice di Competenza</strong><br>
                         Il sistema può avvalersi di strumenti automatizzati, inclusi algoritmi di intelligenza artificiale, esclusivamente per finalità di supporto alla classificazione, protocollazione e all'instradamento delle segnalazioni sulla base di una Matrice di Competenza Nazionale pre-codificata e vincolante.<br>
                         Tali strumenti:<br>
                         a) non producono effetti giuridici autonomi o vincolanti;<br>
@@ -1013,45 +1102,45 @@
                         d) sono sottoposti ad audit e verifiche periodiche obbligatorie di affidabilità e correttezza dei modelli.<br>
                         È garantito all'utente il diritto di richiedere la revisione umana della pratica nei limiti della natura non provvedimentale della stessa. È inoltre previsto un protocollo di auto-correzione tracciata dei flussi errati entro 24 ore per evitare rimpalli ingiustificati tra enti.</p>
 
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 7 – Livelli di servizio modulari (SLAs)</strong><br>
+                        <p><strong>Art. 7 – Livelli di servizio modulari (SLAs)</strong><br>
                         Con i decreti attuativi di cui all'articolo 12 sono fissati i termini massimi per la presa in carico e la risposta al cittadino, differenziati per fasce demografiche e complessità dell'ente (es. termini più ampi per i comuni sotto i 5.000 abitanti rispetto alle grandi città metropolitane).<br>
                         Il rispetto dei livelli di servizio definiti rileva ai fini della valutazione della performance dirigenziale, tenendo conto delle risorse effettivamente assegnate all'ufficio e dei vincoli di bilancio dell'ente.</p>
 
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 8 – Trasparenza e accesso civico</strong><br>
+                        <p><strong>Art. 8 – Trasparenza e accesso civico</strong><br>
                         Il sistema garantisce al cittadino la possibilità di monitorare in autonomia lo stato della propria segnalazione tramite area riservata su App IO.<br>
                         Sono resi disponibili dati aggregati e anonimizzati, consultabili pubblicamente, al fine di favorire la trasparenza e un controllo diffuso basato sui risultati effettivi degli enti.</p>
 
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 9 – Trattamento dei dati personali e sicurezza</strong><br>
+                        <p><strong>Art. 9 – Trattamento dei dati personali e sicurezza</strong><br>
                         Il trattamento dei dati personali avviene nel pieno rispetto del Regolamento UE 2016/679 (GDPR) e della normativa nazionale vigente.<br>
                         Sono adottate misure tecniche e organizzative adeguate a garantire la protezione dei dati, la tracciabilità degli accessi e la prevenzione di accessi non autorizzati mediante registri di log immutabili.</p>
 
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 10 – Responsabilità dirigenziale e clausola di salvaguardia finanziaria</strong><br>
+                        <p><strong>Art. 10 – Responsabilità dirigenziale e clausola di salvaguardia finanziaria</strong><br>
                         Il dirigente dell'ufficio pubblico competente è il responsabile della presa in carico e della gestione delle segnalazioni assegnate al proprio settore.<br>
                         L'inerzia ingiustificata o il ritardo sistematico nei termini di cui’all’articolo 7 incidono negativamente sulla performance individuale e comportano la decurtazione della retribuzione di risultato del dirigente inadempiente, previa contestazione e garanzia del pieno contraddittorio.<br>
                         La valutazione negativa della performance e la conseguente decurtazione di cui al comma 2 non trovano applicazione qualora il mancato rispetto dei livelli di servizio sia direttamente riconducibile a oggettive carenze di bilancio, vincoli di spesa inderogabili o scoperture d'organico certificate dall'organo di revisione economico-finanziaria dell'ente. In tali casi, la piattaforma attiva automaticamente il supporto sussidiario dell'ente sovraordinato o della Prefettura, con finalità esclusivamente di supporto operativo temporaneo, salvaguardandone rigorosamente gli equilibri finanziari.</p>
 
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 11 – Governance del sistema</strong><br>
+                        <p><strong>Art. 11 – Governance del sistema</strong><br>
                         La gestione, lo sviluppo tecnologico e il coordinamento del Sistema U.S.I. sono affidati alla Presidenza del Consiglio dei Ministri – Dipartimento per la trasformazione digitale, che opera in raccordo con le amministrazioni competenti e le autonomie locali tramite la Conferenza Unificata.</p>
 
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 12 – Attuazione e decreti tecnici</strong><br>
+                        <p><strong>Art. 12 – Attuazione e decreti tecnici</strong><br>
                         Con decreto del Presidente del Consiglio dei Ministri, da adottarsi entro centoventi giorni dall'entrata in vigore della presente legge, previa intesa in Conferenza Unificata, sono definiti:<br>
                         a) gli standard tecnici, di sicurezza, di adozione di API aperte e di integrazione con l'App IO e SEND;<br>
                         b) le soglie dimensionali per la modulazione degli SLA;<br>
                         c) i criteri tecnici di classificazione, la Matrice di Competenza Nazionale, le linee guida per la supervisione umana e i protocolli per gli audit periodici degli algoritmi.</p>
 
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 13 – Sperimentazione territoriale (Sandbox) e clausola di verifica (Sunset Clause)</strong><br>
+                        <p><strong>Art. 13 – Sperimentazione territoriale (Sandbox) e clausola di verifica (Sunset Clause)</strong><br>
                         Il sistema è implementato in via sperimentale mediante progetti pilota su un campione eterogeneo di enti (comprendendo grandi città, enti medi e piccoli comuni montani o disagiati) della durata di dodici mesi, al fine di verificare la tenuta tecnologica e amministrativa prima dell'estensione a regime su scala nazionale.<br>
                         Al termine del periodo di sperimentazione, il Governo presenta alle Camere una relazione tecnica di impatto economico-amministrativo. Qualora emergano inefficienze strutturali o aggravi burocratici sproporzionati rispetto ai benefici, il Governo adotta i provvedimenti correttivi ovvero dispone la dismissione dei moduli non efficienti (Sunset Clause).</p>
 
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 14 – Disposizioni finanziarie, invarianza e dismissione contabile obbligatoria</strong><br>
+                        <p><strong>Art. 14 – Disposizioni finanziarie, invarianza e dismissione contabile obbligatoria</strong><br>
                         Agli oneri derivanti dalla realizzazione straordinaria della piattaforma digitale e dalla sua integrazione nelle infrastrutture nazionali si provvede mediante l'utilizzo delle risorse disponibili nei programmi nazionali ed europei dedicati alla transizione digitale della pubblica amministrazione (inclusi i fondi strutturali e i programmi PNRR/PNFD).<br>
                         Agli oneri di gestione ordinaria si provvede a saldo zero e senza nuovi o maggiori oneri a carico del bilancio dello Stato, mediante la rigorosa razionalizzazione, efficientamento e dismissione dei capitoli di spesa dedicati a software informatici obsoleti o duplicati all'interno dei bilanci delle singole amministrazioni pubbliche.<br>
                         Qualora un ente locale intenda accedere ai benefici e ai flussi operativi del Sistema U.S.I., è tenuto ad allegare al proprio bilancio di previsione apposita certificazione attestante l'avvenuta rescissione dei contratti di assistenza e manutenzione relativi ai software legacy o duplicati sostituiti dalla nuova piattaforma digitale, pena l'inefficacia dell'accesso ai fondi di transizione digitali.</p>
 
-                        <p style="margin-bottom: 12px;"><strong style="color: var(--white);">Art. 15 – Monitoraggio e relazione al Parlamento</strong><br>
+                        <p><strong>Art. 15 – Monitoraggio e relazione al Parlamento</strong><br>
                         Il Governo trasmette annualmente al Parlamento una relazione dettagliata sullo stato di attuazione, sui risultati conseguiti, sui costi di gestione, sull'efficienza dimostrata dalle amministrazioni, sull'impatto della spesa informatica e sulle eventuali criticità riscontrate.</p>
 
-                        <p style="margin-bottom: 0;"><strong style="color: var(--white);">Art. 16 – Entrata in vigore</strong><br>
+                        <p style="margin-bottom: 0;"><strong>Art. 16 – Entrata in vigore</strong><br>
                         La presente legge entra in vigore il trentesimo giorno successivo alla sua pubblicazione nella Gazzetta Ufficiale della Repubblica Italiana.</p>
                     </div>
                 `
@@ -1225,7 +1314,6 @@
         }
 
         function closeModalOutside(event) {
-            const modalBox = document.querySelector('.modal-box');
             if (event.target === document.getElementById('modalOverlay')) {
                 closeModal();
             }
