@@ -236,6 +236,41 @@
             box-shadow: 0 12px 30px rgba(0, 102, 255, 0.25);
         }
 
+        /* STILI SPECIFICI PER LA CARD USI CON VIDEO LANDSCAPE */
+        .point-card.usi-video-card {
+            background: var(--primary-card);
+        }
+
+        .card-video-container {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            border-radius: 16px;
+        }
+
+        .card-video-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.95) contrast(1.05);
+        }
+
+        .card-video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.78), rgba(5, 11, 20, 0.90));
+            z-index: 2;
+        }
+
+        .usi-video-card .point-content,
+        .usi-video-card div[style*="display: flex"] {
+            position: relative;
+            z-index: 3;
+        }
+
         .point-content {
             margin-bottom: 20px;
             position: relative;
@@ -668,8 +703,15 @@
                     <button class="btn-approfondisci" onclick="openModal('semi-federalismo')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
                 </div>
 
-                <!-- Servizio U.S.I. -->
-                <div class="point-card" id="servizio-usi">
+                <!-- Servizio U.S.I. (CON VIDEO LANDSCAPE) -->
+                <div class="point-card usi-video-card" id="servizio-usi">
+                    <div class="card-video-container">
+                        <video autoplay muted loop playsinline class="card-video-bg">
+                            <source src="usi-landscape-video.mp4" type="video/mp4">
+                            Il tuo browser non supporta il tag video.
+                        </video>
+                        <div class="card-video-overlay"></div>
+                    </div>
                     <div class="point-content">
                         <div class="point-top">
                             <span class="point-title">Servizio U.S.I.</span>
@@ -677,7 +719,7 @@
                         </div>
                         <p class="point-desc">Ufficio di Segnalazione e Intervento statale indipendente per contrastare il degrado e garantire la manutenzione.</p>
                     </div>
-                    <div style="display: flex; flex-direction: column; gap: 8px; position: relative; z-index: 2;">
+                    <div style="display: flex; flex-direction: column; gap: 8px; position: relative; z-index: 3;">
                         <button class="btn-approfondisci" onclick="openModal('servizio-usi')"><i class="fa-solid fa-arrow-right"></i> Manifesto U.S.I. e Controllo Civico</button>
                         <button class="btn-approfondisci" style="background: linear-gradient(135deg, var(--accent-blue), var(--primary-blue)); border-color: transparent;" onclick="openModal('servizio-usi-ddl')"><i class="fa-solid fa-file-lines"></i> Clicca qui per DDL completo</button>
                     </div>
