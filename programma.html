@@ -535,6 +535,30 @@
             font-weight: 500;
         }
 
+        /* MODAL VIDEO BANNER STYLING */
+        .modal-video-banner {
+            position: relative;
+            width: 100%;
+            height: 160px;
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 22px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .modal-video-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10, 22, 40, 0.3), rgba(5, 11, 20, 0.6));
+        }
+
         /* ANIMATED WAVES SECTION */
         .wave-section {
             position: relative;
@@ -643,6 +667,7 @@
             footer { flex-direction: column; text-align: center; }
             .footer-info { align-items: center; text-align: center !important; }
             .modal-box { padding: 25px 20px; }
+            .modal-video-banner { height: 120px; }
         }
     </style>
 </head>
@@ -1086,6 +1111,13 @@
                 title: "Disegno di Legge (DDL) - Servizio U.S.I. [Testo Integrale]",
                 content: `
                     <div class="modal-content-block">
+                        <div class="modal-video-banner">
+                            <video autoplay muted loop playsinline class="modal-video-bg">
+                                <source src="usi-landscape-video.mp4" type="video/mp4">
+                                Il tuo browser non supporta il tag video.
+                            </video>
+                            <div class="modal-video-overlay"></div>
+                        </div>
                         <div class="modal-doc-header">
                             <h3>DISEGNO DI LEGGE N. 1/FND</h3>
                             <span>“Istituzione del Sistema Nazionale U.S.I. (Ufficio Segnalazioni e Intervento) integrato per l'efficienza, la trasparenza e la responsabilità nella Pubblica Amministrazione”</span>
@@ -1113,7 +1145,7 @@
                         L'attuazione degli obblighi e dei tempi di connessione al sistema è graduata in base alla dimensione demografica e alla capacità operativa degli enti locali. Per i comuni con popolazione inferiore a 5.000 abitanti, le funzioni di supporto tecnico e istruttorio sono esercitate in forma associata tramite le strutture della Provincia, della Città metropolitana o dell'Unione di Comuni di riferimento, ovvero mediante il supporto coordinato delle Prefetture territorialmente competenti tramite le task-force regionali per la digitalizzazione, senza nuovi o maggiori oneri per la finanza pubblica.</p>
 
                         <p><strong>Art. 3 – Ambito di applicazione ed esclusioni tassative</strong><br>
-                        Il Sistema U.S.I. si applica a tutte le amministrazioni pubbliche di cui all’articolo 1, comma 2, del decreto legislativo 30 marzo 2001, n. 165.<br>
+                        Il Sistema U.S.I. si applica a tutte le amministrazioni pubbliche di cui’all’articolo 1, comma 2, del decreto legislativo 30 marzo 2001, n. 165.<br>
                         Il perimetro del sistema è rigorosamente limitato alla gestione di disservizi materiali e criticità operative. Sono escluse tassativamente:<br>
                         a) le situazioni di emergenza di protezione civile o pubblica sicurezza, per le quali restano unici canali esclusivi il Numero Unico Europeo 112 e le linee di emergenza dedicate;<br>
                         b) i procedimenti giurisdizionali di ogni ordine e grado;<br>
