@@ -236,41 +236,6 @@
             box-shadow: 0 12px 30px rgba(0, 102, 255, 0.25);
         }
 
-        /* STILI SPECIFICI PER LA CARD USI CON VIDEO LANDSCAPE */
-        .point-card.usi-video-card {
-            background: var(--primary-card);
-        }
-
-        .card-video-container {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-            border-radius: 16px;
-        }
-
-        .card-video-bg {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: brightness(0.95) contrast(1.05);
-        }
-
-        .card-video-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(10, 22, 40, 0.78), rgba(5, 11, 20, 0.90));
-            z-index: 2;
-        }
-
-        .usi-video-card .point-content,
-        .usi-video-card div[style*="display: flex"] {
-            position: relative;
-            z-index: 3;
-        }
-
         .point-content {
             margin-bottom: 20px;
             position: relative;
@@ -728,15 +693,8 @@
                     <button class="btn-approfondisci" onclick="openModal('semi-federalismo')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
                 </div>
 
-                <!-- Servizio U.S.I. (CON VIDEO LANDSCAPE) -->
-                <div class="point-card usi-video-card" id="servizio-usi">
-                    <div class="card-video-container">
-                        <video autoplay muted loop playsinline class="card-video-bg">
-                            <source src="videousi.mp4" type="video/mp4">
-                            Il tuo browser non supporta il tag video.
-                        </video>
-                        <div class="card-video-overlay"></div>
-                    </div>
+                <!-- Servizio U.S.I. -->
+                <div class="point-card" id="servizio-usi">
                     <div class="point-content">
                         <div class="point-top">
                             <span class="point-title">Servizio U.S.I.</span>
@@ -744,9 +702,9 @@
                         </div>
                         <p class="point-desc">Ufficio di Segnalazione e Intervento statale indipendente per contrastare il degrado e garantire la manutenzione.</p>
                     </div>
-                    <div style="display: flex; flex-direction: column; gap: 8px; position: relative; z-index: 3;">
-                        <button class="btn-approfondisci" onclick="openModal('servizio-usi')"><i class="fa-solid fa-arrow-right"></i> Manifesto U.S.I. e Controllo Civico</button>
-                        <button class="btn-approfondisci" style="background: linear-gradient(135deg, var(--accent-blue), var(--primary-blue)); border-color: transparent;" onclick="openModal('servizio-usi-ddl')"><i class="fa-solid fa-file-lines"></i> Clicca qui per DDL completo</button>
+                    <div style="display: flex; flex-direction: column; gap: 8px; position: relative; z-index: 2;">
+                        <button class="btn-approfondisci" onclick="openModal('servizio-usi')"><i class="fa-solid fa-arrow-right"></i> Clicca per approfondire il punto</button>
+                        <button class="btn-approfondisci" style="background: linear-gradient(135deg, var(--accent-blue), var(--primary-blue)); border-color: transparent;" onclick="openModal('servizio-usi-ddl')"><i class="fa-solid fa-file-lines"></i> CLICCA QUI PER DOSSIER COMPLETO</button>
                     </div>
                 </div>
 
@@ -1079,36 +1037,16 @@
                 `
             },
             "servizio-usi": {
-                title: "Manifesto per l'Efficienza e il Controllo Civico (U.S.I.)",
+                title: "Servizio U.S.I.",
                 content: `
-                    <div class="modal-content-block">
-                        <div class="modal-doc-header">
-                            <h3>MANIFESTO PER L'EFFICIENZA E IL CONTROLLO CIVICO</h3>
-                            <span>Per una Pubblica Amministrazione vicina ai cittadini, trasparente e libera dagli sprechi.</span>
-                        </div>
-                        
-                        <p><strong>🏛️ Il Problema: Il Muro tra Stato e Cittadini</strong><br>
-                        Oggi, segnalare una buca stradale, un lampione rotto o un'inefficienza della Pubblica Amministrazione significa spesso entrare in un labirinto burocratico fatto di silenzi, rimpalli di responsabilità e moduli infiniti. Al tempo stesso, i nostri enti locali – soprattutto i piccoli comuni – sono lasciati soli, schiacciati tra aspettative crescenti e risorse limitate, mentre il denaro pubblico continua a essere sprecato in software obsoleti e contratti di manutenzione inutili.<br>
-                        Non possiamo più permetterci uno Stato che costa troppo e rende troppo poco.</p>
-
-                        <p><strong>💡 La Nostra Soluzione: Il Sistema U.S.I.</strong><br>
-                        Crediamo in un modello liberista e nazionale-democratico: uno Stato forte nelle regole essenziali, ma leggero, veloce e digitalizzato nell'erogazione dei servizi. Per questo nasce U.S.I. (Ufficio Segnalazioni e Intervento): un unico standard digitale nazionale, integrato nelle app che già usiamo (come App IO), che trasforma il controllo civico in una realtà concreta.</p>
-
-                        <p><strong>🌟 I 4 Pilastri del Nostro Progetto</strong><br>
-                        <strong>1. Tracciabilità e Celerità Reale:</strong> Ogni segnalazione non finisce in un cassetto. Grazie a un sistema di Triage Informativo Preventivo, il cittadino sa subito se l'intervento è già pianificato o viene registrato per il monitoraggio. Niente falsi contenziosi o ricorsi infiniti: solo efficienza e collaborazione tecnica.<br><br>
-                        <strong>2. Zero Sprechi e Innovazione Aperta:</strong> Basta con i monopoli informatici e le spese sconsiderate. U.S.I. si basa su standard aperti (Open APIs), aprendo il mercato della PA alle PMI innovative e alle software house europee. Chi adotta il nuovo sistema deve per legge tagliare i vecchi contratti di software obsoleti: risparmio reale e a saldo zero per lo Stato.<br><br>
-                        <strong>3. Responsabilità e Meritocrazia nella PA:</strong> Chi lavora bene nella Pubblica Amministrazione merita di essere valorizzato. Chi ignora sistematicamente i problemi dei cittadini vedrà incidere la propria retribuzione di risultato. E per i piccoli comuni sotto i 5.000 abitanti, niente sanzioni ingiuste: arrivano il supporto coordinato delle Province e delle Prefetture e una solida clausola di salvaguardia per chi ha i bilanci bloccati.<br><br>
-                        <strong>4. Protezione contro gli Abusi e le Strumentalizzazioni:</strong> Un vero controllo civico tutela la comunità, non chi vuole paralizzarla. Grazie a filtri comportamentali avanzati, il sistema blocca automaticamente le campagne di spam, i tentativi di boicottaggio politico o l'uso strumentale della piattaforma, difendendo gli uffici pubblici da attacchi coordinati e garantendo trasparenza per tutti.</p>
-
-                        <p><strong>🎯 Il Futuro che Vogliamo Costruire</strong><br>
-                        Vogliamo uno Stato che rispetti il tempo e le tasse del contribuente. Uno Stato che non si nasconde dietro la burocrazia, ma che usa la tecnologia per risolvere i problemi quotidiani dei territori.<br>
-                        L'efficienza non è una concessione della politica: è un diritto del cittadino.<br>
-                        <span style="color: #60a5fa; font-weight: 600;">Unisciti alla battaglia per la modernizzazione e la trasparenza.</span></p>
-                    </div>
+                    <ul>
+                        <li>Ufficio di Segnalazione e Intervento statale indipendente per contrastare il degrado e garantire la manutenzione efficiente del territorio.</li>
+                        <li>Infrastruttura digitale nazionale integrata per la raccolta e il tracciabilità delle segnalazioni dei cittadini.</li>
+                    </ul>
                 `
             },
             "servizio-usi-ddl": {
-                title: "Disegno di Legge (DDL) - Servizio U.S.I. [Testo Integrale]",
+                title: "Dossier Parlamentare - Sistema U.S.I.",
                 content: `
                     <div class="modal-content-block">
                         <div class="modal-video-banner">
@@ -1119,12 +1057,18 @@
                             <div class="modal-video-overlay"></div>
                         </div>
                         <div class="modal-doc-header">
-                            <h3>DISEGNO DI LEGGE N. 1/FND</h3>
-                            <span>“Istituzione del Sistema Nazionale U.S.I. (Ufficio Segnalazioni e Intervento) integrato per l'efficienza, la trasparenza e la responsabilità nella Pubblica Amministrazione”</span>
+                            <h3>DOSSIER PARLAMENTARE</h3>
+                            <span>Iniziativa del Fronte NazionalDemocratico</span>
+                            <p style="margin-top: 6px; font-weight: 700; color: var(--white);">“Istituzione del Sistema Nazionale U.S.I. (Ufficio Segnalazioni e Intervento) integrato per l'efficienza, la trasparenza e la responsabilità nella Pubblica Amministrazione”</p>
                         </div>
                         
-                        <p><strong>Art. 1 – Finalità e oggetto</strong><br>
-                        La presente legge istituisce il Sistema Nazionale U.S.I. (Ufficio Segnalazioni e Intervento), quale modulo digitale pubblico, nazionale e interoperabile, finalizzato alla raccolta, gestione, monitoraggio e tracciabilità delle segnalazioni dei cittadini concernenti disservizi materiali, criticità infrastrutturali o inefficienze operative di interesse pubblico.<br>
+                        <p><strong>INDICE</strong><br>
+                        - Disegno di Legge (Testo Articolato Definitivo e Blindato)<br>
+                        - Relazione Illustrativa</p>
+
+                        <p><strong>PARTE PRIMA: DISEGNO DI LEGGE</strong><br><br>
+                        <strong>Art. 1 – Finalità, oggetto e copertura costituzionale</strong><br>
+                        La presente legge, ai sensi dell'articolo 117, secondo comma, lettera r), della Costituzione, istituisce il Sistema Nazionale U.S.I. (Ufficio Segnalazioni e Intervento), quale modulo digitale pubblico, nazionale e interoperabile, finalizzato alla raccolta, gestione, monitoraggio e tracciabilità delle segnalazioni dei cittadini concernenti disservizi materiali, criticità infrastrutturali o inefficienze operative di interesse pubblico.<br>
                         Il sistema persegue i seguenti obiettivi:<br>
                         a) il miglioramento dell’efficienza, della celerità e della qualità dell’azione amministrativa;<br>
                         b) l’abbattimento strutturale dei tempi di riscontro alle criticità territoriali segnalate dai cittadini;<br>
@@ -1133,26 +1077,27 @@
                         e) il consolidamento del rapporto di fiducia e lealtà tra i cittadini e le istituzioni dello Stato.<br>
                         Restano ferme le competenze costituzionali e legislative delle amministrazioni pubbliche coinvolte.</p>
 
-                        <p><strong>Art. 1-bis – Natura non provvedimentale e Triage Informativo Preventivo</strong><br>
+                        <p><strong>Art. 1-bis – Natura non provvedimentale, Triage Informativo Preventivo e Scudo Giuridico con Salvezza dell'Incolumità Fisica</strong><br>
                         Ai fini della presente legge si intende per:<br>
-                        a) “segnalazione”: comunicazione effettuata dal cittadino relativa a disservizi materiali, criticità infrastrutturali o inefficienze operative. La segnalazione ha natura esclusivamente collaborativa e tecnica, è priva di effetti giuridici diretti e non è in alcun modo equiparabile a istanza formale, reclamo amministrativo, ricorso gerarchico o denuncia ai sensi della legge 7 agosto 1990, n. 241, o di altra normativa vigente. Essa non fa decorrere i termini per il silenzio-inadempimento;<br>
+                        a) “segnalazione”: comunicazione effettuata dal cittadino relativa a disservizi materiali, criticità infrastrutturali o inefficienze operative. La segnalazione ha natura esclusivamente collaborativa e tecnica, è priva di effetti giuridici diretti e non è in alcun modo equiparabile a istanza formale, reclamo amministrativo, ricorso gerarchico o denuncia ai sensi della legge 7 agosto 1990, n. 241, o di altra normativa vigente;<br>
                         b) “utente”: il soggetto che accede al sistema previa identificazione certa tramite i sistemi pubblici nazionali di identità digitale (SPID, CIE, CNS);<br>
                         c) “Sistema U.S.I.”: la piattaforma digitale nazionale di cui all’articolo 1.<br>
-                        L'invio della segnalazione attiva un processo immediato di trasparenza civica tramite un sistema di Triage Informativo Preventivo. La piattaforma restituisce automaticamente un riscontro attestante la presa in carico digitale e l'eventuale inclusione della criticità all'interno di programmi di manutenzione ordinaria o straordinaria già deliberati dall'ente competente, ovvero la sua classificazione ai soli fini statistici e di monitoraggio, escludendo qualsivoglia effetto costitutivo di posizioni giuridiche soggettive o aspettative di diritto azionabili in sede giurisdizionale.</p>
+                        L'invio della segnalazione attiva un processo immediato di trasparenza civica tramite un sistema di Triage Informativo Preventivo. La piattaforma restituisce automaticamente un riscontro attestante la presa in carico digitale e l'eventuale inclusione della criticità all'interno di programmi di manutenzione ordinaria o straordinaria già deliberati dall'ente competente, ovvero la sua classificazione ai soli fini statistici e di monitoraggio, escludendo qualsivoglia effetto costitutivo di posizioni giuridiche soggettive o aspettative di diritto azionabili in sede giurisdizionale.<br>
+                        <strong>Scudo Giuridico e Salvezza dell'Incolumità Fisica:</strong> I dati, i flussi, le ricevute e le risposte generate dal Sistema U.S.I. sono privi di qualsiasi efficacia probatoria nei giudizi civili, penali, amministrativi e contabili relativi a disservizi ordinari. La trasmissione di una segnalazione non costituisce in alcun modo notifica formale, istanza, diffida o messa in mora ad alcun effetto di legge, non fa decorrere i termini per il silenzio-inadempimento di cui alla legge 7 agosto 1990, n. 241, non attiva la responsabilità civile per cose in custodia di cui all'articolo 2051 del codice civile, non integra i presupposti per la configurabilità del reato di omissione di atti d'ufficio di cui all'articolo 328 del codice penale e non è in alcun modo impugnabile con il rito sul silenzio di cui agli articoli 31 e 117 del codice del processo amministrativo. Lo scudo di irresponsabilità e l'inammissibilità delle azioni di cui al presente comma non operano qualora la segnalazione evidenzi un pericolo grave, attuale e imminente per l'incolumità fisica delle persone o per la stabilità strutturale di edifici e infrastrutture pubbliche, ipotesi in cui permane l'obbligo di immediata attivazione dei protocolli di sicurezza e protezione civile ordinari.</p>
 
-                        <p><strong>Art. 2 – Natura del sistema, gradualità e supporto ai piccoli enti</strong><br>
+                        <p><strong>Art. 2 – Natura del sistema, gradualità e supporto associato ai piccoli enti</strong><br>
                         Il Sistema U.S.I. costituisce lo standard nazionale di coordinamento digitale. L'adesione e l'alimentazione costante dei flussi informativi da parte di tutte le amministrazioni pubbliche costituiscono requisito essenziale per il buon andamento dell’azione amministrativa.<br>
-                        L'attuazione degli obblighi e dei tempi di connessione al sistema è graduata in base alla dimensione demografica e alla capacità operativa degli enti locali. Per i comuni con popolazione inferiore a 5.000 abitanti, le funzioni di supporto tecnico e istruttorio sono esercitate in forma associata tramite le strutture della Provincia, della Città metropolitana o dell'Unione di Comuni di riferimento, ovvero mediante il supporto coordinato delle Prefetture territorialmente competenti tramite le task-force regionali per la digitalizzazione, senza nuovi o maggiori oneri per la finanza pubblica.</p>
+                        L'attuazione degli obblighi e dei tempi di connessione al sistema è graduata in base alla dimensione demografica e alla capacità operativa degli enti locali. Per i comuni con popolazione inferiore a 5.000 abitanti, le funzioni di supporto tecnico, istruttorio e operativo sono esercitate in forma associata tramite le strutture tecniche della Provincia, della Città metropolitana, dell'Unione di Comuni di riferimento o mediante il supporto coordinato delle task-force regionali e di ANCI, escludendo qualsiasi competenza gestionale diretta in capo alle Prefetture, e operando senza nuovi o maggiori oneri per la finanza pubblica.</p>
 
                         <p><strong>Art. 3 – Ambito di applicazione ed esclusioni tassative</strong><br>
-                        Il Sistema U.S.I. si applica a tutte le amministrazioni pubbliche di cui’all’articolo 1, comma 2, del decreto legislativo 30 marzo 2001, n. 165.<br>
+                        Il Sistema U.S.I. si applica a tutte le amministrazioni pubbliche di cui all’articolo 1, comma 2, del decreto legislativo 30 marzo 2001, n. 165.<br>
                         Il perimetro del sistema è rigorosamente limitato alla gestione di disservizi materiali e criticità operative. Sono escluse tassativamente:<br>
                         a) le situazioni di emergenza di protezione civile o pubblica sicurezza, per le quali restano unici canali esclusivi il Numero Unico Europeo 112 e le linee di emergenza dedicate;<br>
                         b) i procedimenti giurisdizionali di ogni ordine e grado;<br>
                         c) i canali sanitari urgenti, clinici o specialistici.<br>
-                        Ogni tentativo di utilizzare impropriamente il sistema per eludere i canali giudiziari o amministrativi ordinari viene filtrato e respinto automaticamente dal sistema, senza che sorgano obblighi di risposta formale per gli uffici.</p>
+                        Ogni tentativo di utilizzare impropriamente il sistema per eludere i canali giudiziari o amministrativi ordinari viene filtrato e respinto automaticamente dal sistema, senza che sorggano obblighi di risposta formale per gli uffici.</p>
 
-                        <p><strong>Art. 4 – Funzioni del sistema e prevenzione degli abusi e di attacchi politici coordinati</strong><br>
+                        <p><strong>Art. 4 – Funzioni del sistema, prevenzione degli abusi, cooldown SPID e Saturazione con Clausola Emergenziale</strong><br>
                         Il sistema svolge le seguenti funzioni:<br>
                         a) acquisizione strutturata e geolocalizzata delle segnalazioni;<br>
                         b) classificazione e prioritizzazione secondo criteri oggettivi e standardizzati;<br>
@@ -1160,25 +1105,27 @@
                         d) monitoraggio in tempo reale dello stato di avanzamento degli interventi;<br>
                         e) tracciabilità informatica immutabile delle operazioni e degli interventi effettuati;<br>
                         f) raccolta e pubblicazione di dati statistici aggregati a fini di trasparenza.<br>
-                        Il sistema adotta strumenti avanzati di blocco automatico e limitazione temporanea nei confronti degli utenti che effettuano utilizzi massivi, fraudolenti, emulativi o palesemente strumentali. Tali filtri integrano un'analisi comportamentale automatizzata atta a rilevare concentrazioni anomale di segnalazioni territoriali riconducibili a campagne di boicottaggio politico organizzato o a tentativi di paralisi strumentale degli uffici pubblici. I criteri tecnici di attivazione di tali blocchi sono definiti in modo da salvaguardare rigorosamente l'esercizio in buona fede del controllo civico, garantendo un canale di riesame automatizzato e celere in caso di errata limitazione.</p>
+                        <strong>Prevenzione dello Spam Individuale (Cooldown SPID/CIE):</strong> Al fine di prevenire usi emulativi, seriali o fraudolenti da parte del singolo utente, l'accesso alla piattaforma tramite i sistemi pubblici di identità digitale è subordinato a rigorosi criteri di contingentamento temporale e quantitativo. L'utente non può inoltrare una nuova segnalazione se non è decorso un termine minimo di attesa (cooldown) prestabilito dai decreti attuativi rispetto alla precedente trasmissione, ovvero qualora risulti già capiente la quota massima di segnalazioni attive e pendenti consentite per singolo profilo anagrafico all'interno del medesimo arco temporale. Ogni tentativo di invio seriale in violazione di tali soglie viene respinto automaticamente dalla piattaforma.<br>
+                        <strong>Prevenzione di Botnet e Clausola di Emergenza Reale:</strong> Qualora l'analisi statistica della piattaforma rilevi un incremento anomalo e repentino dei flussi di segnalazione in un determinato ambito territoriale — superiore a soglie di deviazione standard predeterminate rispetto alla media storica dell'ente — riconducibile a una concentrazione organizzata di istanze formalmente individuali ma teleologicamente riconducibili a una medesima strategia di pressione politica, la piattaforma attiva lo stato di Saturazione Territoriale Straordinaria. In tale regime, i termini ordinari degli SLA di cui all'articolo 7 sono automaticamente sospesi per l'intera area interessata. Tale stato di sospensione e congelamento degli SLA è tassativamente escluso per le segnalazioni classificate dal sistema o geolocalizzate come emergenze idrogeologiche, statiche o di pubblica incolumità, le quali mantengono una corsia prioritaria inderogabile anche in costanza di picco anomalo.<br>
+                        <strong>Accorpamento d'Ufficio (Unità di Intervento Collettiva):</strong> Qualora il sistema rilevi una pluralità di segnalazioni identiche o riconducibili alla medesima critionalità territoriale ordinaria, la piattaforma provvede automaticamente all'accorpamento d'ufficio in un'unica Unità di Intervento Collettiva, evitando la duplicazione di adempimenti per gli uffici tecnici.</p>
 
-                        <p><strong>Art. 5 – Integrazione tecnologica, Open APIs e prevenzione del Vendor Lock-in</strong><br>
-                        Il Sistema U.S.I. è realizzato come modulo nativo ed estensione interoperabile delle piattaforme nazionali esistenti, integrandosi con l'Anagrafe Nazionale della Popolazione Residente (ANPR), i sistemi di identità digitale e l'infrastruttura tecnologica di App IO e SEND (Servizio Notifiche Digitali), al fine di evitare duplicazioni di spesa e sovrapposizioni di interfaccia per il cittadino.<br>
+                        <p><strong>Art. 5 – Integrazione tecnologica, CAD, Open APIs e prevenzione del Vendor Lock-in</strong><br>
+                        Il Sistema U.S.I. è realizzato in conformità ai principi del Codice dell'Amministrazione Digitale (D.Lgs. 7 marzo 2005, n. 82) come modulo nativo ed estensione interoperabile delle piattaforme nazionali esistenti, integrandosi con l'Anagrafe Nazionale della Popolazione Residente (ANPR), i sistemi di identità digitale e l'infrastruttura tecnologica di App IO e SEND (Servizio Notifiche Digitali), vincolando l'invio a soglie numeriche e impronte digitali di dispositivo per prevenire abusi automatizzati, al fine di evitare duplicazioni di spesa e sovrapposizioni di interfaccia per il cittadino.<br>
                         Lo sviluppo tecnologico e l'interoperabilità della piattaforma si fondano rigorosamente su standard aperti (Open Standards) e API aperte (Open APIs), vietando qualsiasi forma di clausola di esclusiva o blocco proprietario (vendor lock-in). I bandi e le specifiche tecniche di implementazione promuovono la concorrenza aperta e la partecipazione delle PMI innovative e delle software house del mercato nazionale ed europeo.<br>
                         La governance tecnologica centrale è coordinata dalla Presidenza del Consiglio dei Ministri – Dipartimento per la trasformazione digitale.</p>
 
-                        <p><strong>Art. 6 – Utilizzo di strumenti automatizzati, Intelligenza Artificiale e Matrice di Competenza</strong><br>
+                        <p><strong>Art. 6 – Utilizzo di strumenti automatizzati, Intelligenza Artificiale e Clusterizzazione Operativa</strong><br>
                         Il sistema può avvalersi di strumenti automatizzati, inclusi algoritmi di intelligenza artificiale, esclusivamente per finalità di supporto alla classificazione, protocollazione e all'instradamento delle segnalazioni sulla base di una Matrice di Competenza Nazionale pre-codificata e vincolante.<br>
                         Tali strumenti:<br>
                         a) non producono effetti giuridici autonomi o vincolanti;<br>
                         b) operano sotto costante supervisione umana;<br>
                         c) garantiscono trasparenza, tracciabilità, non discriminazione e piena conformità al Regolamento UE 2016/679 (GDPR) e alla normativa europea in materia di intelligenza artificiale (AI Act);<br>
-                        d) sono sottoposti ad audit e verifiche periodiche obbligatorie di affidabilità e correttezza dei modelli.<br>
-                        È garantito all'utente il diritto di richiedere la revisione umana della pratica nei limiti della natura non provvedimentale della stessa. È inoltre previsto un protocollo di auto-correzione tracciata dei flussi errati entro 24 ore per evitare rimpalli ingiustificati tra enti.</p>
+                        d) sono sottoposti ad audit e verifiche periodiche obbligatorie di affidabilità e correttezza dei modelli, escludendo qualsiasi forma di cancellazione autonoma o declassamento aggressivo dei flussi che possa comprimere la tracciabilità civica.<br>
+                        <strong>Supervisione Umana e Aggregazione per Cluster:</strong> Per prevenire sovraccarichi burocratici agli uffici tecnici ed evitare colli di bottiglia operativi, l'intelligenza artificiale raggruppa automaticamente le segnalazioni omogenee per tipologia e area geografica in Cluster Operativi Unificati. Il personale umano procede alla convalida e alla pianificazione dell'intervento sull'intero cluster anziché sul singolo ticket, garantendo celerità e pieno controllo umano sulle decisioni operative.</p>
 
-                        <p><strong>Art. 7 – Livelli di servizio modulari (SLAs)</strong><br>
-                        Con i decreti attuativi di cui all'articolo 12 sono fissati i termini massimi per la presa in carico e la risposta al cittadino, differenziati per fasce demografiche e complessità dell'ente (es. termini più ampi per i comuni sotto i 5.000 abitanti rispetto alle grandi città metropolitane).<br>
-                        Il rispetto dei livelli di servizio definiti rileva ai fini della valutazione della performance dirigenziale, tenendo conto delle risorse effettivamente assegnate all'ufficio e dei vincoli di bilancio dell'ente.</p>
+                        <p><strong>Art. 7 – Livelli di servizio modulari (SLAs) e sospensione automatica</strong><br>
+                        Con i decreti attuativi di cui all'articolo 12 sono fissati i termini massimi per la presa in carico e la risposta al cittadino, differenziati per fasce demografiche e complessità dell'ente.<br>
+                        Il rispetto dei livelli di servizio definiti rileva ai fini della valutazione della performance dirigenziale, tenendo conto delle risorse effettivamente assegnate all'ufficio e dei vincoli di bilancio dell'ente. I termini SLA restano automaticamente sospesi nei periodi di attivazione dello stato di Saturazione Territoriale Straordinaria di cui all'articolo 4, comma 3, fatta eccezione per i flussi di emergenza e pubblica incolumità.</p>
 
                         <p><strong>Art. 8 – Trasparenza e accesso civico</strong><br>
                         Il sistema garantisce al cittadino la possibilità di monitorare in autonomia lo stato della propria segnalazione tramite area riservata su App IO.<br>
@@ -1188,10 +1135,10 @@
                         Il trattamento dei dati personali avviene nel pieno rispetto del Regolamento UE 2016/679 (GDPR) e della normativa nazionale vigente.<br>
                         Sono adottate misure tecniche e organizzative adeguate a garantire la protezione dei dati, la tracciabilità degli accessi e la prevenzione di accessi non autorizzati mediante registri di log immutabili.</p>
 
-                        <p><strong>Art. 10 – Responsabilità dirigenziale e clausola di salvaguardia finanziaria</strong><br>
+                        <p><strong>Art. 10 – Responsabilità dirigenziale, scudo per carenza strutturale e salvaguardia contabile</strong><br>
                         Il dirigente dell'ufficio pubblico competente è il responsabile della presa in carico e della gestione delle segnalazioni assegnate al proprio settore.<br>
-                        L'inerzia ingiustificata o il ritardo sistematico nei termini di cui’all’articolo 7 incidono negativamente sulla performance individuale e comportano la decurtazione della retribuzione di risultato del dirigente inadempiente, previa contestazione e garanzia del pieno contraddittorio.<br>
-                        La valutazione negativa della performance e la conseguente decurtazione di cui al comma 2 non trovano applicazione qualora il mancato rispetto dei livelli di servizio sia direttamente riconducibile a oggettive carenze di bilancio, vincoli di spesa inderogabili o scoperture d'organico certificate dall'organo di revisione economico-finanziaria dell'ente. In tali casi, la piattaforma attiva automaticamente il supporto sussidiario dell'ente sovraordinato o della Prefettura, con finalità esclusivamente di supporto operativo temporaneo, salvaguardandone rigorosamente gli equilibri finanziari.</p>
+                        L'inerzia ingiustificata o il ritardo sistematico nei termini di cui all’articolo 7 incidono negativamente sulla performance individuale e comportano la decurtazione della retribuzione di risultato del dirigente inadempiente, previa contestazione e garanzia del pieno contraddittorio.<br>
+                        <strong>Scudo di Bilancio e Contabile:</strong> La valutazione negativa della performance, la decurtazione retributiva e qualsiasi forma di responsabilità amministrativo-contabile dinanzi alla Corte dei Conti non trovano applicazione qualora il mancato rispetto dei livelli di servizio sia direttamente riconducibile a oggettive carenze di bilancio, vincoli di spesa inderogabili o scoperture d'organico certificate dall'organo di revisione economico-finanziaria dell'ente. In tali casi, la piattaforma attiva automaticamente il supporto sussidiario dell'ente sovraordinato, salvaguardandone rigorosamente gli equilibri finanziari.</p>
 
                         <p><strong>Art. 11 – Governance del sistema</strong><br>
                         La gestione, lo sviluppo tecnologico e il coordinamento del Sistema U.S.I. sono affidati alla Presidenza del Consiglio dei Ministri – Dipartimento per la trasformazione digitale, che opera in raccordo con le amministrazioni competenti e le autonomie locali tramite la Conferenza Unificata.</p>
@@ -1199,23 +1146,44 @@
                         <p><strong>Art. 12 – Attuazione e decreti tecnici</strong><br>
                         Con decreto del Presidente del Consiglio dei Ministri, da adottarsi entro centoventi giorni dall'entrata in vigore della presente legge, previa intesa in Conferenza Unificata, sono definiti:<br>
                         a) gli standard tecnici, di sicurezza, di adozione di API aperte e di integrazione con l'App IO e SEND;<br>
-                        b) le soglie dimensionali per la modulazione degli SLA;<br>
-                        c) i criteri tecnici di classificazione, la Matrice di Competenza Nazionale, le linee guida per la supervisione umana e i protocolli per gli audit periodici degli algoritmi.</p>
+                        b) le soglie dimensionali per la modulazione degli SLA, i termini temporali di cooldown per singolo utente e i limiti numerici del rate-limiting;<br>
+                        c) i criteri tecnici di classificazione, la Matrice di Competenza Nazionale, le linee guida per la supervisione umana, la clusterizzazione e i protocolli per gli audit periodici degli algoritmi.</p>
 
                         <p><strong>Art. 13 – Sperimentazione territoriale (Sandbox) e clausola di verifica (Sunset Clause)</strong><br>
-                        Il sistema è implementato in via sperimentale mediante progetti pilota su un campione eterogeneo di enti (comprendendo grandi città, enti medi e piccoli comuni montani o disagiati) della durata di dodici mesi, al fine di verificare la tenuta tecnologica e amministrativa prima dell'estensione a regime su scala nazionale.<br>
+                        Il sistema è implementato in via sperimentale mediante progetti pilota su un campione eterogeneo di enti della durata di dodici mesi, al fine di verificare la tenuta tecnologica e amministrativa prima dell'estensione a regime su scala nazionale.<br>
                         Al termine del periodo di sperimentazione, il Governo presenta alle Camere una relazione tecnica di impatto economico-amministrativo. Qualora emergano inefficienze strutturali o aggravi burocratici sproporzionati rispetto ai benefici, il Governo adotta i provvedimenti correttivi ovvero dispone la dismissione dei moduli non efficienti (Sunset Clause).</p>
 
-                        <p><strong>Art. 14 – Disposizioni finanziarie, invarianza e dismissione contabile obbligatoria</strong><br>
+                        <p><strong>Art. 14 – Disposizioni finanziarie, invarianza e gestione dei contratti informatici pregressi</strong><br>
                         Agli oneri derivanti dalla realizzazione straordinaria della piattaforma digitale e dalla sua integrazione nelle infrastrutture nazionali si provvede mediante l'utilizzo delle risorse disponibili nei programmi nazionali ed europei dedicati alla transizione digitale della pubblica amministrazione (inclusi i fondi strutturali e i programmi PNRR/PNFD).<br>
                         Agli oneri di gestione ordinaria si provvede a saldo zero e senza nuovi o maggiori oneri a carico del bilancio dello Stato, mediante la rigorosa razionalizzazione, efficientamento e dismissione dei capitoli di spesa dedicati a software informatici obsoleti o duplicati all'interno dei bilanci delle singole amministrazioni pubbliche.<br>
-                        Qualora un ente locale intenda accedere ai benefici e ai flussi operativi del Sistema U.S.I., è tenuto ad allegare al proprio bilancio di previsione apposita certificazione attestante l'avvenuta rescissione dei contratti di assistenza e manutenzione relativi ai software legacy o duplicati sostituiti dalla nuova piattaforma digitale, pena l'inefficacia dell'accesso ai fondi di transizione digitali.</p>
+                        <strong>Gestione dei Contratti Informatici Pregressi:</strong> Al fine di evitare contenziosi civili e oneri rescissori a carico degli enti locali, l'obbligo di dismissione dei software informatici obsoleti o duplicati di cui al comma 2 si perfeziona alla naturale scadenza dei contratti di assistenza e manutenzione in essere, ovvero mediante l'utilizzo dei fondi statali di transizione digitale destinati alla copertura di eventuali costi di recesso anticipato preventivamente certificati dall'organo di revisione economico-finanziaria.</p>
 
                         <p><strong>Art. 15 – Monitoraggio e relazione al Parlamento</strong><br>
                         Il Governo trasmette annualmente al Parlamento una relazione dettagliata sullo stato di attuazione, sui risultati conseguiti, sui costi di gestione, sull'efficienza dimostrata dalle amministrazioni, sull'impatto della spesa informatica e sulle eventuali criticità riscontrate.</p>
 
-                        <p style="margin-bottom: 0;"><strong>Art. 16 – Entrata in vigore</strong><br>
+                        <p><strong>Art. 16 – Entrata in vigore</strong><br>
                         La presente legge entra in vigore il trentesimo giorno successivo alla sua pubblicazione nella Gazzetta Ufficiale della Repubblica Italiana.</p>
+
+                        <p style="margin-top: 30px;"><strong>PARTE SECONDA: RELAZIONE ILLUSTRATIVA</strong><br><br>
+                        <strong>1. Contesto e fondamento costituzionale dell'intervento</strong><br>
+                        Il rapporto tra cittadino e Pubblica Amministrazione sconta storicamente una frammentazione dei canali di comunicazione e una disomogeneità nella gestione delle criticità materiali. Il presente Disegno di Legge istituisce il Sistema Nazionale U.S.I. (Ufficio Segnalazioni e Intervento) ponendosi nel solco della potestà legislativa esclusiva dello Stato in materia di "coordinamento informatico dei dati dello Stato, delle regioni e degli enti locali" (art. 117, secondo comma, lett. r, della Costituzione) e in piena conformità ai principi del Codice dell'Amministrazione Digitale (CAD).</p>
+
+                        <p><strong>2. Le tutele sistemiche, lo Scudo Giuridico e le Clausole di Salvaguardia</strong><br>
+                        L'impianto si fonda su un rigoroso bilanciamento tra trasparenza civica e protezione assoluta degli enti da abusi di qualsiasi natura:<br>
+                        - <strong>Natura non provvedimentale e Scudo Giuridico Totale con Eccezione di Sicurezza (Art. 1-bis):</strong> Le segnalazioni costituiscono flussi tecnici e collaborativi privi di effetti provvedimentali diretti. Lo scudo di irresponsabilità amministrativa, civile e penale decade tuttavia in presenza di un pericolo grave, attuale e imminente per l'incolumità fisica o la stabilità strutturale, salvaguardando il principio costituzionale di tutela della vita umana e attivando i protocolli di protezione civile.<br>
+                        - <strong>Supporto associato ai piccoli enti senza le Prefetture (Art. 2):</strong> Per i comuni sotto i 5.000 abitanti, l'assistenza è garantita in forma associata tramite Province, Città metropolitane, Unioni di Comuni, ANCI e task-force regionali, escludendo le Prefetture per preservare la separazione tra ordine pubblico e gestione tecnica.<br>
+                        - <strong>Difesa a doppio strato contro lo spam e le botnet con Clausola Emergenziale (Art. 4):</strong><br>
+                        &nbsp;&nbsp;* <em>Cooldown individuale SPID/CIE:</em> Contingentamento temporale e quantitativo per singolo utente.<br>
+                        &nbsp;&nbsp;* <em>Saturazione Territoriale e Clausola di Emergenza Reale:</em> Congelamento automatico degli SLA in caso di flussi anomali organizzati, con espressa e tassativa eccezione per le emergenze idrogeologiche e statiche, le quali mantengono priorità assoluta.<br>
+                        &nbsp;&nbsp;* <em>Unità di Intervento Collettiva:</em> Accorpamento automatico dei ticket identici.<br>
+                        - <strong>Interoperabilità, CAD e Clusterizzazione IA (Artt. 5 e 6):</strong> Piena conformità al CAD, integrazione con ANPR, App IO e SEND, divieto di vendor lock-in e impiego dell'Intelligenza Artificiale affiancata da una Matrice di Competenza Nazionale vincolante. Grazie alla Clusterizzazione Operativa, l'IA aggrega i ticket omogenei impedendo la formazione di colli di bottiglia burocratici per gli operatori umani.<br>
+                        - <strong>Responsabilità dirigenziale e Scudo Contabile (Art. 10):</strong> L'inerzia derivante da carenze di bilancio o d'organico certificate dai revisori esclude sanzioni e responsabilità erariali dinanzi alla Corte dei Conti.</p>
+
+                        <p><strong>3. Copertura finanziaria, invarianza e gestione dei contratti legacy (Art. 14)</strong><br>
+                        La copertura della realizzazione straordinaria è assicurata dai fondi PNRR e strutturali europei. La gestione ordinaria opera a saldo zero, finanziata attraverso la dismissione dei software obsoleti. Per evitare contenziosi legali da parte delle software house private, l'obbligo di rescissione è subordinato alla naturale scadenza contrattuale o coperto da appositi fondi statali per gli eventuali recessi anticipati certificati.</p>
+
+                        <p style="margin-bottom: 0;"><strong>4. Sperimentazione e monitoraggio (Artt. 13 e 15)</strong><br>
+                        L'adozione è preceduta da una fase di sperimentazione (Sandbox) di dodici mesi su un campione di enti e da una rigida clausola di verifica (Sunset Clause), garantendo al Parlamento un controllo costante sui risultati.</p>
                     </div>
                 `
             },
